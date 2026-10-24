@@ -121,5 +121,25 @@
         });
     });
 </script>
+    // 1. 找到右上角的购物车数字标签
+    const countElement = document.getElementById('cart-count');
+    
+    // 2. 获取页面上所有 class 为 "btn" 的按钮
+    const addButtons = document.querySelectorAll('.btn');
+    
+    // 3. 给每个按钮绑定点击事件
+    addButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 获取当前数字（如果为空就当0处理）
+            let currentCount = parseInt(countElement.innerText) || 0;
+            // 数字加1
+            currentCount++;
+            // 更新到页面上
+            countElement.innerText = currentCount;
+            // 弹出提示
+            alert('✅ 已加入购物车！\n当前购物车共有 ' + currentCount + ' 件商品');
+        });
+    });
+</script>
 </body>
 </html>
