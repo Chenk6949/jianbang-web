@@ -70,7 +70,7 @@
     <!-- 顶部导航 -->
     <div class="navbar">
         <div class="logo">建邦小铺</div>
-        <div>🛒 购物车</div>
+        <div>🛒 购物车 <span id="cart-count">0</span></div>
     </div>
 
     <!-- 欢迎横幅 -->
@@ -80,26 +80,26 @@
     </div>
 
     <!-- 商品列表 -->
-    <div class="products">
-        <!-- 商品1 -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&q=80" alt="商品图片">
-            <div class="card-info">
-                <h3>神秘盲盒</h3>
-                <p>建邦哥的秘密武器</p>
-                <button class="btn">加入购物车</button>
-            </div>
-        </div>
-        <!-- 商品2 -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&q=80" alt="商品图片">
-            <div class="card-info">
-                <h3>典藏版源码</h3>
-                <p>纯手工敲出来的</p>
-                <button class="btn" onclick="alert('已加入购物车！')">加入购物车</button>
-            </div>
+<div class="products">
+    <!-- 商品1 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&q=80" alt="商品图片">
+        <div class="card-info">
+            <h3>神秘盲盒</h3>
+            <p>建邦哥的秘密武器</p>
+            <button class="btn">加入购物车</button>
         </div>
     </div>
+    <!-- 商品2 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&q=80" alt="商品图片">
+        <div class="card-info">
+            <h3>典藏版源码</h3>
+            <p>纯手工敲出来的</p>
+            <button class="btn">加入购物车</button>
+        </div>
+    </div>
+</div>
  <script>
     // 1. 找到右上角的购物车数字标签
     const countElement = document.getElementById('cart-count');
