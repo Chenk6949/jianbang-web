@@ -1,338 +1,828 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>建邦小铺 | 现代智能家居馆</title>
-    <style>
-        /* ================= 现代智能家居风格 ================= */
-        :root {
-            --bg-base: #f2f4f7;          /* 银灰底色 */
-            --card-bg: #ffffff;          /* 纯白面板 */
-            --text-main: #1e293b;        /* 深岩灰 */
-            --text-sub: #64748b;         /* 雾霾灰 */
-            --accent: #0ea5e9;           /* 科技天蓝 */
-            --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
-            --border-color: #e2e8f0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>建邦小铺 | JB STORE</title>
 
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            margin: 0; padding: 0; 
-            background-color: var(--bg-base); 
-            color: var(--text-main); 
-            -webkit-font-smoothing: antialiased;
-            /* 科技网格背景，隐约体现家电电路感 */
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-            background-size: 20px 20px;
-            background-attachment: fixed;
-        }
-        
-        /* 顶部导航 */
-        .navbar { 
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 16px 20px; 
-            display: flex; justify-content: space-between; align-items: center; 
-            border-bottom: 1px solid var(--border-color);
-            position: sticky; top: 0; z-index: 100;
-        }
-        .logo { font-weight: 800; font-size: 1.2em; letter-spacing: 1px; color: #0f172a; }
-        .cart-info { 
-            font-size: 0.85em; font-weight: 600; cursor: pointer; 
-            padding: 8px 16px; 
-            background: #fff;
-            color: var(--text-main);
-            border-radius: 8px; 
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-            transition: all 0.2s;
-        }
-        .cart-info:active { background: #f8fafc; transform: scale(0.98); }
-        
-        /* 欢迎横幅 */
-        .hero { 
-            text-align: center; padding: 50px 20px 30px; 
-        }
-        .hero h1 { 
-            margin: 0 0 12px 0; font-size: 2.2em; font-weight: 800; letter-spacing: 2px; color: #0f172a;
-        }
-        .hero p { 
-            margin: 0; font-size: 0.9em; color: var(--text-sub); letter-spacing: 2px; 
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-        }
-        .hero p::before, .hero p::after {
-            content: ""; display: block; width: 30px; height: 1px; background: #cbd5e1;
-        }
-        
-        /* 商品列表 */
-        .products { padding: 20px; max-width: 600px; margin: 0 auto; padding-bottom: 100px;}
-        
-        /* 商品卡片：家电面板质感 */
-        .card { 
-            background: var(--card-bg); 
-            border-radius: 16px; 
-            display: flex; align-items: center; padding: 16px; 
-            margin-bottom: 16px; 
-            border: 1px solid #fff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0,0,0,0.02);
-            transition: transform 0.2s;
-        }
-        .card:active { transform: translateY(2px); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); }
-        
-        .card img { 
-            width: 90px; height: 90px; object-fit: cover; 
-            border-radius: 12px; margin-right: 16px; 
-            background-color: #f1f5f9;
-            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
-        }
-        
-        .card-info { flex: 1; }
-        .card-info h3 { margin: 0 0 6px 0; font-size: 1.05em; font-weight: 700; color: #1e293b; }
-        .card-info p { margin: 0 0 10px 0; color: var(--text-sub); font-size: 0.8em; }
-        
-        .price { 
-            font-weight: 800; font-size: 1.1em; color: #0ea5e9; 
-            display: block; margin-bottom: 12px; 
-            font-family: -apple-system, sans-serif;
-        }
-        
-        /* 按钮：微浮雕按钮 */
-        .btn { 
-            background: var(--accent-gradient); 
-            color: #fff; 
-            border: none; padding: 8px 16px; 
-            border-radius: 8px; font-size: 0.8em; font-weight: 600;
-            cursor: pointer; 
-            box-shadow: 0 2px 4px rgba(14, 165, 233, 0.3), inset 0 1px 0 rgba(255,255,255,0.2);
-            transition: all 0.1s;
-        }
-        .btn:active { 
-            box-shadow: 0 1px 2px rgba(14, 165, 233, 0.3), inset 0 1px 2px rgba(0,0,0,0.1); 
-            transform: translateY(1px); 
-        }
+<style>
+:root{
+  --blue:#2563eb;
+  --dark:#101828;
+  --gray:#667085;
+  --bg:#f7f9fc;
+  --line:#e9edf3;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+}
+button,input{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
 
-        /* ================= 购物车弹窗 (浅色版) ================= */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.4); z-index: 200;
-            backdrop-filter: blur(3px); opacity: 0; transition: opacity 0.3s ease;
-        }
-        .modal-overlay.active { display: block; opacity: 1; }
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:17px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.logo{
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+.logo span{color:var(--blue)}
+.cart-trigger{
+  background:#eff6ff;
+  border:0;
+  border-radius:30px;
+  padding:11px 17px;
+  color:var(--blue);
+  font-weight:700;
+}
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
 
-        .cart-modal {
-            position: fixed; bottom: 0; left: 0; width: 100%; height: 70vh;
-            background: #ffffff; border-radius: 24px 24px 0 0;
-            z-index: 201; padding: 24px; box-sizing: border-box;
-            display: flex; flex-direction: column;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
-            transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .cart-modal.active { transform: translateY(0); }
+/* 品牌横幅 */
+.hero{
+  background:linear-gradient(125deg,#101828,#1d4ed8);
+  border-radius:24px;
+  color:white;
+  padding:55px 35px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:270px;
+  height:270px;
+  border:45px solid #ffffff12;
+  border-radius:50%;
+  right:-80px;
+  top:-100px;
+}
+.hero small{
+  color:#93c5fd;
+  font-weight:700;
+  letter-spacing:3px;
+}
+.hero h1{
+  font-size:clamp(30px,6vw,50px);
+  margin:18px 0;
+  letter-spacing:-2px;
+}
+.hero p{
+  color:#cbd5e1;
+  font-size:14px;
+  line-height:1.9;
+}
+.hero button{
+  margin-top:15px;
+  background:white;
+  color:#1d4ed8;
+  border:0;
+  padding:13px 24px;
+  border-radius:10px;
+  font-weight:800;
+}
 
-        .cart-header {
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 16px;
-        }
-        .cart-header h2 { margin: 0; font-size: 1.2em; color: #0f172a;}
-        .close-btn { font-size: 1.8em; cursor: pointer; color: var(--text-sub); padding: 0 10px; }
+/* 搜索和分类 */
+.section-title{
+  margin:38px 0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.section-title h2{margin:0;font-size:23px}
+.section-title span{font-size:12px;color:var(--gray)}
+.search{
+  width:100%;
+  padding:15px 18px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  outline:none;
+  background:white;
+}
+.search:focus{border-color:var(--blue)}
+.categories{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:17px 0;
+}
+.category{
+  border:1px solid var(--line);
+  background:white;
+  padding:10px 19px;
+  border-radius:30px;
+  white-space:nowrap;
+  color:var(--gray);
+}
+.category.active{
+  background:var(--dark);
+  color:white;
+  border-color:var(--dark);
+}
 
-        .cart-items-list { flex: 1; overflow-y: auto; margin-bottom: 15px; }
-        
-        .cart-item-row {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 16px 0; border-bottom: 1px solid #f1f5f9;
-        }
-        .cart-item-info h4 { margin: 0 0 6px 0; font-size: 0.95em; color: #1e293b; }
-        .cart-item-info span { color: var(--text-sub); font-size: 0.8em; }
-        
-        .remove-btn {
-            color: #ef4444; background: #fef2f2; border: none; 
-            font-size: 0.8em; padding: 6px 12px; border-radius: 6px;
-            cursor: pointer; font-weight: 600;
-        }
+/* 商品 */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:20px;
+}
+.product{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  transition:.25s;
+}
+.product:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px #10182812;
+}
+.product img{
+  width:100%;
+  height:205px;
+  object-fit:cover;
+  background:#f1f5f9;
+}
+.product-body{padding:17px}
+.tag{
+  font-size:11px;
+  color:var(--blue);
+  background:#eff6ff;
+  padding:5px 9px;
+  border-radius:5px;
+}
+.product h3{
+  margin:13px 0 7px;
+  font-size:16px;
+}
+.desc{
+  font-size:12px;
+  color:var(--gray);
+  min-height:30px;
+}
+.price{
+  color:#ef4444;
+  font-size:22px;
+  font-weight:850;
+}
+.product-actions{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+}
+.add,.detail{
+  border:0;
+  padding:11px;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:700;
+}
+.add{
+  flex:1;
+  background:var(--blue);
+  color:white;
+}
+.detail{
+  background:#f2f4f7;
+  color:var(--dark);
+}
 
-        .cart-footer { padding-top: 16px; border-top: 1px solid var(--border-color); }
-        .cart-total { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2em; margin-bottom: 20px; color: #0f172a;}
-        .checkout-btn { 
-            width: 100%; background: var(--accent-gradient); color: #fff; border: none;
-            padding: 16px; border-radius: 12px; font-size: 1.05em; font-weight: 700; cursor: pointer;
-            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-        }
-        .checkout-btn:active { opacity: 0.9; }
-        
-        .empty-cart { text-align: center; color: var(--text-sub); margin-top: 50px; font-size: 0.95em;}
-    </style>
+/* 弹窗 */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#10182880;
+  z-index:100;
+  display:none;
+}
+.overlay.show{display:block}
+.drawer{
+  position:fixed;
+  right:0;
+  top:0;
+  height:100%;
+  width:min(430px,100%);
+  background:white;
+  z-index:101;
+  transform:translateX(105%);
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+  box-shadow:-10px 0 35px #0001;
+}
+.drawer.show{transform:translateX(0)}
+.drawer-header{
+  padding:23px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+}
+.drawer-header h2{margin:0}
+.close{
+  border:0;
+  background:#f2f4f7;
+  border-radius:50%;
+  width:34px;
+  height:34px;
+  font-size:20px;
+}
+.cart-list{
+  flex:1;
+  overflow:auto;
+  padding:20px;
+}
+.cart-row{
+  display:flex;
+  gap:13px;
+  margin-bottom:20px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--line);
+}
+.cart-row img{
+  width:75px;
+  height:75px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.cart-row h4{margin:0 0 8px;font-size:14px}
+.cart-row p{margin:0;color:#ef4444;font-weight:800}
+.qty{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-top:10px;
+}
+.qty button{
+  border:1px solid var(--line);
+  background:white;
+  width:27px;
+  height:27px;
+  border-radius:6px;
+}
+.remove{
+  margin-left:auto;
+  color:#ef4444;
+  background:none;
+  border:0;
+  font-size:12px;
+}
+.drawer-footer{
+  border-top:1px solid var(--line);
+  padding:22px;
+}
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-weight:800;
+  margin-bottom:20px;
+}
+.total strong{color:#ef4444;font-size:23px}
+.checkout{
+  width:100%;
+  padding:16px;
+  background:var(--blue);
+  color:white;
+  border:0;
+  border-radius:12px;
+  font-weight:800;
+}
+
+/* 商品详情 */
+.detail-modal{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:min(420px,90%);
+  max-height:85vh;
+  overflow:auto;
+  background:white;
+  border-radius:20px;
+  z-index:102;
+  padding:20px;
+  display:none;
+}
+.detail-modal.show{display:block}
+.detail-modal img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+}
+.detail-modal p{color:var(--gray);line-height:1.8}
+.detail-modal .close{float:right;margin-bottom:10px}
+.empty{
+  text-align:center;
+  padding:50px 10px;
+  color:var(--gray);
+}
+.toast{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%) translateY(100px);
+  background:#101828;
+  color:white;
+  padding:13px 22px;
+  border-radius:12px;
+  z-index:200;
+  transition:.3s;
+  opacity:0;
+  font-size:13px;
+  text-align:center;
+  max-width:90%;
+}
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+}
+footer{
+  text-align:center;
+  padding:45px 20px;
+  margin-top:50px;
+  color:#98a2b3;
+  font-size:12px;
+  border-top:1px solid var(--line);
+}
+@media(max-width:500px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .product img{height:140px}
+  .product-body{padding:11px}
+  .product h3{font-size:13px}
+  .price{font-size:18px}
+  .product-actions{flex-direction:column}
+  .hero{padding:38px 24px}
+}
+</style>
 </head>
+
 <body>
 
-    <div class="navbar">
-        <div class="logo">建邦小铺</div>
-        <div class="cart-info" onclick="openCart()">
-            🛒 <span id="cart-count">0</span> 件 | ¥<span id="total-price">0</span>
-        </div>
+<header>
+  <nav class="nav">
+    <div class="logo">JB<span>.</span> 建邦小铺</div>
+    <button class="cart-trigger" onclick="openCart()">
+      🛒 购物车 (<span id="cartCount">0</span>)
+    </button>
+  </nav>
+</header>
+
+<main class="container">
+
+<section class="hero">
+  <small>WELCOME TO JB STORE</small>
+  <h1>让科技，触手可及。</h1>
+  <p>
+    精选智能设备与数字好物。<br>
+    探索品质生活，从建邦小铺开始。
+  </p>
+  <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+    立即探索 →
+  </button>
+</section>
+
+<section id="shop">
+  <div class="section-title">
+    <h2>精选好物</h2>
+    <span id="resultCount"></span>
+  </div>
+
+  <input
+    class="search"
+    id="searchInput"
+    placeholder="🔍 搜索你感兴趣的商品..."
+    oninput="renderProducts()"
+  >
+
+  <div class="categories" id="categories"></div>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="logo">JB<span>.</span> STORE</div>
+  <p>科技改变生活 · 品质创造未来</p>
+  <p>© 2026 建邦小铺 · All Rights Reserved.</p>
+  <p>当前为演示商城，暂不支持真实支付。</p>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<aside class="drawer" id="drawer" role="dialog" aria-label="购物车">
+  <div class="drawer-header">
+    <h2>我的购物车 🛒</h2>
+    <button class="close" onclick="closeAll()" aria-label="关闭">×</button>
+  </div>
+
+  <div class="cart-list" id="cartList"></div>
+
+  <div class="drawer-footer">
+    <div class="total">
+      <span>商品合计</span>
+      <strong id="cartTotal">¥0</strong>
     </div>
+    <button class="checkout" id="checkoutBtn" onclick="checkout()">
+      确认下单 →
+    </button>
+  </div>
+</aside>
 
-    <div class="hero">
-        <h1>建邦小铺</h1>
-        <p>SMART HOME & APPLIANCE</p>
-    </div>
+<div class="detail-modal" id="detailModal" role="dialog" aria-label="商品详情">
+  <button class="close" onclick="closeAll()" aria-label="关闭">×</button>
+  <div id="detailContent"></div>
+</div>
 
-    <div class="products">
-        <!-- 盲盒 (明亮神秘风格) -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=300&q=80" alt="神秘盲盒">
-            <div class="card-info">
-                <h3>神秘盲盒</h3>
-                <p>建邦哥的秘密武器</p>
-                <span class="price">¥ 99</span>
-                <button class="btn" onclick="addToCart(1, '神秘盲盒', 99)">加入购物车</button>
-            </div>
-        </div>
-        
-        <!-- 源码 (代码屏幕) -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300&q=80" alt="典藏版源码">
-            <div class="card-info">
-                <h3>典藏版源码</h3>
-                <p>纯手工敲出来的</p>
-                <span class="price">¥ 199</span>
-                <button class="btn" onclick="addToCart(2, '典藏版源码', 199)">加入购物车</button>
-            </div>
-        </div>
-        
-        <!-- 电视 (现代明亮客厅电视) -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=300&q=80" alt="电视机">
-            <div class="card-info">
-                <h3>高清智能电视机</h3>
-                <p>家庭影院必备 | 55英寸</p>
-                <span class="price">¥ 2999</span>
-                <button class="btn" onclick="addToCart(3, '高清智能电视机', 2999)">加入购物车</button>
-            </div>
-        </div>
-        
-        <!-- 广告机 (明亮的数字广告屏) -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1563721345-49a0d5a958e0?w=300&q=80" alt="广告机">
-            <div class="card-info">
-                <h3>立式广告机</h3>
-                <p>商超吸睛利器 | 65英寸</p>
-                <span class="price">¥ 4999</span>
-                <button class="btn" onclick="addToCart(4, '立式广告机', 4999)">加入购物车</button>
-            </div>
-        </div>
-        
-        <!-- 会议机 (明亮现代会议室) -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=300&q=80" alt="会议机">
-            <div class="card-info">
-                <h3>智能会议一体机</h3>
-                <p>高效办公大屏 | 75英寸</p>
-                <span class="price">¥ 7999</span>
-                <button class="btn" onclick="addToCart(5, '智能会议一体机', 7999)">加入购物车</button>
-            </div>
-        </div>
-    </div>
+<div class="toast" id="toast" role="status"></div>
 
-    <div id="modal-overlay" class="modal-overlay" onclick="closeCart()"></div>
+<script>
+/* 商品数据库 */
+const products=[
+  {
+    id:1,
+    name:"建邦神秘盲盒",
+    category:"创意好物",
+    price:99,
+    desc:"每一次开启，都是一场未知惊喜。",
+    image:"https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600",
+    detail:"建邦小铺特别企划，神秘创意礼盒。具体内容以实际商品说明为准。"
+  },
+  {
+    id:2,
+    name:"典藏版网站源码",
+    category:"数字产品",
+    price:199,
+    desc:"为热爱编程与创造的你准备。",
+    image:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600",
+    detail:"网站开发学习资源与示例源码，适合用于了解网页结构及前端设计。"
+  },
+  {
+    id:3,
+    name:"55英寸智能电视",
+    category:"智能家电",
+    price:2999,
+    desc:"大屏视界，沉浸式家庭娱乐。",
+    image:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",
+    detail:"55英寸智能电视演示商品。实际品牌、配置及售后以正式商品信息为准。"
+  },
+  {
+    id:4,
+    name:"65英寸立式广告机",
+    category:"商用设备",
+    price:4999,
+    desc:"让每一次品牌展示更加出色。",
+    image:"https://images.unsplash.com/photo-1563721345-49a0d5a958e0?w=600",
+    detail:"适用于商业展示、信息发布等场景的数字广告设备。"
+  },
+  {
+    id:5,
+    name:"75英寸智能会议机",
+    category:"商用设备",
+    price:7999,
+    desc:"高效协作，开启智慧办公。",
+    image:"https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600",
+    detail:"面向会议展示与办公协作场景的智能大屏演示商品。"
+  },
+  {
+    id:6,
+    name:"智能桌面音箱",
+    category:"智能家电",
+    price:399,
+    desc:"好声音，为生活增添氛围。",
+    image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600",
+    detail:"简约桌面音箱，适合日常音乐欣赏与居家使用。"
+  }
+];
 
-    <div id="cart-modal" class="cart-modal">
-        <div class="cart-header">
-            <h2>购物车</h2>
-            <span class="close-btn" onclick="closeCart()">&times;</span>
-        </div>
-        <div id="cart-items-list" class="cart-items-list"></div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>总计</span>
-                <span>¥ <span id="modal-total-price">0</span></span>
-            </div>
-            <button class="checkout-btn" onclick="checkout()">去结算</button>
-        </div>
-    </div>
+let activeCategory="全部商品";
+let cart=[];
 
-    <script>
-        let cart = [];
-        const countElement = document.getElementById('cart-count');
-        const totalPriceElement = document.getElementById('total-price');
-        const modalTotalPriceElement = document.getElementById('modal-total-price');
-        const cartListElement = document.getElementById('cart-items-list');
+try{
+  const saved=JSON.parse(localStorage.getItem("jb_cart_v2"));
+  if(Array.isArray(saved)){
+    cart=saved.filter(item=>
+      products.some(p=>p.id===item.id)&&
+      Number.isSafeInteger(item.quantity)&&
+      item.quantity>0&&item.quantity<=99
+    ).map(item=>({id:item.id,quantity:item.quantity}));
+  }
+}catch(e){
+  cart=[];
+}
 
-        function openCart() {
-            document.getElementById('modal-overlay').classList.add('active');
-            document.getElementById('cart-modal').classList.add('active');
-            renderCart();
-        }
+const money=n=>"¥"+n.toLocaleString("zh-CN");
 
-        function closeCart() {
-            document.getElementById('modal-overlay').classList.remove('active');
-            document.getElementById('cart-modal').classList.remove('active');
-        }
+function saveCart(){
+  localStorage.setItem("jb_cart_v2",JSON.stringify(cart));
+  updateCount();
+}
 
-        function addToCart(id, name, price) {
-            const existingItem = cart.find(item => item.id === id);
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ id: id, name: name, price: price, quantity: 1 });
-            }
-            updateUI();
-            if (navigator.vibrate) navigator.vibrate(30);
-        }
+function updateCount(){
+  document.getElementById("cartCount").textContent=
+    cart.reduce((sum,item)=>sum+item.quantity,0);
+}
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateUI();
-            renderCart();
-        }
+function renderCategories(){
+  const categories=["全部商品",...new Set(products.map(p=>p.category))];
+  const box=document.getElementById("categories");
+  box.replaceChildren();
 
-        function updateUI() {
-            let totalCount = 0;
-            let totalPrice = 0;
-            cart.forEach(item => {
-                totalCount += item.quantity;
-                totalPrice += (item.price * item.quantity);
-            });
-            countElement.innerText = totalCount;
-            totalPriceElement.innerText = totalPrice;
-            modalTotalPriceElement.innerText = totalPrice;
-        }
+  categories.forEach(c=>{
+    const btn=document.createElement("button");
+    btn.className="category"+(c===activeCategory?" active":"");
+    btn.textContent=c;
+    btn.onclick=()=>{
+      activeCategory=c;
+      renderCategories();
+      renderProducts();
+    };
+    box.appendChild(btn);
+  });
+}
 
-        function renderCart() {
-            if (cart.length === 0) {
-                cartListElement.innerHTML = '<div class="empty-cart">购物车空空如也，快去选购吧。</div>';
-                return;
-            }
-            cartListElement.innerHTML = '';
-            cart.forEach((item, index) => {
-                const row = document.createElement('div');
-                row.className = 'cart-item-row';
-                row.innerHTML = `
-                    <div class="cart-item-info">
-                        <h4>${item.name} <span style="font-weight:normal;">x${item.quantity}</span></h4>
-                        <span>单价: ¥${item.price}</span>
-                    </div>
-                    <button class="remove-btn" onclick="removeFromCart(${index})">移除</button>
-                `;
-                cartListElement.appendChild(row);
-            });
-        }
+function renderProducts(){
+  const keyword=document.getElementById("searchInput").value.trim().toLowerCase();
+  const filtered=products.filter(p=>
+    (activeCategory==="全部商品"||p.category===activeCategory)&&
+    (p.name.toLowerCase().includes(keyword)||p.desc.toLowerCase().includes(keyword))
+  );
 
-        function checkout() {
-            if (cart.length === 0) {
-                alert('购物车还是空的哦！');
-                return;
-            }
-            alert('🎉 恭喜建邦哥！\n订单已提交，等待发货！');
-            cart = []; 
-            updateUI();
-            renderCart();
-            closeCart();
-        }
-    </script>
+  document.getElementById("resultCount").textContent=filtered.length+" 件商品";
+  const grid=document.getElementById("productGrid");
+  grid.replaceChildren();
+
+  if(!filtered.length){
+    grid.innerHTML='<div class="empty">没有找到相关商品，试试其他关键词吧。</div>';
+    return;
+  }
+
+  filtered.forEach(p=>{
+    const card=document.createElement("article");
+    card.className="product";
+
+    const img=document.createElement("img");
+    img.src=p.image;
+    img.alt=p.name;
+    img.loading="lazy";
+    card.appendChild(img);
+
+    const body=document.createElement("div");
+    body.className="product-body";
+
+    const tag=document.createElement("span");
+    tag.className="tag";
+    tag.textContent=p.category;
+
+    const title=document.createElement("h3");
+    title.textContent=p.name;
+
+    const desc=document.createElement("p");
+    desc.className="desc";
+    desc.textContent=p.desc;
+
+    const price=document.createElement("div");
+    price.className="price";
+    price.textContent=money(p.price);
+
+    const actions=document.createElement("div");
+    actions.className="product-actions";
+
+    const detail=document.createElement("button");
+    detail.className="detail";
+    detail.textContent="查看详情";
+    detail.onclick=()=>showDetail(p.id);
+
+    const add=document.createElement("button");
+    add.className="add";
+    add.textContent="＋ 加入购物车";
+    add.onclick=()=>addCart(p.id);
+
+    actions.append(detail,add);
+    body.append(tag,title,desc,price,actions);
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+}
+
+let toastTimer;
+function toast(message){
+  const el=document.getElementById("toast");
+  el.textContent=message;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove("show"),2300);
+}
+
+function addCart(id){
+  const item=cart.find(i=>i.id===id);
+  if(item){
+    if(item.quantity>=99){
+      toast("单件商品最多添加99件");
+      return;
+    }
+    item.quantity++;
+  }else{
+    cart.push({id,quantity:1});
+  }
+  saveCart();
+  renderCart();
+  toast("✓ 已成功加入购物车");
+}
+
+function changeQty(id,delta){
+  const item=cart.find(i=>i.id===id);
+  if(!item)return;
+  item.quantity+=delta;
+  if(item.quantity>99)item.quantity=99;
+  if(item.quantity<=0)cart=cart.filter(i=>i.id!==id);
+  saveCart();
+  renderCart();
+}
+
+function removeItem(id){
+  cart=cart.filter(i=>i.id!==id);
+  saveCart();
+  renderCart();
+  toast("商品已移除");
+}
+
+function cartTotal(){
+  return cart.reduce((sum,item)=>{
+    const p=products.find(p=>p.id===item.id);
+    return sum+(p?p.price*item.quantity:0);
+  },0);
+}
+
+function renderCart(){
+  const list=document.getElementById("cartList");
+  list.replaceChildren();
+
+  if(!cart.length){
+    list.innerHTML='<div class="empty">🛍️<p>购物车还是空的</p><small>去挑选一些喜欢的商品吧</small></div>';
+  }
+
+  cart.forEach(item=>{
+    const p=products.find(p=>p.id===item.id);
+    if(!p)return;
+
+    const row=document.createElement("div");
+    row.className="cart-row";
+
+    const img=document.createElement("img");
+    img.src=p.image;
+    img.alt=p.name;
+
+    const info=document.createElement("div");
+    info.style.flex="1";
+
+    const title=document.createElement("h4");
+    title.textContent=p.name;
+
+    const price=document.createElement("p");
+    price.textContent=money(p.price*item.quantity);
+
+    const qty=document.createElement("div");
+    qty.className="qty";
+
+    const minus=document.createElement("button");
+    minus.textContent="−";
+    minus.onclick=()=>changeQty(p.id,-1);
+
+    const count=document.createElement("span");
+    count.textContent=item.quantity;
+
+    const plus=document.createElement("button");
+    plus.textContent="+";
+    plus.disabled=item.quantity>=99;
+    plus.onclick=()=>changeQty(p.id,1);
+
+    const remove=document.createElement("button");
+    remove.className="remove";
+    remove.textContent="删除";
+    remove.onclick=()=>removeItem(p.id);
+
+    qty.append(minus,count,plus,remove);
+    info.append(title,price,qty);
+    row.append(img,info);
+    list.appendChild(row);
+  });
+
+  document.getElementById("cartTotal").textContent=money(cartTotal());
+  document.getElementById("checkoutBtn").disabled=!cart.length;
+}
+
+function showOverlay(){
+  document.getElementById("overlay").classList.add("show");
+  document.body.style.overflow="hidden";
+}
+
+function openCart(){
+  closeAll();
+  renderCart();
+  showOverlay();
+  document.getElementById("drawer").classList.add("show");
+}
+
+function showDetail(id){
+  const p=products.find(p=>p.id===id);
+  if(!p)return;
+
+  closeAll();
+  const box=document.getElementById("detailContent");
+  box.replaceChildren();
+
+  const img=document.createElement("img");
+  img.src=p.image;
+  img.alt=p.name;
+
+  const title=document.createElement("h2");
+  title.textContent=p.name;
+
+  const desc=document.createElement("p");
+  desc.textContent=p.detail;
+
+  const price=document.createElement("div");
+  price.className="price";
+  price.textContent=money(p.price);
+
+  const add=document.createElement("button");
+  add.className="checkout";
+  add.style.marginTop="20px";
+  add.textContent="加入购物车";
+  add.onclick=()=>{
+    addCart(p.id);
+    closeAll();
+  };
+
+  box.append(img,title,desc,price,add);
+  showOverlay();
+  document.getElementById("detailModal").classList.add("show");
+}
+
+function closeAll(){
+  document.getElementById("overlay").classList.remove("show");
+  document.getElementById("drawer").classList.remove("show");
+  document.getElementById("detailModal").classList.remove("show");
+  document.body.style.overflow="";
+}
+
+function checkout(){
+  if(!cart.length){
+    toast("请先添加商品");
+    return;
+  }
+
+  const total=cartTotal();
+  const orderId="JB"+Date.now();
+
+  if(!confirm("确认提交演示订单？\n合计："+money(total)+"\n\n注意：不会产生真实支付或发货。"))return;
+
+  cart=[];
+  saveCart();
+  renderCart();
+  closeAll();
+
+  alert(
+    "🎉 演示订单创建成功！\n\n"+
+    "订单编号："+orderId+"\n"+
+    "订单金额："+money(total)+"\n\n"+
+    "这是模拟结算，没有实际扣款或发货。"
+  );
+}
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closeAll();
+});
+
+renderCategories();
+renderProducts();
+updateCount();
+</script>
+
 </body>
 </html>
