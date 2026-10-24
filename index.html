@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>建邦小铺 | JB STORE</title>
+<meta name="theme-color" content="#101828">
+<title>S.J 思晶 | 智能科技生活馆</title>
 
 <style>
 :root{
@@ -15,6 +16,7 @@
   --line:#e9edf3;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -24,7 +26,12 @@ body{
 button,input{font:inherit}
 button{cursor:pointer}
 button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,input:focus-visible{
+  outline:2px solid var(--blue);
+  outline-offset:3px;
+}
 
+/* 顶部导航 */
 header{
   position:sticky;
   top:0;
@@ -45,7 +52,7 @@ header{
 .logo{
   font-size:21px;
   font-weight:900;
-  letter-spacing:-1px;
+  letter-spacing:-.5px;
 }
 .logo span{color:var(--blue)}
 .cart-trigger{
@@ -80,6 +87,7 @@ header{
   border-radius:50%;
   right:-80px;
   top:-100px;
+  pointer-events:none;
 }
 .hero small{
   color:#93c5fd;
@@ -89,7 +97,7 @@ header{
 .hero h1{
   font-size:clamp(30px,6vw,50px);
   margin:18px 0;
-  letter-spacing:-2px;
+  letter-spacing:-1px;
 }
 .hero p{
   color:#cbd5e1;
@@ -97,6 +105,8 @@ header{
   line-height:1.9;
 }
 .hero button{
+  position:relative;
+  z-index:1;
   margin-top:15px;
   background:white;
   color:#1d4ed8;
@@ -106,7 +116,7 @@ header{
   font-weight:800;
 }
 
-/* 搜索和分类 */
+/* 商品搜索 */
 .section-title{
   margin:38px 0 20px;
   display:flex;
@@ -144,7 +154,7 @@ header{
   border-color:var(--dark);
 }
 
-/* 商品 */
+/* 商品卡片 */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
@@ -183,6 +193,7 @@ header{
   font-size:12px;
   color:var(--gray);
   min-height:30px;
+  line-height:1.6;
 }
 .price{
   color:#ef4444;
@@ -225,6 +236,7 @@ header{
   right:0;
   top:0;
   height:100%;
+  height:100dvh;
   width:min(430px,100%);
   background:white;
   z-index:101;
@@ -284,10 +296,10 @@ header{
   height:27px;
   border-radius:6px;
 }
-.remove{
+.qty .remove{
   margin-left:auto;
+  width:auto;
   color:#ef4444;
-  background:none;
   border:0;
   font-size:12px;
 }
@@ -370,7 +382,10 @@ footer{
   border-top:1px solid var(--line);
 }
 @media(max-width:500px){
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:11px;
+  }
   .product img{height:140px}
   .product-body{padding:11px}
   .product h3{font-size:13px}
@@ -385,7 +400,7 @@ footer{
 
 <header>
   <nav class="nav">
-    <div class="logo">JB<span>.</span> 建邦小铺</div>
+    <div class="logo">S.J<span> 思晶</span></div>
     <button class="cart-trigger" onclick="openCart()">
       🛒 购物车 (<span id="cartCount">0</span>)
     </button>
@@ -395,26 +410,28 @@ footer{
 <main class="container">
 
 <section class="hero">
-  <small>WELCOME TO JB STORE</small>
-  <h1>让科技，触手可及。</h1>
+  <small>S.J · SMART LIVING</small>
+  <h1>智享生活，晶彩未来。</h1>
   <p>
-    精选智能设备与数字好物。<br>
-    探索品质生活，从建邦小铺开始。
+    探索智能科技与品质好物。<br>
+    从日常家居到商业办公，让创新融入每一刻。
   </p>
   <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
-    立即探索 →
+    探索精选好物 →
   </button>
 </section>
 
 <section id="shop">
   <div class="section-title">
-    <h2>精选好物</h2>
+    <h2>思晶精选</h2>
     <span id="resultCount"></span>
   </div>
 
   <input
     class="search"
     id="searchInput"
+    type="search"
+    aria-label="搜索商品"
     placeholder="🔍 搜索你感兴趣的商品..."
     oninput="renderProducts()"
   >
@@ -426,22 +443,21 @@ footer{
 </main>
 
 <footer>
-  <div class="logo">JB<span>.</span> STORE</div>
-  <p>科技改变生活 · 品质创造未来</p>
-  <p>© 2026 建邦小铺 · All Rights Reserved.</p>
+  <div class="logo">S.J<span> 思晶</span></div>
+  <p>SMART LIVING · BETTER FUTURE</p>
+  <p>智享生活 · 晶彩未来</p>
+  <p>© 2026 S.J 思晶 · All Rights Reserved.</p>
   <p>当前为演示商城，暂不支持真实支付。</p>
 </footer>
 
 <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-<aside class="drawer" id="drawer" role="dialog" aria-label="购物车">
+<aside class="drawer" id="drawer" role="dialog" aria-label="购物车" aria-modal="true">
   <div class="drawer-header">
     <h2>我的购物车 🛒</h2>
-    <button class="close" onclick="closeAll()" aria-label="关闭">×</button>
+    <button class="close" onclick="closeAll()" aria-label="关闭购物车">×</button>
   </div>
-
   <div class="cart-list" id="cartList"></div>
-
   <div class="drawer-footer">
     <div class="total">
       <span>商品合计</span>
@@ -453,24 +469,85 @@ footer{
   </div>
 </aside>
 
-<div class="detail-modal" id="detailModal" role="dialog" aria-label="商品详情">
-  <button class="close" onclick="closeAll()" aria-label="关闭">×</button>
+<div class="detail-modal" id="detailModal" role="dialog" aria-label="商品详情" aria-modal="true">
+  <button class="close" onclick="closeAll()" aria-label="关闭详情">×</button>
   <div id="detailContent"></div>
 </div>
 
 <div class="toast" id="toast" role="status"></div>
 
 <script>
-/* 商品数据库 */
+/* ==========================================
+   S.J 思晶 - 商品数据
+   ========================================== */
+
+/*
+  广告机使用内嵌 SVG 产品插画。
+  不依赖第三方图片服务器。
+*/
+const advertisingImage = "data:image/svg+xml;charset=UTF-8,"+
+encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+<defs>
+  <linearGradient id="bg" x2="1" y2="1">
+    <stop stop-color="#edf4ff"/>
+    <stop offset="1" stop-color="#dbeafe"/>
+  </linearGradient>
+  <linearGradient id="screen" x2="1" y2="1">
+    <stop stop-color="#0f172a"/>
+    <stop offset="1" stop-color="#2563eb"/>
+  </linearGradient>
+  <linearGradient id="poster" x2="0" y2="1">
+    <stop stop-color="#38bdf8"/>
+    <stop offset="1" stop-color="#1d4ed8"/>
+  </linearGradient>
+</defs>
+
+<rect width="600" height="600" fill="url(#bg)"/>
+<circle cx="470" cy="100" r="145" fill="#fff" opacity=".4"/>
+<ellipse cx="300" cy="555" rx="155" ry="20" fill="#94a3b8" opacity=".3"/>
+
+<!-- 广告机机身 -->
+<rect x="190" y="48" width="220" height="470" rx="14" fill="#111827"/>
+<rect x="199" y="57" width="202" height="442" rx="5" fill="url(#screen)"/>
+
+<!-- 屏幕内容 -->
+<rect x="207" y="65" width="186" height="425" rx="3" fill="url(#poster)"/>
+<circle cx="350" cy="140" r="85" fill="#fff" opacity=".12"/>
+<circle cx="240" cy="310" r="95" fill="#fff" opacity=".09"/>
+
+<text x="300" y="115" fill="#fff" font-family="Arial" font-size="16"
+font-weight="bold" text-anchor="middle" letter-spacing="3">S.J DISPLAY</text>
+
+<path d="M235 180 L365 180 L340 270 L260 270 Z" fill="#fff" opacity=".14"/>
+<rect x="242" y="205" width="116" height="7" rx="3" fill="#fff" opacity=".8"/>
+<rect x="260" y="225" width="80" height="5" rx="2" fill="#fff" opacity=".5"/>
+
+<text x="300" y="345" fill="white" font-family="Arial"
+font-size="37" font-weight="bold" text-anchor="middle">65 INCH</text>
+<text x="300" y="374" fill="#dbeafe" font-family="Arial"
+font-size="15" text-anchor="middle" letter-spacing="3">DIGITAL SIGNAGE</text>
+
+<rect x="257" y="405" width="86" height="27" rx="13" fill="#fff"/>
+<text x="300" y="423" font-family="Arial" font-size="11"
+font-weight="bold" fill="#1d4ed8" text-anchor="middle">S.J TECH</text>
+
+<!-- 底座 -->
+<rect x="275" y="518" width="50" height="16" rx="3" fill="#334155"/>
+<path d="M265 532 H335 L370 548 H230 Z" fill="#111827"/>
+<rect x="225" y="547" width="150" height="7" rx="3" fill="#334155"/>
+</svg>
+`);
+
 const products=[
   {
     id:1,
-    name:"建邦神秘盲盒",
+    name:"思晶神秘盲盒",
     category:"创意好物",
     price:99,
     desc:"每一次开启，都是一场未知惊喜。",
-    image:"https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600",
-    detail:"建邦小铺特别企划，神秘创意礼盒。具体内容以实际商品说明为准。"
+    image:"https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600&q=85",
+    detail:"S.J 思晶创意礼盒演示商品。具体内容以正式商品说明为准。"
   },
   {
     id:2,
@@ -478,8 +555,8 @@ const products=[
     category:"数字产品",
     price:199,
     desc:"为热爱编程与创造的你准备。",
-    image:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600",
-    detail:"网站开发学习资源与示例源码，适合用于了解网页结构及前端设计。"
+    image:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=85",
+    detail:"网站开发学习资源与示例源码，适合了解网页结构及前端设计。"
   },
   {
     id:3,
@@ -487,7 +564,7 @@ const products=[
     category:"智能家电",
     price:2999,
     desc:"大屏视界，沉浸式家庭娱乐。",
-    image:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",
+    image:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600&q=85",
     detail:"55英寸智能电视演示商品。实际品牌、配置及售后以正式商品信息为准。"
   },
   {
@@ -495,9 +572,9 @@ const products=[
     name:"65英寸立式广告机",
     category:"商用设备",
     price:4999,
-    desc:"让每一次品牌展示更加出色。",
-    image:"https://images.unsplash.com/photo-1563721345-49a0d5a958e0?w=600",
-    detail:"适用于商业展示、信息发布等场景的数字广告设备。"
+    desc:"高清数字展示，让品牌更出众。",
+    image:advertisingImage,
+    detail:"65英寸立式数字广告机，适用于商场、展厅、企业及各类商业展示场景。图片为产品示意插画，实际配置以正式商品信息为准。"
   },
   {
     id:5,
@@ -505,7 +582,7 @@ const products=[
     category:"商用设备",
     price:7999,
     desc:"高效协作，开启智慧办公。",
-    image:"https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600",
+    image:"https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=85",
     detail:"面向会议展示与办公协作场景的智能大屏演示商品。"
   },
   {
@@ -514,22 +591,40 @@ const products=[
     category:"智能家电",
     price:399,
     desc:"好声音，为生活增添氛围。",
-    image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600",
+    image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=85",
     detail:"简约桌面音箱，适合日常音乐欣赏与居家使用。"
   }
 ];
 
+/* ==========================================
+   购物车数据
+   ========================================== */
+
 let activeCategory="全部商品";
 let cart=[];
 
+const STORAGE_KEY="sj_cart_v1";
+
+/* 兼容旧版建邦小铺购物车 */
 try{
-  const saved=JSON.parse(localStorage.getItem("jb_cart_v2"));
-  if(Array.isArray(saved)){
-    cart=saved.filter(item=>
+  let saved=localStorage.getItem(STORAGE_KEY);
+
+  if(!saved){
+    saved=localStorage.getItem("jb_cart_v2");
+  }
+
+  const parsed=JSON.parse(saved||"[]");
+
+  if(Array.isArray(parsed)){
+    cart=parsed.filter(item=>
       products.some(p=>p.id===item.id)&&
       Number.isSafeInteger(item.quantity)&&
-      item.quantity>0&&item.quantity<=99
-    ).map(item=>({id:item.id,quantity:item.quantity}));
+      item.quantity>0&&
+      item.quantity<=99
+    ).map(item=>({
+      id:item.id,
+      quantity:item.quantity
+    }));
   }
 }catch(e){
   cart=[];
@@ -538,7 +633,11 @@ try{
 const money=n=>"¥"+n.toLocaleString("zh-CN");
 
 function saveCart(){
-  localStorage.setItem("jb_cart_v2",JSON.stringify(cart));
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(cart));
+  }catch(e){
+    console.warn("本地购物车保存失败",e);
+  }
   updateCount();
 }
 
@@ -547,32 +646,55 @@ function updateCount(){
     cart.reduce((sum,item)=>sum+item.quantity,0);
 }
 
+/* ==========================================
+   商品分类
+   ========================================== */
+
 function renderCategories(){
-  const categories=["全部商品",...new Set(products.map(p=>p.category))];
+  const categories=[
+    "全部商品",
+    ...new Set(products.map(p=>p.category))
+  ];
+
   const box=document.getElementById("categories");
   box.replaceChildren();
 
   categories.forEach(c=>{
     const btn=document.createElement("button");
+
     btn.className="category"+(c===activeCategory?" active":"");
     btn.textContent=c;
+    btn.setAttribute("aria-pressed",String(c===activeCategory));
+
     btn.onclick=()=>{
       activeCategory=c;
       renderCategories();
       renderProducts();
     };
+
     box.appendChild(btn);
   });
 }
 
+/* ==========================================
+   商品列表
+   ========================================== */
+
 function renderProducts(){
-  const keyword=document.getElementById("searchInput").value.trim().toLowerCase();
+  const keyword=document.getElementById("searchInput")
+    .value.trim().toLowerCase();
+
   const filtered=products.filter(p=>
     (activeCategory==="全部商品"||p.category===activeCategory)&&
-    (p.name.toLowerCase().includes(keyword)||p.desc.toLowerCase().includes(keyword))
+    (
+      p.name.toLowerCase().includes(keyword)||
+      p.desc.toLowerCase().includes(keyword)
+    )
   );
 
-  document.getElementById("resultCount").textContent=filtered.length+" 件商品";
+  document.getElementById("resultCount").textContent=
+    filtered.length+" 件商品";
+
   const grid=document.getElementById("productGrid");
   grid.replaceChildren();
 
@@ -589,7 +711,11 @@ function renderProducts(){
     img.src=p.image;
     img.alt=p.name;
     img.loading="lazy";
-    card.appendChild(img);
+
+    img.onerror=function(){
+      this.onerror=null;
+      this.src=advertisingImage;
+    };
 
     const body=document.createElement("div");
     body.className="product-body";
@@ -624,22 +750,37 @@ function renderProducts(){
 
     actions.append(detail,add);
     body.append(tag,title,desc,price,actions);
-    card.appendChild(body);
+    card.append(img,body);
     grid.appendChild(card);
   });
 }
 
+/* ==========================================
+   消息提示
+   ========================================== */
+
 let toastTimer;
+
 function toast(message){
   const el=document.getElementById("toast");
+
   el.textContent=message;
   el.classList.add("show");
+
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>el.classList.remove("show"),2300);
+
+  toastTimer=setTimeout(()=>{
+    el.classList.remove("show");
+  },2300);
 }
+
+/* ==========================================
+   购物车功能
+   ========================================== */
 
 function addCart(id){
   const item=cart.find(i=>i.id===id);
+
   if(item){
     if(item.quantity>=99){
       toast("单件商品最多添加99件");
@@ -649,6 +790,7 @@ function addCart(id){
   }else{
     cart.push({id,quantity:1});
   }
+
   saveCart();
   renderCart();
   toast("✓ 已成功加入购物车");
@@ -657,15 +799,22 @@ function addCart(id){
 function changeQty(id,delta){
   const item=cart.find(i=>i.id===id);
   if(!item)return;
+
   item.quantity+=delta;
+
   if(item.quantity>99)item.quantity=99;
-  if(item.quantity<=0)cart=cart.filter(i=>i.id!==id);
+
+  if(item.quantity<=0){
+    cart=cart.filter(i=>i.id!==id);
+  }
+
   saveCart();
   renderCart();
 }
 
 function removeItem(id){
   cart=cart.filter(i=>i.id!==id);
+
   saveCart();
   renderCart();
   toast("商品已移除");
@@ -683,7 +832,13 @@ function renderCart(){
   list.replaceChildren();
 
   if(!cart.length){
-    list.innerHTML='<div class="empty">🛍️<p>购物车还是空的</p><small>去挑选一些喜欢的商品吧</small></div>';
+    list.innerHTML=`
+      <div class="empty">
+        🛍️
+        <p>购物车还是空的</p>
+        <small>去挑选一些喜欢的商品吧</small>
+      </div>
+    `;
   }
 
   cart.forEach(item=>{
@@ -711,6 +866,7 @@ function renderCart(){
 
     const minus=document.createElement("button");
     minus.textContent="−";
+    minus.setAttribute("aria-label","减少"+p.name+"数量");
     minus.onclick=()=>changeQty(p.id,-1);
 
     const count=document.createElement("span");
@@ -719,6 +875,7 @@ function renderCart(){
     const plus=document.createElement("button");
     plus.textContent="+";
     plus.disabled=item.quantity>=99;
+    plus.setAttribute("aria-label","增加"+p.name+"数量");
     plus.onclick=()=>changeQty(p.id,1);
 
     const remove=document.createElement("button");
@@ -733,8 +890,13 @@ function renderCart(){
   });
 
   document.getElementById("cartTotal").textContent=money(cartTotal());
+
   document.getElementById("checkoutBtn").disabled=!cart.length;
 }
+
+/* ==========================================
+   弹窗控制
+   ========================================== */
 
 function showOverlay(){
   document.getElementById("overlay").classList.add("show");
@@ -746,6 +908,7 @@ function openCart(){
   renderCart();
   showOverlay();
   document.getElementById("drawer").classList.add("show");
+  document.querySelector("#drawer .close").focus();
 }
 
 function showDetail(id){
@@ -753,6 +916,7 @@ function showDetail(id){
   if(!p)return;
 
   closeAll();
+
   const box=document.getElementById("detailContent");
   box.replaceChildren();
 
@@ -774,14 +938,17 @@ function showDetail(id){
   add.className="checkout";
   add.style.marginTop="20px";
   add.textContent="加入购物车";
+
   add.onclick=()=>{
     addCart(p.id);
     closeAll();
   };
 
   box.append(img,title,desc,price,add);
+
   showOverlay();
   document.getElementById("detailModal").classList.add("show");
+  document.querySelector("#detailModal .close").focus();
 }
 
 function closeAll(){
@@ -791,6 +958,10 @@ function closeAll(){
   document.body.style.overflow="";
 }
 
+/* ==========================================
+   思晶模拟订单系统
+   ========================================== */
+
 function checkout(){
   if(!cart.length){
     toast("请先添加商品");
@@ -798,9 +969,16 @@ function checkout(){
   }
 
   const total=cartTotal();
-  const orderId="JB"+Date.now();
+  const orderId="SJ"+Date.now();
 
-  if(!confirm("确认提交演示订单？\n合计："+money(total)+"\n\n注意：不会产生真实支付或发货。"))return;
+  const confirmed=confirm(
+    "S.J 思晶 · 订单确认\n\n"+
+    "商品合计："+money(total)+"\n\n"+
+    "确认提交演示订单？\n"+
+    "注意：不会产生真实支付或发货。"
+  );
+
+  if(!confirmed)return;
 
   cart=[];
   saveCart();
@@ -808,21 +986,25 @@ function checkout(){
   closeAll();
 
   alert(
-    "🎉 演示订单创建成功！\n\n"+
+    "🎉 S.J 思晶\n"+
+    "演示订单创建成功！\n\n"+
     "订单编号："+orderId+"\n"+
     "订单金额："+money(total)+"\n\n"+
-    "这是模拟结算，没有实际扣款或发货。"
+    "感谢体验思晶商城！\n"+
+    "本次为模拟结算，没有实际扣款或发货。"
   );
 }
 
+/* 快捷关闭弹窗 */
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape")closeAll();
 });
 
+/* 页面初始化 */
 renderCategories();
 renderProducts();
 updateCount();
-</script>
 
+</script>
 </body>
 </html>
