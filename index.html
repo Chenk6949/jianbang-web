@@ -2,682 +2,1037 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#101b2e">
-<meta name="description" content="S.J 思晶智慧生活商城，探索智能显示、家庭娱乐与商用科技产品。">
-<title>S.J 思晶 | Refined Edition V5.2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#132139">
+<meta name="description" content="S.J 思晶智能科技商城，探索智能显示、家庭娱乐与商用显示解决方案。">
+<title>S.J 思晶 | V5.2.1 Refined Experience</title>
 
 <style>
-/* ========================================
-   S.J REFined EDITION V5.2
-   Design System
-======================================== */
-:root{
-  --bg:#f5f7fb;
-  --surface:#fff;
-  --surface2:#eef3f9;
-  --text:#14233a;
-  --muted:#718098;
-  --line:#e2e8f1;
-  --blue:#2864dc;
-  --blue2:#174dbb;
-  --nav:#132138;
-  --shadow:0 16px 48px rgba(25,49,89,.07);
-  --radius:18px;
+/* ==========================================
+   S.J V5.2.1 — REFINED EXPERIENCE
+========================================== */
+
+:root {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --soft: #edf2f8;
+  --text: #17243a;
+  --muted: #728096;
+  --border: #e3e9f0;
+  --primary: #2864d9;
+  --primary-hover: #174eb8;
+  --header: #14233b;
+  --shadow: 0 12px 35px rgba(20,40,75,.055);
 }
-body.dark{
-  --bg:#0c1422;
-  --surface:#172438;
-  --surface2:#22334b;
-  --text:#f1f5ff;
-  --muted:#a8b8cf;
-  --line:#314158;
-  --blue:#3977ec;
-  --blue2:#2864dc;
-  --nav:#152238;
-  --shadow:0 18px 48px rgba(0,0,0,.18);
+
+body.dark {
+  --bg: #101827;
+  --card: #19263a;
+  --soft: #24354d;
+  --text: #f2f5fb;
+  --muted: #afbdd0;
+  --border: #34445b;
+  --primary: #3979eb;
+  --primary-hover: #2864d9;
+  --header: #111c2e;
+  --shadow: 0 12px 35px rgba(0,0,0,.12);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font:14px/1.65 system-ui,-apple-system,"Microsoft YaHei",sans-serif;
-  -webkit-font-smoothing:antialiased;
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 82px;
 }
-body.lock{overflow:hidden}
-button,input,select{font:inherit}
-button{cursor:pointer}
-button:disabled{opacity:.45;cursor:not-allowed}
-button:active{transform:scale(.98)}
-a{color:inherit;text-decoration:none}
-svg{display:block;max-width:100%}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
-  outline:3px solid #80aeff;
-  outline-offset:3px;
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-.container{width:min(1180px,100%);margin:auto;padding:0 22px}
-.muted{color:var(--muted)}
-.eyebrow{
-  font-size:10px;
-  font-weight:850;
-  letter-spacing:2.5px;
-  color:var(--blue);
+
+body.lock { overflow: hidden; }
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button:active { transform: scale(.98); }
+
+a { color: inherit; text-decoration: none; }
+svg { display: block; max-width: 100%; }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #8bb6ff;
+  outline-offset: 3px;
 }
-.btn{
-  border:0;
-  border-radius:11px;
-  padding:12px 18px;
-  min-height:44px;
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  background:var(--blue);
-  color:white;
-  font-weight:800;
-  transition:background .2s,transform .2s;
+
+.container {
+  width: min(1160px, 100%);
+  margin: auto;
+  padding: 0 18px;
 }
-.btn:hover{background:var(--blue2)}
-.btn.ghost{background:var(--surface2);color:var(--text)}
-.btn.ghost:hover{background:var(--line)}
-.btn.white{background:white;color:#17489c}
-.btn.full{width:100%}
-.icon-btn{
-  border:1px solid var(--line);
-  border-radius:11px;
-  min-width:42px;
-  height:42px;
-  background:var(--surface);
-  color:var(--text);
-  font-weight:850;
+
+.muted { color: var(--muted); }
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 2px;
 }
-.section{padding-top:76px}
-.section-head{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:24px;
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  min-height: 43px;
+  padding: 11px 17px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  transition: background .2s;
 }
-.section-head h2{
-  margin:7px 0 5px;
-  font-size:clamp(25px,3vw,34px);
-  line-height:1.25;
-  letter-spacing:-.9px;
+
+.btn:hover { background: var(--primary-hover); }
+
+.btn.secondary {
+  background: var(--soft);
+  color: var(--text);
 }
-.section-head p{margin:0;color:var(--muted);font-size:12px}
-.small-note{font-size:11px;color:var(--muted)}
+
+.btn.white {
+  background: white;
+  color: #194a9e;
+}
+
+.btn.full { width: 100%; }
+
+.icon-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 8px;
+  border: 1px solid #ffffff25;
+  border-radius: 10px;
+  background: #ffffff0b;
+  color: white;
+  font-weight: 800;
+}
+
+.section { padding-top: 67px; }
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.section-head h2 {
+  margin: 6px 0;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.25;
+  letter-spacing: -.6px;
+}
+
+.section-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
 
 /* HEADER */
-header{
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:var(--nav);
-  color:white;
-  border-bottom:1px solid #ffffff15;
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header);
+  color: white;
+  border-bottom: 1px solid #ffffff12;
 }
-.nav{
-  height:73px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
+
+.nav {
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
-.logo{
-  font-size:25px;
-  font-weight:950;
-  letter-spacing:-1.5px;
-  white-space:nowrap;
-  line-height:1.1;
+
+.logo {
+  font-size: 24px;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -1.1px;
+  white-space: nowrap;
 }
-.logo span{color:#8cb5ff}
-.logo small{
-  display:block;
-  font-size:9px;
-  letter-spacing:3px;
-  font-weight:750;
-  color:#b2c2d9;
-  margin-top:7px;
+
+.logo span { color: #9abfff; }
+
+.logo small {
+  display: block;
+  margin-top: 8px;
+  font-size: 8px;
+  font-weight: 750;
+  letter-spacing: 3px;
+  color: #bdcbe0;
 }
-.navlinks{display:flex;align-items:center;gap:26px}
-.navlinks a{font-size:12px;font-weight:750;color:#d5e0f1}
-.navlinks a:hover{color:white}
-.navtools{display:flex;gap:8px;align-items:center}
-.navtools .icon-btn{
-  background:#ffffff0a;
-  border-color:#ffffff25;
-  color:white;
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 22px;
 }
-.cart-badge{
-  display:inline-grid;
-  place-items:center;
-  min-width:18px;
-  height:18px;
-  background:#3674e9;
-  border-radius:20px;
-  color:white;
-  font-size:10px;
-  margin-left:3px;
+
+.navlinks a {
+  color: #d6e2f2;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.navlinks a:hover { color: white; }
+
+.navtools {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.cart-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  margin-left: 3px;
+  border-radius: 20px;
+  background: #3678ed;
+  font-size: 10px;
 }
 
 /* HERO */
-.hero{padding-top:22px}
-.hero-panel{
-  position:relative;
-  overflow:hidden;
-  min-height:455px;
-  border-radius:23px;
+
+.hero { padding-top: 18px; }
+
+.hero-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 400px;
+  overflow: hidden;
+  padding: 45px;
+  border-radius: 20px;
   background:
-    radial-gradient(circle at 83% 26%,#447ee277,transparent 36%),
-    linear-gradient(120deg,#101c32,#16366e 70%,#255bc2);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  padding:55px 55px 48px;
-  color:white;
-}
-.hero-panel:before{
-  content:"";
-  position:absolute;
-  width:520px;height:520px;
-  border:1px solid #ffffff12;
-  border-radius:50%;
-  right:-170px;top:-190px;
-  pointer-events:none;
-}
-.hero-content{position:relative;z-index:1}
-.hero .eyebrow{color:#9fc5ff}
-.hero h1{
-  font-size:clamp(37px,5vw,60px);
-  line-height:1.16;
-  letter-spacing:-2px;
-  margin:17px 0;
-}
-.hero p{
-  max-width:410px;
-  color:#d0def3;
-  font-size:13px;
-  line-height:1.9;
-  margin-bottom:27px;
-}
-.hero-buttons{display:flex;gap:9px;flex-wrap:wrap}
-.hero-visual{position:relative;z-index:1;align-self:center}
-.hero-visual svg{width:100%;filter:drop-shadow(0 25px 25px #06102077)}
-.hero-foot{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 4px;
-  gap:10px;
-  font-size:10px;
-  letter-spacing:1px;
-  color:var(--muted);
+    radial-gradient(circle at 82% 20%, #3e75c85a, transparent 39%),
+    linear-gradient(120deg, #101d33, #183665 68%, #2455a7);
+  color: white;
 }
 
-/* CATEGORY FEATURE */
-.features{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
-.feature{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:19px;
-  padding:25px;
-  display:grid;
-  grid-template-columns:1fr 1.05fr;
-  align-items:center;
-  min-height:250px;
-  overflow:hidden;
-}
-.feature:nth-child(2){background:var(--surface2)}
-.feature h3{font-size:24px;letter-spacing:-.7px;margin:8px 0}
-.feature p{font-size:12px;color:var(--muted)}
-.feature button{
-  background:none;border:0;
-  padding:7px 0;
-  color:var(--blue);
-  font-weight:850;
-  text-align:left;
-}
-.feature-art svg{width:100%}
+.hero-content { position: relative; z-index: 1; }
+.hero .eyebrow { color: #9fc4ff; }
 
-/* PRODUCT GRID */
-.shop-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:16px;
-}
-.search{
-  width:min(370px,100%);
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--text);
-  border-radius:11px;
-  padding:12px 15px;
-  outline:none;
-}
-.search:focus{border-color:var(--blue)}
-.filters{
-  display:flex;
-  gap:8px;
-  overflow:auto;
-  scrollbar-width:none;
-  padding-bottom:19px;
-}
-.filters::-webkit-scrollbar{display:none}
-.filter{
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--muted);
-  padding:8px 15px;
-  border-radius:30px;
-  white-space:nowrap;
-  font-size:12px;
-  font-weight:750;
-}
-.filter.active{
-  background:var(--nav);
-  color:white;
-  border-color:var(--nav);
-}
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:17px;
-}
-.product{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:17px;
-  overflow:hidden;
-  min-width:0;
-  transition:transform .2s,box-shadow .2s;
-}
-.product:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.product-media{
-  position:relative;
-  aspect-ratio:1.25;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-  background:#dce8f5;
-}
-.product-media svg{width:100%;height:100%}
-.tag{
-  position:absolute;
-  left:13px;
-  top:13px;
-  padding:5px 9px;
-  border-radius:7px;
-  background:#ffffffed;
-  color:#315178;
-  font-size:10px;
-  font-weight:850;
-}
-.product-body{padding:19px}
-.product-body h3{
-  font-size:15px;
-  line-height:1.5;
-  margin:0 0 7px;
-}
-.product-body p{
-  color:var(--muted);
-  font-size:12px;
-  min-height:39px;
-  margin:0 0 13px;
-}
-.price{
-  font-size:24px;
-  font-weight:950;
-  letter-spacing:-.7px;
-  line-height:1.35;
-}
-.price small{
-  font-size:11px;
-  color:var(--muted);
-  font-weight:500;
-  letter-spacing:0;
-}
-.product-actions{display:flex;gap:8px;margin-top:15px}
-.product-actions .btn{flex:1;font-size:12px;padding:10px 8px}
-.empty{
-  grid-column:1/-1;
-  padding:50px 15px;
-  text-align:center;
-  color:var(--muted);
+.hero h1 {
+  margin: 14px 0;
+  font-size: clamp(35px, 5vw, 56px);
+  line-height: 1.18;
+  letter-spacing: -1.5px;
 }
 
-/* PUPPY */
-.guide-panel{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:21px;
-  overflow:hidden;
-  display:grid;
-  grid-template-columns:310px 1fr;
-}
-.puppy-stage{
-  background:
-    radial-gradient(circle at 50% 45%,#eaf6ff 0%,#a8cafa 75%);
-  min-height:320px;
-  display:grid;
-  place-items:center;
-}
-.puppy-stage svg{width:235px}
-.guide-content{padding:36px 40px;align-self:center}
-.guide-content h2{font-size:28px;margin:8px 0;line-height:1.3}
-.guide-content p{font-size:12px;color:var(--muted)}
-.quick{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin:17px 0;
-}
-.quick button{
-  border:1px solid var(--line);
-  background:var(--surface2);
-  color:var(--text);
-  padding:8px 11px;
-  border-radius:20px;
-  font-size:11px;
-}
-.quick button:hover{border-color:var(--blue)}
-.guide-answer{
-  border-left:3px solid var(--blue);
-  background:var(--surface2);
-  border-radius:0 9px 9px 0;
-  padding:12px 15px;
-  font-size:12px;
-  white-space:pre-wrap;
-  margin-bottom:16px;
+.hero p {
+  max-width: 400px;
+  color: #d3e1f3;
+  font-size: 13px;
+  line-height: 1.9;
 }
 
-/* INFO */
-.service{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:13px;
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 24px;
 }
-.service-item{
-  border:1px solid var(--line);
-  border-radius:15px;
-  background:var(--surface);
-  padding:24px;
-}
-.service-item b{font-size:13px}
-.service-item p{font-size:11px;color:var(--muted);margin:7px 0 0}
-.faq details{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:11px;
-  padding:15px 18px;
-  margin:9px 0;
-}
-.faq summary{font-weight:800;cursor:pointer;font-size:13px}
-.faq p{color:var(--muted);font-size:12px}
-.contact-panel{
-  border-radius:20px;
-  padding:40px;
-  background:linear-gradient(115deg,#13243f,#2052b0);
-  color:white;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:25px;
-}
-.contact-panel h2{font-size:28px;margin:7px 0}
-.contact-panel p{font-size:12px;color:#c5d8f5}
-footer{
-  margin-top:75px;
-  border-top:1px solid var(--line);
-  padding:30px 0 95px;
-}
-.footer-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-}
-.footer-row p{font-size:11px;color:var(--muted)}
 
-/* MODALS */
-.backdrop{
-  position:fixed;
-  inset:0;
-  background:#06101ec9;
-  z-index:30;
-  display:none;
+.hero-art {
+  position: relative;
+  z-index: 1;
 }
-.backdrop.show{display:block}
-.modal{
-  position:fixed;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:min(680px,94vw);
-  max-height:89dvh;
-  overflow:auto;
-  z-index:31;
-  background:var(--surface);
-  border-radius:19px;
-  padding:23px;
-  display:none;
-  overscroll-behavior:contain;
-}
-.modal.show{display:block}
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  margin-bottom:17px;
-}
-.modal-head h2{font-size:19px;line-height:1.4;margin:0}
-.close{
-  flex-shrink:0;
-  width:36px;height:36px;
-  border:0;border-radius:50%;
-  background:var(--surface2);
-  color:var(--text);
-  font-size:23px;
-}
-.detail-media{
-  height:235px;
-  border-radius:12px;
-  overflow:hidden;
-  background:#e3edf9;
-}
-.detail-media svg{width:100%;height:100%}
-.detail-desc{color:var(--muted);font-size:13px}
-.spec-list{color:var(--muted);font-size:12px;padding-left:20px}
-.spec-list li{margin:6px 0}
-.config-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
-  margin:18px 0;
-}
-.config-grid label{font-size:12px;font-weight:800}
-.config-grid select{
-  display:block;
-  width:100%;
-  margin-top:6px;
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--text);
-  padding:11px;
-  border-radius:9px;
-}
-.total-panel{
-  padding:16px;
-  background:var(--surface2);
-  border-radius:11px;
-  margin:15px 0;
-}
-.total-panel strong{display:block;font-size:28px}
-.total-panel small{display:block;color:var(--muted)}
-.modal-actions{display:flex;gap:9px;margin-top:16px}
-.modal-actions>*{flex:1}
-.drawer{
-  position:fixed;
-  top:0;right:0;bottom:0;
-  width:min(440px,100%);
-  z-index:32;
-  background:var(--surface);
-  display:flex;
-  flex-direction:column;
-  transform:translateX(105%);
-  transition:transform .25s;
-}
-.drawer.show{transform:translateX(0)}
-.drawer .modal-head{
-  padding:20px;
-  border-bottom:1px solid var(--line);
-  margin:0;
-}
-.cart-body{flex:1;overflow:auto;padding:8px 21px}
-.cart-item{padding:17px 0;border-bottom:1px solid var(--line)}
-.cart-item b{display:block;font-size:13px}
-.cart-item small{display:block;color:var(--muted);margin:5px 0}
-.cart-item strong{font-size:18px}
-.qty{display:flex;align-items:center;gap:11px;margin-top:10px}
-.qty button{
-  min-width:32px;
-  height:32px;
-  border:1px solid var(--line);
-  border-radius:8px;
-  color:var(--text);
-  background:var(--surface2);
-}
-.qty .remove{margin-left:auto;padding:0 10px;font-size:11px}
-.cart-foot{padding:21px;border-top:1px solid var(--line)}
-.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
-.cart-total strong{font-size:24px}
-.chat-log{
-  height:280px;
-  overflow:auto;
-  border:1px solid var(--line);
-  background:var(--bg);
-  border-radius:12px;
-  padding:12px;
-}
-.bubble{
-  max-width:91%;
-  width:fit-content;
-  background:var(--surface2);
-  border-radius:12px;
-  padding:10px 13px;
-  margin:9px 0;
-  font-size:12px;
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-}
-.bubble.user{
-  margin-left:auto;
-  background:#2864dc;
-  color:white;
-}
-.chat-form{display:flex;gap:8px}
-.chat-form input{
-  min-width:0;
-  flex:1;
-  border:1px solid var(--line);
-  border-radius:9px;
-  background:var(--surface);
-  color:var(--text);
-  padding:11px;
-}
-.dog-float{
-  position:fixed;
-  z-index:25;
-  bottom:calc(18px + env(safe-area-inset-bottom));
-  right:17px;
-  width:58px;height:58px;
-  padding:3px;
-  border:2px solid white;
-  border-radius:50%;
-  background:#2864dc;
-  box-shadow:0 9px 25px #061f4b55;
-  transition:transform .2s;
-}
-.dog-float svg{width:100%;height:100%}
-.dog-float:hover{transform:translateY(-3px)}
-.toast{
-  position:fixed;
-  bottom:90px;left:50%;
-  transform:translate(-50%,12px);
-  opacity:0;
-  pointer-events:none;
-  background:#13233b;
-  color:white;
-  border-radius:10px;
-  padding:11px 16px;
-  font-size:12px;
-  z-index:60;
-  transition:.2s;
-  white-space:nowrap;
-  max-width:90vw;
-}
-.toast.show{opacity:1;transform:translate(-50%,0)}
 
-/* MOBILE */
-@media(max-width:960px){
-  .navlinks{gap:13px}
-  .hero-panel{padding:42px}
+.hero-art svg {
+  width: 100%;
+  filter: drop-shadow(0 18px 17px #06101f66);
 }
-@media(max-width:740px){
-  .container{padding:0 15px}
-  .nav{height:67px}
-  .navlinks{display:none}
-  .hero-panel{
-    grid-template-columns:1fr;
-    padding:36px 27px 20px;
-    min-height:0;
+
+.hero-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 4px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* COLLECTION */
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.collection-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 220px;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: var(--card);
+}
+
+.collection-card:nth-child(2) { background: var(--soft); }
+
+.collection-card h3 {
+  margin: 7px 0;
+  font-size: 23px;
+  line-height: 1.3;
+}
+
+.collection-card p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.collection-card button {
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.collection-art svg { width: 100%; }
+
+/* SHOP */
+
+.search {
+  display: block;
+  width: min(380px, 100%);
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--text);
+  outline: none;
+}
+
+.search:focus { border-color: var(--primary); }
+
+.filters {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 17px;
+  scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar { display: none; }
+
+.filter {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--card);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.filter.active {
+  background: var(--header);
+  border-color: var(--header);
+  color: white;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.product {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.product-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1.28;
+  overflow: hidden;
+  background: #e7edf4;
+}
+
+.product-media svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #ffffffed;
+  color: #38516f;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.product-body { padding: 15px; }
+
+.product-name {
+  min-height: 42px;
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.product-desc {
+  display: -webkit-box;
+  min-height: 36px;
+  margin: 0 0 11px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.price {
+  font-size: 23px;
+  font-weight: 950;
+  line-height: 1.3;
+  letter-spacing: -.5px;
+}
+
+.price small {
+  margin-left: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.product-action { margin-top: 13px; }
+
+.product-action .btn {
+  width: 100%;
+  min-height: 40px;
+}
+
+.empty {
+  grid-column: 1/-1;
+  padding: 45px 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.image-note {
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* GUIDE */
+
+.guide-panel {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  background: var(--card);
+}
+
+.puppy-stage {
+  display: grid;
+  place-items: center;
+  min-height: 290px;
+  background: radial-gradient(circle at 50% 45%, #eaf6ff, #a6c8f6);
+}
+
+.puppy-stage svg { width: 225px; }
+
+.guide-content {
+  align-self: center;
+  padding: 30px 35px;
+}
+
+.guide-content h2 {
+  margin: 7px 0;
+  font-size: 27px;
+}
+
+.guide-content p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 15px 0;
+}
+
+.quick button {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--soft);
+  color: var(--text);
+  font-size: 11px;
+}
+
+.guide-answer {
+  min-height: 70px;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-left: 3px solid var(--primary);
+  border-radius: 0 9px 9px 0;
+  background: var(--soft);
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+.small-note {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* SERVICES */
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.service-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+.service-card b { font-size: 13px; }
+
+.service-card p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.faq details {
+  margin: 9px 0;
+  padding: 15px 17px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.faq summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.faq p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.contact-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  padding: 35px;
+  border-radius: 19px;
+  background: linear-gradient(115deg, #13243f, #2052a6);
+  color: white;
+}
+
+.contact-panel h2 {
+  margin: 8px 0;
+  font-size: 27px;
+}
+
+.contact-panel p {
+  color: #cbdcf5;
+  font-size: 12px;
+}
+
+footer {
+  margin-top: 65px;
+  padding: 28px 0 75px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-row p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* OVERLAYS */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: none;
+  background: #06101ed0;
+}
+
+.backdrop.show { display: block; }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 41;
+  display: none;
+  width: min(650px, 94vw);
+  max-height: 89dvh;
+  padding: 20px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translate(-50%, -50%);
+  border-radius: 17px;
+  background: var(--card);
+}
+
+.modal.show { display: block; }
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-head h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--text);
+  font-size: 22px;
+}
+
+.detail-media {
+  height: 240px;
+  overflow: hidden;
+  border-radius: 11px;
+  background: #e7edf4;
+}
+
+.detail-media svg {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-desc {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.spec-list {
+  padding-left: 19px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.spec-list li { margin: 5px 0; }
+
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.config-grid label {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.config-grid select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--card);
+  color: var(--text);
+}
+
+.total-panel {
+  margin: 14px 0;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--soft);
+}
+
+.total-panel strong {
+  display: block;
+  font-size: 27px;
+}
+
+.total-panel small {
+  display: block;
+  color: var(--muted);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.modal-actions > * { flex: 1; }
+
+/* CART */
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 42;
+  display: flex;
+  flex-direction: column;
+  width: min(430px, 100%);
+  background: var(--card);
+  transform: translateX(105%);
+  transition: transform .24s;
+}
+
+.drawer.show { transform: translateX(0); }
+
+.drawer .modal-head {
+  margin: 0;
+  padding: 19px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-body {
+  flex: 1;
+  padding: 5px 19px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-item b {
+  display: block;
+  font-size: 13px;
+}
+
+.cart-item small {
+  display: block;
+  margin: 5px 0;
+  color: var(--muted);
+}
+
+.cart-item strong { font-size: 18px; }
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 9px;
+}
+
+.qty button {
+  min-width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--soft);
+  color: var(--text);
+}
+
+.qty .remove {
+  width: auto;
+  margin-left: auto;
+  padding: 0 9px;
+  font-size: 11px;
+}
+
+.cart-foot {
+  padding: 19px;
+  border-top: 1px solid var(--border);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.cart-total strong { font-size: 23px; }
+
+/* CHAT */
+
+.chat-log {
+  height: 265px;
+  padding: 11px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+.bubble {
+  width: fit-content;
+  max-width: 92%;
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-radius: 11px;
+  background: var(--soft);
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.bubble.user {
+  margin-left: auto;
+  background: var(--primary);
+  color: white;
+}
+
+.chat-form {
+  display: flex;
+  gap: 7px;
+}
+
+.chat-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--card);
+  color: var(--text);
+}
+
+/* REFINED PUPPY FLOAT
+   Mobile: hidden while scrolling.
+   No permanent overlap with product buttons.
+*/
+
+.dog-float {
+  position: fixed;
+  right: 14px;
+  bottom: calc(17px + env(safe-area-inset-bottom));
+  z-index: 25;
+  display: grid;
+  place-items: center;
+  width: 51px;
+  height: 51px;
+  padding: 3px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: #3475df;
+  box-shadow: 0 7px 22px #061f4b45;
+  transition: opacity .2s, transform .2s, visibility .2s;
+}
+
+.dog-float svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dog-float.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(18px);
+}
+
+.toast {
+  position: fixed;
+  bottom: 85px;
+  left: 50%;
+  z-index: 60;
+  max-width: 90vw;
+  padding: 10px 15px;
+  border-radius: 9px;
+  background: #14233b;
+  color: white;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 10px);
+  transition: .2s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+  .navlinks { gap: 12px; }
+  .hero-panel { padding: 35px; }
+}
+
+@media(max-width: 740px) {
+  .container { padding: 0 14px; }
+  .nav { height: 64px; }
+  .navlinks { display: none; }
+
+  .hero-panel {
+    grid-template-columns: 1fr;
+    padding: 32px 25px 18px;
   }
-  .hero h1{font-size:38px}
-  .hero-visual{max-width:360px;margin:12px auto 0;width:100%}
-  .hero-foot{font-size:8px;letter-spacing:.3px}
-  .section{padding-top:54px}
-  .features{grid-template-columns:1fr}
-  .feature{min-height:210px}
-  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-  .product-body{padding:13px}
-  .product-body h3{font-size:12px;min-height:37px}
-  .product-body p{font-size:11px;min-height:36px}
-  .price{font-size:20px}
-  .product-actions{margin-top:12px}
-  .product-actions .btn{font-size:11px;min-height:40px;padding:9px 5px}
-  .guide-panel{grid-template-columns:1fr}
-  .puppy-stage{min-height:215px}
-  .puppy-stage svg{width:160px}
-  .guide-content{padding:26px}
-  .service{grid-template-columns:1fr}
-  .service-item{padding:19px}
-  .contact-panel{display:block;padding:29px}
-  .contact-panel .btn{margin-top:9px}
-  .footer-row{display:block}
-  .modal{padding:17px}
-  .detail-media{height:195px}
+
+  .hero h1 { font-size: 36px; }
+  .hero-art { width: min(340px, 100%); margin: 12px auto 0; }
+
+  .hero-caption {
+    font-size: 8px;
+    letter-spacing: .2px;
+  }
+
+  .section { padding-top: 51px; }
+  .collection-grid { grid-template-columns: 1fr; }
+  .collection-card { min-height: 195px; }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .product-media { aspect-ratio: 1.17; }
+
+  .product-body { padding: 11px; }
+
+  .product-name {
+    min-height: 36px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .product-desc {
+    min-height: 34px;
+    margin-bottom: 9px;
+    font-size: 10px;
+  }
+
+  .price { font-size: 20px; }
+
+  .product-action { margin-top: 10px; }
+
+  .product-action .btn {
+    min-height: 39px;
+    padding: 8px 5px;
+    font-size: 11px;
+  }
+
+  .guide-panel { grid-template-columns: 1fr; }
+  .puppy-stage { min-height: 190px; }
+  .puppy-stage svg { width: 155px; }
+  .guide-content { padding: 24px; }
+
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 18px; }
+
+  .contact-panel {
+    display: block;
+    padding: 27px;
+  }
+
+  .contact-panel .btn { margin-top: 8px; }
+
+  .footer-row { display: block; }
+  .modal { padding: 16px; }
+  .detail-media { height: 190px; }
+
+  .dog-float {
+    right: 10px;
+    bottom: calc(11px + env(safe-area-inset-bottom));
+    width: 45px;
+    height: 45px;
+  }
 }
-@media(max-width:390px){
-  .logo{font-size:21px}
-  .navtools{gap:5px}
-  .navtools .icon-btn{min-width:36px;padding:5px}
-  .hero h1{font-size:33px}
-  .config-grid{grid-template-columns:1fr}
-  .product-body h3{font-size:11px}
-  .product-actions .btn{font-size:10px}
+
+@media(max-width: 370px) {
+  .logo { font-size: 20px; }
+  .navtools { gap: 4px; }
+  .icon-btn { min-width: 35px; padding: 0 5px; }
+  .hero h1 { font-size: 32px; }
+  .product-body { padding: 9px; }
+  .product-name { font-size: 11px; }
+  .config-grid { grid-template-columns: 1fr; }
 }
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{
-    scroll-behavior:auto!important;
-    animation:none!important;
-    transition:none!important;
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
   }
 }
 </style>
@@ -704,7 +1059,7 @@ footer{
       <button class="icon-btn" id="langBtn" aria-label="切换语言">EN</button>
       <button class="icon-btn" id="themeBtn" aria-label="切换主题">☾</button>
       <button class="icon-btn" id="cartBtn" aria-label="购物车">
-        ♧ <span class="cart-badge" id="cartCount">0</span>
+        ♧ <span class="cart-count" id="cartCount">0</span>
       </button>
     </div>
   </nav>
@@ -715,24 +1070,31 @@ footer{
 <section class="container hero" id="home">
   <div class="hero-panel">
     <div class="hero-content">
-      <div class="eyebrow">S.J REFINED EDITION / V5.2</div>
-      <h1 data-t="heroTitle">好科技，<br>让生活更从容。</h1>
+      <div class="eyebrow">S.J REFINED EXPERIENCE / V5.2.1</div>
+
+      <h1 id="heroTitle">
+        好科技，<br>让生活更从容。
+      </h1>
+
       <p data-t="heroDesc">
         从个人显示到智慧生活，以清晰的设计语言，探索科技与日常之间的更多可能。
       </p>
 
-      <div class="hero-buttons">
+      <div class="hero-actions">
         <a class="btn white" href="#shop" data-t="explore">探索产品 ↗</a>
+
         <button class="btn" id="heroDog"
           style="background:#ffffff1c;border:1px solid #ffffff55"
-          data-t="meetDog">认识晶小狗</button>
+          data-t="meetDog">
+          认识晶小狗
+        </button>
       </div>
     </div>
 
-    <div class="hero-visual" id="heroArt" aria-hidden="true"></div>
+    <div class="hero-art" id="heroArt" aria-hidden="true"></div>
   </div>
 
-  <div class="hero-foot">
+  <div class="hero-caption">
     <span>THOUGHTFUL TECHNOLOGY</span>
     <span>DISPLAY / HOME / BUSINESS</span>
   </div>
@@ -743,29 +1105,35 @@ footer{
     <div>
       <div class="eyebrow">VISION COLLECTION</div>
       <h2 data-t="collectionTitle">为每一种视野而设计</h2>
-      <p data-t="collectionDesc">探索 S.J Vision 系列，选择适合自己的显示方案。</p>
+      <p data-t="collectionDesc">
+        探索 S.J Vision 系列，选择适合自己的显示方案。
+      </p>
     </div>
   </div>
 
-  <div class="features">
-    <article class="feature">
+  <div class="collection-grid">
+    <article class="collection-card">
       <div>
         <div class="eyebrow">VISION / 01</div>
         <h3>S.J Vision 27</h3>
-        <p data-t="vision27">灵活配置，轻松融入日常办公与娱乐空间。</p>
-        <button onclick="showDetail(7)" data-t="discover">探索配置 ↗</button>
+        <p data-t="vision27">灵活配置，融入日常办公与娱乐。</p>
+        <button onclick="showDetail(7)" data-t="discover">
+          探索配置 ↗
+        </button>
       </div>
-      <div class="feature-art" id="feature27"></div>
+      <div class="collection-art" id="feature27"></div>
     </article>
 
-    <article class="feature">
+    <article class="collection-card">
       <div>
         <div class="eyebrow">VISION / 02</div>
         <h3>S.J Vision 32 Pro</h3>
-        <p data-t="vision32">更宽阔的画面空间，呈现个性化的大屏体验。</p>
-        <button onclick="showDetail(8)" data-t="discover">探索配置 ↗</button>
+        <p data-t="vision32">更宽阔的画面空间与个性化选择。</p>
+        <button onclick="showDetail(8)" data-t="discover">
+          探索配置 ↗
+        </button>
       </div>
-      <div class="feature-art" id="feature32"></div>
+      <div class="collection-art" id="feature32"></div>
     </article>
   </div>
 </section>
@@ -775,22 +1143,26 @@ footer{
     <div>
       <div class="eyebrow">OUR COLLECTION</div>
       <h2 data-t="productsTitle">精选科技产品</h2>
-      <p data-t="productsDesc">六款产品，聚焦不同的生活与商业场景。</p>
+      <p data-t="productsDesc">
+        六款产品，聚焦不同的生活与商业场景。
+      </p>
     </div>
     <span class="small-note" id="resultCount"></span>
   </div>
 
-  <div class="shop-top">
-    <input id="searchInput" class="search" type="search"
-      placeholder="搜索产品或使用场景……"
-      aria-label="搜索商品">
-  </div>
+  <input
+    id="searchInput"
+    class="search"
+    type="search"
+    placeholder="搜索产品或使用场景……"
+    aria-label="搜索商品"
+  >
 
   <div class="filters" id="filters"></div>
   <div class="product-grid" id="productGrid"></div>
 
-  <p class="small-note" style="margin-top:16px" data-t="imageNote">
-    图片为品牌概念示意，非实物摄影；产品参数、配置组合及价格请以实际确认为准。
+  <p class="image-note" data-t="imageNote">
+    商品视觉为内置概念示意，非真实产品摄影。正式规格、配置组合及价格请以实际确认为准。
   </p>
 </section>
 
@@ -799,7 +1171,9 @@ footer{
     <div>
       <div class="eyebrow">MEET JING · YOUR LITTLE GUIDE</div>
       <h2 data-t="guideTitle">认识晶小狗</h2>
-      <p data-t="guideDesc">可爱一点，聪明一点，让产品选择简单一点。</p>
+      <p data-t="guideDesc">
+        可爱一点，聪明一点，让产品选择简单一点。
+      </p>
     </div>
   </div>
 
@@ -808,7 +1182,9 @@ footer{
 
     <div class="guide-content">
       <div class="eyebrow">S.J SMART COMPANION</div>
+
       <h2 data-t="puppyHello">汪！今天想了解什么？</h2>
+
       <p data-t="puppyIntro">
         告诉我你的用途、预算或喜欢的尺寸，我会根据商城现有商品提供参考建议。
       </p>
@@ -821,25 +1197,27 @@ footer{
       </button>
 
       <p class="small-note" data-t="scriptNote">
-        当前为增强型本地导购，支持有限的连续对话，尚未接入生成式 AI。
+        当前为增强型本地导购，尚未接入生成式 AI。
       </p>
     </div>
   </div>
 </section>
 
 <section class="container section">
-  <div class="service">
-    <div class="service-item">
+  <div class="service-grid">
+    <div class="service-card">
       <b data-t="service1">01 / 简洁浏览</b>
-      <p data-t="service1d">让每款产品的定位与用途一目了然。</p>
+      <p data-t="service1d">清晰了解每款产品的定位与用途。</p>
     </div>
-    <div class="service-item">
+
+    <div class="service-card">
       <b data-t="service2">02 / 灵活配置</b>
       <p data-t="service2d">显示器选项与演示价格同步更新。</p>
     </div>
-    <div class="service-item">
+
+    <div class="service-card">
       <b data-t="service3">03 / 便捷询价</b>
-      <p data-t="service3d">通过 WhatsApp 发送完整商品与配置清单。</p>
+      <p data-t="service3d">通过 WhatsApp 发送完整商品清单。</p>
     </div>
   </div>
 </section>
@@ -851,21 +1229,29 @@ footer{
       <h2 data-t="faqTitle">常见问题</h2>
     </div>
   </div>
+
   <div class="faq" id="faqList"></div>
 </section>
 
 <section class="container section" id="contact">
   <div class="contact-panel">
     <div>
-      <div class="eyebrow" style="color:#9dc4ff">LET'S CONNECT</div>
+      <div class="eyebrow" style="color:#a4c8ff">LET'S CONNECT</div>
       <h2 data-t="contactTitle">发现适合你的科技产品。</h2>
       <p data-t="contactDesc">
         关于商品、配置和正式报价，欢迎通过 WhatsApp 联系 S.J 思晶。
       </p>
     </div>
-    <a class="btn white" href="https://wa.me/8613073086313"
-       target="_blank" rel="noopener noreferrer"
-       data-t="contactBtn">联系 S.J 思晶 ↗</a>
+
+    <a
+      class="btn white"
+      href="https://wa.me/8613073086313"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-t="contactBtn"
+    >
+      联系 S.J 思晶 ↗
+    </a>
   </div>
 </section>
 
@@ -877,8 +1263,9 @@ footer{
       S.J <span>思晶</span>
       <small>SMART LIVING</small>
     </div>
+
     <div>
-      <p>© 2026 S.J 思晶 · Refined Edition V5.2</p>
+      <p>© 2026 S.J 思晶 · Refined Experience V5.2.1</p>
       <p data-t="footerNote">
         演示商城，不支持真实在线支付。产品及价格需正式确认。
       </p>
@@ -886,23 +1273,40 @@ footer{
   </div>
 </footer>
 
-<button class="dog-float" id="floatDog" aria-label="打开晶小狗导购">
+<button
+  class="dog-float"
+  id="floatDog"
+  aria-label="打开晶小狗导购"
+>
   <span id="floatDogArt"></span>
 </button>
 
 <div class="backdrop" id="backdrop"></div>
 
-<section class="modal" id="detailModal"
-  role="dialog" aria-modal="true" aria-hidden="true" aria-label="商品详情">
+<section
+  class="modal"
+  id="detailModal"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-label="商品详情"
+>
   <div class="modal-head">
     <h2 id="detailTitle"></h2>
     <button class="close" data-close aria-label="关闭">×</button>
   </div>
+
   <div id="detailContent"></div>
 </section>
 
-<section class="modal" id="chatModal"
-  role="dialog" aria-modal="true" aria-hidden="true" aria-label="晶小狗">
+<section
+  class="modal"
+  id="chatModal"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-label="晶小狗"
+>
   <div class="modal-head">
     <h2 data-t="chatTitle">晶小狗 · 智能导购</h2>
     <button class="close" data-close aria-label="关闭">×</button>
@@ -912,18 +1316,28 @@ footer{
   <div class="quick" id="chatQuestions"></div>
 
   <form class="chat-form" id="chatForm">
-    <input id="chatInput" maxlength="250" aria-label="聊天内容"
-      placeholder="告诉晶小狗你的需求……">
+    <input
+      id="chatInput"
+      maxlength="250"
+      aria-label="聊天内容"
+      placeholder="告诉晶小狗你的需求……"
+    >
     <button class="btn" type="submit" data-t="send">发送</button>
   </form>
 
   <p class="small-note" data-t="scriptNote">
-    当前为增强型本地导购，支持有限的连续对话，尚未接入生成式 AI。
+    当前为增强型本地导购，尚未接入生成式 AI。
   </p>
 </section>
 
-<aside class="drawer" id="cartDrawer"
-  role="dialog" aria-modal="true" aria-hidden="true" aria-label="购物车">
+<aside
+  class="drawer"
+  id="cartDrawer"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-label="购物车"
+>
   <div class="modal-head">
     <h2 data-t="cartTitle">我的购物车</h2>
     <button class="close" data-close aria-label="关闭">×</button>
@@ -952,1366 +1366,1971 @@ footer{
 <script>
 "use strict";
 
-/* ========================================
-   BASE UTILITIES
-======================================== */
+/* ==========================================
+   UTILITIES
+========================================== */
+
 const $ = id => document.getElementById(id);
+
 const WA_NUMBER = "8613073086313";
 
-const money = number =>
-  "¥" + Number(number).toLocaleString("zh-CN");
+const money = n => "¥" + Number(n).toLocaleString("zh-CN");
 
-function node(tag,className="",content=""){
-  const element=document.createElement(tag);
-  element.className=className;
-  element.textContent=content;
-  return element;
+function node(tag, className = "", content = "") {
+  const el = document.createElement(tag);
+  el.className = className;
+  el.textContent = content;
+  return el;
 }
 
-function getStorage(key){
-  try{return localStorage.getItem(key)}
-  catch(e){return null}
+function getStorage(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
 }
 
-function setStorage(key,value){
-  try{localStorage.setItem(key,value)}
-  catch(e){console.warn("Storage unavailable",e)}
+function setStorage(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {}
 }
 
-function wa(message){
-  return "https://wa.me/"+WA_NUMBER+
-    "?text="+encodeURIComponent(message);
+function wa(message) {
+  return "https://wa.me/" + WA_NUMBER +
+    "?text=" + encodeURIComponent(message);
 }
 
-function openWA(message){
-  const url=wa(message);
-  const link=document.createElement("a");
-  link.href=url;
-  link.target="_blank";
-  link.rel="noopener noreferrer";
+function openWA(message) {
+  const link = document.createElement("a");
+  link.href = wa(message);
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
   document.body.append(link);
   link.click();
   link.remove();
 }
 
-let lang=getStorage("sj5_lang")==="en"?"en":"zh";
-let category="all";
-let cart=[];
-let previousFocus=null;
-let toastTimer=null;
+let lang = getStorage("sj5_lang") === "en" ? "en" : "zh";
+let category = "all";
+let cart = [];
+let previousFocus = null;
+let toastTimer = null;
 
-/* ========================================
+/* ==========================================
    TRANSLATIONS
-======================================== */
-const words={
-zh:{
-  home:"首页",collection:"精选系列",products:"产品中心",
-  guide:"晶小狗",contact:"联系我们",
-  heroTitle:"好科技，<br>让生活更从容。",
-  heroDesc:"从个人显示到智慧生活，以清晰的设计语言，探索科技与日常之间的更多可能。",
-  explore:"探索产品 ↗",meetDog:"认识晶小狗",
-  collectionTitle:"为每一种视野而设计",
-  collectionDesc:"探索 S.J Vision 系列，选择适合自己的显示方案。",
-  vision27:"灵活配置，轻松融入日常办公与娱乐空间。",
-  vision32:"更宽阔的画面空间，呈现个性化的大屏体验。",
-  discover:"探索配置 ↗",
-  productsTitle:"精选科技产品",
-  productsDesc:"六款产品，聚焦不同的生活与商业场景。",
-  imageNote:"图片为品牌概念示意，非实物摄影；产品参数、配置组合及价格请以实际确认为准。",
-  guideTitle:"认识晶小狗",
-  guideDesc:"可爱一点，聪明一点，让产品选择简单一点。",
-  puppyHello:"汪！今天想了解什么？",
-  puppyIntro:"告诉我你的用途、预算或喜欢的尺寸，我会根据商城现有商品提供参考建议。",
-  startChat:"和晶小狗聊聊 ↗",
-  scriptNote:"当前为增强型本地导购，支持有限的连续对话，尚未接入生成式 AI。",
-  service1:"01 / 简洁浏览",
-  service1d:"让每款产品的定位与用途一目了然。",
-  service2:"02 / 灵活配置",
-  service2d:"显示器选项与演示价格同步更新。",
-  service3:"03 / 便捷询价",
-  service3d:"通过 WhatsApp 发送完整商品与配置清单。",
-  faqTitle:"常见问题",
-  contactTitle:"发现适合你的科技产品。",
-  contactDesc:"关于商品、配置和正式报价，欢迎通过 WhatsApp 联系 S.J 思晶。",
-  contactBtn:"联系 S.J 思晶 ↗",
-  footerNote:"演示商城，不支持真实在线支付。产品及价格需正式确认。",
-  chatTitle:"晶小狗 · 智能导购",
-  send:"发送",cartTitle:"我的购物车",
-  subtotal:"演示合计",sendInquiry:"发送完整询价清单 ↗",
-  cartNote:"此操作仅打开 WhatsApp，不会创建正式订单。",
-  search:"搜索产品或使用场景……",
-  all:"全部",monitor:"显示器",homecat:"智慧生活",
-  business:"商用设备",results:"款产品",
-  empty:"没有找到符合条件的产品。",
-  configure:"选择配置",details:"查看详情",
-  add:"加入购物车",from:"起",
-  productInfo:"产品介绍",resolution:"分辨率",
-  refresh:"刷新率",shape:"屏幕形态",stand:"支架",
-  configured:"当前配置演示价格",
-  inquire:"咨询此商品",reference:"演示参考价，实际规格及报价待确认",
-  emptyCart:"购物车还是空的。",
-  remove:"删除",added:"已加入购物车",
-  removed:"已删除商品",max:"单组配置最多添加99件",
-  welcome:"汪！我是晶小狗。告诉我你的用途、预算或喜欢的显示器尺寸，我会根据商城现有数据给你建议。",
-  questions:["2000元左右的游戏显示器","日常办公推荐","27寸和32寸有什么区别？","怎么发送询价？"],
-  faq:[
-    ["这些价格是最终售价吗？","不是。目前显示的是演示参考价，真实型号、供货情况及正式报价需要通过 WhatsApp 确认。"],
-    ["所有显示器配置都能购买吗？","网站配置器用于演示不同选项的价格变化，并不代表所有硬件组合均有对应实物型号。请在购买前核实。"],
-    ["不同配置会在购物车中分开吗？","会。即使是同一款显示器，只要配置不同，就会作为独立条目保存。"],
-    ["网站支持在线支付吗？","目前不支持真实在线支付。你可以将购物车清单通过 WhatsApp 发送给 S.J 思晶进行咨询。"]
-  ]
-},
-en:{
-  home:"Home",collection:"Collection",products:"Products",
-  guide:"Puppy Guide",contact:"Contact",
-  heroTitle:"Thoughtful Tech.<br>Effortless Living.",
-  heroDesc:"From personal displays to smart living, explore technology through a clearer design experience.",
-  explore:"Explore Products ↗",meetDog:"Meet Our Puppy",
-  collectionTitle:"A View for Every Moment",
-  collectionDesc:"Explore S.J Vision and discover a display solution for your needs.",
-  vision27:"Flexible options for everyday work and entertainment.",
-  vision32:"A more expansive view with personalised display options.",
-  discover:"Explore Options ↗",
-  productsTitle:"Selected Technology",
-  productsDesc:"Six products for different living and business scenarios.",
-  imageNote:"Images are brand concept illustrations, not real product photographs. Confirm specifications, combinations and pricing.",
-  guideTitle:"Meet Jing the Puppy",
-  guideDesc:"A little friend to make product selection easier.",
-  puppyHello:"Woof! How can I help?",
-  puppyIntro:"Tell me your use case, budget or preferred screen size for recommendations based on this store.",
-  startChat:"Chat with Puppy ↗",
-  scriptNote:"Enhanced local scripted guide with limited follow-up support. Generative AI is not connected.",
-  service1:"01 / Clear Browsing",
-  service1d:"Understand each product and its intended use.",
-  service2:"02 / Flexible Options",
-  service2d:"Monitor demo prices update with your selections.",
-  service3:"03 / Easy Inquiry",
-  service3d:"Send a full product and configuration list via WhatsApp.",
-  faqTitle:"Frequently Asked Questions",
-  contactTitle:"Find Technology That Fits.",
-  contactDesc:"Contact S.J via WhatsApp for product details and confirmed quotations.",
-  contactBtn:"Contact S.J ↗",
-  footerNote:"Demo storefront. No real online payment. Confirm all products and prices.",
-  chatTitle:"Jing · Smart Product Guide",
-  send:"Send",cartTitle:"My Cart",
-  subtotal:"Demo Subtotal",sendInquiry:"Send Complete Inquiry ↗",
-  cartNote:"Opens WhatsApp only. No formal order is created.",
-  search:"Search products or use cases...",
-  all:"All",monitor:"Monitors",homecat:"Smart Living",
-  business:"Commercial",results:" products",
-  empty:"No matching products found.",
-  configure:"Configure",details:"View Details",
-  add:"Add to Cart",from:"from",
-  productInfo:"Product Information",resolution:"Resolution",
-  refresh:"Refresh Rate",shape:"Screen Shape",stand:"Stand",
-  configured:"Configured Demo Price",
-  inquire:"Inquire About Product",reference:"Demo reference price; confirm actual specifications and quotation",
-  emptyCart:"Your cart is empty.",
-  remove:"Remove",added:"Added to cart",
-  removed:"Product removed",max:"Maximum 99 units per configuration",
-  welcome:"Woof! I'm Jing. Tell me your use case, budget or preferred monitor size and I'll suggest options from this store.",
-  questions:["Gaming monitor around ¥2000","Recommend for office use","27 vs 32 inches?","How do I inquire?"],
-  faq:[
-    ["Are these final prices?","No. All displayed prices are demo references. Please confirm actual models, availability and quotations."],
-    ["Can every monitor configuration be purchased?","The configurator demonstrates price changes. Not all hardware combinations are necessarily available."],
-    ["Are different configurations stored separately?","Yes. Different configurations of the same monitor remain separate cart entries."],
-    ["Can I pay online?","Real online payment is not available. Send your inquiry via WhatsApp."]
-  ]
-}
+========================================== */
+
+const words = {
+  zh: {
+    home: "首页",
+    collection: "精选系列",
+    products: "产品中心",
+    guide: "晶小狗",
+    contact: "联系我们",
+
+    heroTitle: ["好科技，", "让生活更从容。"],
+    heroDesc: "从个人显示到智慧生活，以清晰的设计语言，探索科技与日常之间的更多可能。",
+    explore: "探索产品 ↗",
+    meetDog: "认识晶小狗",
+
+    collectionTitle: "为每一种视野而设计",
+    collectionDesc: "探索 S.J Vision 系列，选择适合自己的显示方案。",
+    vision27: "灵活配置，融入日常办公与娱乐。",
+    vision32: "更宽阔的画面空间与个性化选择。",
+    discover: "探索配置 ↗",
+
+    productsTitle: "精选科技产品",
+    productsDesc: "六款产品，聚焦不同的生活与商业场景。",
+    imageNote: "商品视觉为内置概念示意，非真实产品摄影。正式规格、配置组合及价格请以实际确认为准。",
+
+    guideTitle: "认识晶小狗",
+    guideDesc: "可爱一点，聪明一点，让产品选择简单一点。",
+    puppyHello: "汪！今天想了解什么？",
+    puppyIntro: "告诉我你的用途、预算或喜欢的尺寸，我会根据商城现有商品提供参考建议。",
+    startChat: "和晶小狗聊聊 ↗",
+    scriptNote: "当前为增强型本地导购，尚未接入生成式 AI。",
+
+    service1: "01 / 简洁浏览",
+    service1d: "清晰了解每款产品的定位与用途。",
+    service2: "02 / 灵活配置",
+    service2d: "显示器选项与演示价格同步更新。",
+    service3: "03 / 便捷询价",
+    service3d: "通过 WhatsApp 发送完整商品清单。",
+
+    faqTitle: "常见问题",
+    contactTitle: "发现适合你的科技产品。",
+    contactDesc: "关于商品、配置和正式报价，欢迎通过 WhatsApp 联系 S.J 思晶。",
+    contactBtn: "联系 S.J 思晶 ↗",
+    footerNote: "演示商城，不支持真实在线支付。产品及价格需正式确认。",
+
+    chatTitle: "晶小狗 · 智能导购",
+    send: "发送",
+    cartTitle: "我的购物车",
+    subtotal: "演示合计",
+    sendInquiry: "发送完整询价清单 ↗",
+    cartNote: "此操作仅打开 WhatsApp，不会创建正式订单。",
+
+    search: "搜索产品或使用场景……",
+    all: "全部",
+    monitor: "显示器",
+    homecat: "智慧生活",
+    business: "商用设备",
+    results: "款产品",
+    empty: "没有找到符合条件的产品。",
+
+    configure: "选择配置",
+    details: "查看详情",
+    add: "加入购物车",
+    from: "起",
+    productInfo: "产品介绍",
+    resolution: "分辨率",
+    refresh: "刷新率",
+    shape: "屏幕形态",
+    stand: "支架",
+    configured: "当前配置演示价格",
+    inquire: "咨询此商品",
+    reference: "演示参考价，实际规格及报价待确认",
+
+    emptyCart: "购物车还是空的。",
+    remove: "删除",
+    added: "已加入购物车",
+    removed: "已删除商品",
+    max: "单组配置最多添加99件",
+
+    welcome: "汪！我是晶小狗。告诉我你的用途、预算或喜欢的显示器尺寸，我会根据商城现有数据给你建议。",
+
+    questions: [
+      "2000元左右的游戏显示器",
+      "日常办公推荐",
+      "27寸和32寸有什么区别？",
+      "怎么发送询价？"
+    ],
+
+    faq: [
+      [
+        "这些价格是最终售价吗？",
+        "不是。目前显示的是演示参考价，真实型号、供货情况及正式报价需要通过 WhatsApp 确认。"
+      ],
+      [
+        "所有显示器配置都能购买吗？",
+        "网站配置器用于演示不同选项的价格变化，并不代表所有硬件组合均有对应实物型号。"
+      ],
+      [
+        "不同配置会在购物车中分开吗？",
+        "会。即使是同一款显示器，只要配置不同，就会作为独立条目保存。"
+      ],
+      [
+        "网站支持在线支付吗？",
+        "目前不支持真实在线支付。可以通过 WhatsApp 发送购物车清单进行咨询。"
+      ]
+    ]
+  },
+
+  en: {
+    home: "Home",
+    collection: "Collection",
+    products: "Products",
+    guide: "Puppy Guide",
+    contact: "Contact",
+
+    heroTitle: ["Thoughtful Tech.", "Effortless Living."],
+    heroDesc: "From personal displays to smart living, explore technology through a clearer design experience.",
+    explore: "Explore Products ↗",
+    meetDog: "Meet Our Puppy",
+
+    collectionTitle: "A View for Every Moment",
+    collectionDesc: "Explore S.J Vision and discover a display solution for your needs.",
+    vision27: "Flexible options for everyday work and entertainment.",
+    vision32: "A more expansive view with personalised options.",
+    discover: "Explore Options ↗",
+
+    productsTitle: "Selected Technology",
+    productsDesc: "Six products for living and business scenarios.",
+    imageNote: "Images are built-in concept illustrations, not real product photography. Confirm specifications, combinations and prices.",
+
+    guideTitle: "Meet Jing the Puppy",
+    guideDesc: "A little friend to make product selection easier.",
+    puppyHello: "Woof! How can I help?",
+    puppyIntro: "Tell me your use case, budget or preferred screen size for recommendations based on this store.",
+    startChat: "Chat with Puppy ↗",
+    scriptNote: "Enhanced local scripted guide. Generative AI is not connected.",
+
+    service1: "01 / Clear Browsing",
+    service1d: "Understand each product and its intended use.",
+    service2: "02 / Flexible Options",
+    service2d: "Monitor demo prices update with your selections.",
+    service3: "03 / Easy Inquiry",
+    service3d: "Send your product list via WhatsApp.",
+
+    faqTitle: "Frequently Asked Questions",
+    contactTitle: "Find Technology That Fits.",
+    contactDesc: "Contact S.J via WhatsApp for product details and confirmed quotations.",
+    contactBtn: "Contact S.J ↗",
+    footerNote: "Demo storefront. No real online payment. Confirm all products and prices.",
+
+    chatTitle: "Jing · Smart Product Guide",
+    send: "Send",
+    cartTitle: "My Cart",
+    subtotal: "Demo Subtotal",
+    sendInquiry: "Send Complete Inquiry ↗",
+    cartNote: "Opens WhatsApp only. No formal order is created.",
+
+    search: "Search products or use cases...",
+    all: "All",
+    monitor: "Monitors",
+    homecat: "Smart Living",
+    business: "Commercial",
+    results: " products",
+    empty: "No matching products found.",
+
+    configure: "Configure",
+    details: "View Details",
+    add: "Add to Cart",
+    from: "from",
+    productInfo: "Product Information",
+    resolution: "Resolution",
+    refresh: "Refresh Rate",
+    shape: "Screen Shape",
+    stand: "Stand",
+    configured: "Configured Demo Price",
+    inquire: "Inquire About Product",
+    reference: "Demo reference price; confirm actual specifications and quotation",
+
+    emptyCart: "Your cart is empty.",
+    remove: "Remove",
+    added: "Added to cart",
+    removed: "Product removed",
+    max: "Maximum 99 units per configuration",
+
+    welcome: "Woof! I'm Jing. Tell me your use case, budget or preferred monitor size and I'll suggest options from this store.",
+
+    questions: [
+      "Gaming monitor around ¥2000",
+      "Recommend for office use",
+      "27 vs 32 inches?",
+      "How do I inquire?"
+    ],
+
+    faq: [
+      [
+        "Are these final prices?",
+        "No. All displayed prices are demo references. Please confirm actual models, availability and quotations."
+      ],
+      [
+        "Can every monitor configuration be purchased?",
+        "The configurator demonstrates price changes. Not all hardware combinations are necessarily available."
+      ],
+      [
+        "Are different configurations stored separately?",
+        "Yes. Different configurations of the same monitor remain separate cart entries."
+      ],
+      [
+        "Can I pay online?",
+        "Real online payment is not available. Send your inquiry via WhatsApp."
+      ]
+    ]
+  }
 };
 
-const t=key=>words[lang][key];
+const t = key => words[lang][key];
 
-/* ========================================
-   SIX PRODUCTS ONLY
-======================================== */
-const products=[
-{
- id:7,cat:"monitor",art:"vision27",price:899,configurable:true,
- zh:"S.J Vision 27｜27英寸显示器",
- en:"S.J Vision 27｜27-inch Monitor",
- dz:"面向日常办公、学习和娱乐的灵活显示方案。",
- de:"A flexible display concept for work, study and entertainment.",
- sz:["27英寸显示器产品方案","支持分辨率、刷新率、屏幕形态和支架选项演示","实际接口、面板及可供货型号待确认"],
- se:["27-inch display concept","Resolution, refresh rate, shape and stand options","Actual panel, ports and availability TBD"]
-},
-{
- id:8,cat:"monitor",art:"vision32",price:1299,configurable:true,
- zh:"S.J Vision 32 Pro｜32英寸显示器",
- en:"S.J Vision 32 Pro｜32-inch Monitor",
- dz:"宽阔画面空间，为工作与娱乐带来更多可能。",
- de:"An expansive display concept for work and entertainment.",
- sz:["32英寸显示器产品方案","可预览不同配置组合的演示价格","实际接口、面板及可供货型号待确认"],
- se:["32-inch display concept","Demo pricing for different configurations","Actual panel, ports and availability TBD"]
-},
-{
- id:3,cat:"homecat",art:"tv",price:2999,
- zh:"55英寸智能电视",
- en:"55-inch Smart TV",
- dz:"让家庭娱乐拥有更宽广的观看空间。",
- de:"A wider viewing experience for home entertainment.",
- sz:["55英寸家庭电视产品示例","系统、面板、接口与供货情况待确认"],
- se:["55-inch home TV concept","System, panel, ports and availability TBD"]
-},
-{
- id:4,cat:"business",art:"signage",price:4999,
- zh:"65英寸立式广告机",
- en:"65-inch Floor Signage",
- dz:"适用于商业空间的数字信息展示方案。",
- de:"A digital presentation concept for commercial spaces.",
- sz:["65英寸竖屏广告展示产品示例","亮度、联网及内容管理功能待确认"],
- se:["65-inch portrait signage concept","Brightness, connectivity and management features TBD"]
-},
-{
- id:5,cat:"business",art:"meeting",price:7999,
- zh:"75英寸智能会议机",
- en:"75-inch Meeting Display",
- dz:"为会议展示与团队协作提供宽阔画面。",
- de:"An expansive display concept for meetings and teamwork.",
- sz:["75英寸会议显示产品示例","触控、投屏、系统及配套功能待确认"],
- se:["75-inch meeting display concept","Touch, casting, system and accessories TBD"]
-},
-{
- id:6,cat:"homecat",art:"speaker",price:399,
- zh:"智能桌面音箱",
- en:"Smart Desktop Speaker",
- dz:"以简洁的外观，为桌面增添声音与氛围。",
- de:"A compact audio concept for everyday desk spaces.",
- sz:["桌面音频设备产品示例","连接方式、音频性能及智能功能待确认"],
- se:["Desktop audio concept","Connectivity, audio and smart features TBD"]
-}
+/* ==========================================
+   SIX PRODUCTS
+========================================== */
+
+const products = [
+  {
+    id: 7,
+    cat: "monitor",
+    art: "vision27",
+    price: 899,
+    configurable: true,
+    zh: "S.J Vision 27",
+    en: "S.J Vision 27",
+    dz: "27英寸 · 灵活显示方案",
+    de: "27-inch · Flexible display concept",
+    sz: [
+      "27英寸显示器产品方案",
+      "可预览不同分辨率与刷新率的演示价格",
+      "实际接口、面板与供货型号待确认"
+    ],
+    se: [
+      "27-inch display concept",
+      "Demo resolution and refresh rate options",
+      "Actual panel, ports and availability TBD"
+    ]
+  },
+  {
+    id: 8,
+    cat: "monitor",
+    art: "vision32",
+    price: 1299,
+    configurable: true,
+    zh: "S.J Vision 32 Pro",
+    en: "S.J Vision 32 Pro",
+    dz: "32英寸 · 宽阔画面体验",
+    de: "32-inch · Expansive viewing concept",
+    sz: [
+      "32英寸显示器产品方案",
+      "可预览不同配置组合的演示价格",
+      "实际接口、面板与供货型号待确认"
+    ],
+    se: [
+      "32-inch display concept",
+      "Demo pricing for different configurations",
+      "Actual panel, ports and availability TBD"
+    ]
+  },
+  {
+    id: 3,
+    cat: "homecat",
+    art: "tv",
+    price: 2999,
+    zh: "55英寸智能电视",
+    en: "55-inch Smart TV",
+    dz: "家庭娱乐 · 宽阔观看空间",
+    de: "Home entertainment · Wider viewing",
+    sz: [
+      "55英寸家庭电视产品示例",
+      "系统、面板、接口与供货情况待确认"
+    ],
+    se: [
+      "55-inch home TV concept",
+      "System, panel, ports and availability TBD"
+    ]
+  },
+  {
+    id: 4,
+    cat: "business",
+    art: "signage",
+    price: 4999,
+    zh: "65英寸立式广告机",
+    en: "65-inch Floor Signage",
+    dz: "商业空间 · 数字信息展示",
+    de: "Commercial spaces · Digital signage",
+    sz: [
+      "65英寸竖屏广告展示产品示例",
+      "亮度、联网及内容管理功能待确认"
+    ],
+    se: [
+      "65-inch portrait signage concept",
+      "Brightness, connectivity and management TBD"
+    ]
+  },
+  {
+    id: 5,
+    cat: "business",
+    art: "meeting",
+    price: 7999,
+    zh: "75英寸智能会议机",
+    en: "75-inch Meeting Display",
+    dz: "商务会议 · 团队协作展示",
+    de: "Business meetings · Team presentation",
+    sz: [
+      "75英寸会议显示产品示例",
+      "触控、投屏、系统及配套功能待确认"
+    ],
+    se: [
+      "75-inch meeting display concept",
+      "Touch, casting, system and accessories TBD"
+    ]
+  },
+  {
+    id: 6,
+    cat: "homecat",
+    art: "speaker",
+    price: 399,
+    zh: "智能桌面音箱",
+    en: "Smart Desktop Speaker",
+    dz: "智慧生活 · 简约桌面音频",
+    de: "Smart living · Minimal desktop audio",
+    sz: [
+      "桌面音频设备产品示例",
+      "连接方式、音频性能及智能功能待确认"
+    ],
+    se: [
+      "Desktop audio concept",
+      "Connectivity, audio and smart features TBD"
+    ]
+  }
 ];
 
-const pName=p=>lang==="zh"?p.zh:p.en;
-const pDesc=p=>lang==="zh"?p.dz:p.de;
-const pSpecs=p=>lang==="zh"?p.sz:p.se;
+const pName = p => lang === "zh" ? p.zh : p.en;
+const pDesc = p => lang === "zh" ? p.dz : p.de;
+const pSpecs = p => lang === "zh" ? p.sz : p.se;
 
-/* ========================================
-   SIX DISTINCT PRODUCT VISUALS
-   All SVGs are conceptual illustrations.
-======================================== */
-function art(type){
-const defs=`
-<defs>
- <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
-  <stop stop-color="#a4b8d0"/>
-  <stop offset=".48" stop-color="#435a78"/>
-  <stop offset="1" stop-color="#d6e2ee"/>
- </linearGradient>
- <linearGradient id="screenA" x1="0" y1="0" x2="1" y2="1">
-  <stop stop-color="#0b1b4a"/>
-  <stop offset=".48" stop-color="#326ad1"/>
-  <stop offset="1" stop-color="#b4e7ff"/>
- </linearGradient>
- <linearGradient id="screenB" x1="0" y1="0" x2="1" y2="1">
-  <stop stop-color="#0a0f2f"/>
-  <stop offset=".55" stop-color="#6547be"/>
-  <stop offset="1" stop-color="#ff91aa"/>
- </linearGradient>
- <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
-  <stop stop-color="#d8e8ee"/>
-  <stop offset="1" stop-color="#b5c6d0"/>
- </linearGradient>
- <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-  <stop stop-color="#123c75"/>
-  <stop offset="1" stop-color="#67b6e5"/>
- </linearGradient>
- <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
-  <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#0b2544" flood-opacity=".22"/>
- </filter>
-</defs>`;
+/* ==========================================
+   BUILT-IN PRODUCT CONCEPT ART
+   No external image URLs.
+========================================== */
 
-let scene="";
+function art(type) {
+  const defs = `
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e7edf4"/>
+      <stop offset=".35" stop-color="#71849b"/>
+      <stop offset=".7" stop-color="#34465d"/>
+      <stop offset="1" stop-color="#a8b8ca"/>
+    </linearGradient>
 
-if(type==="vision27"){
-scene=`
-<rect width="400" height="320" fill="#e7eef6"/>
-<circle cx="317" cy="55" r="110" fill="#c8d9ed" opacity=".7"/>
-<path d="M0 259 Q200 218 400 258 V320 H0Z" fill="#d3e0ed"/>
-<ellipse cx="195" cy="273" rx="131" ry="13" fill="#8faac8" opacity=".2"/>
-<g filter="url(#shadow)">
- <path d="M65 64 L324 45 Q332 44 332 53 L332 225 Q332 231 325 232 L65 247 Q57 247 57 239 L57 74 Q57 66 65 64Z" fill="#14243a"/>
- <path d="M64 70 L324 52 L324 224 L64 240Z" fill="url(#screenA)"/>
- <circle cx="245" cy="99" r="68" fill="#8ed5ff" opacity=".26"/>
- <path d="M64 209 Q132 99 201 165 T324 91 L324 224 L64 240Z" fill="#0e376e" opacity=".55"/>
- <path d="M64 224 Q142 119 216 176 T324 125" fill="none" stroke="#b8ebff" stroke-width="3" opacity=".8"/>
- <path d="M64 186 Q150 62 230 118 T324 79" fill="none" stroke="#e0f7ff" stroke-width="2" opacity=".4"/>
- <path d="M190 240 L199 240 L203 262 L186 262Z" fill="url(#metal)"/>
- <path d="M158 269 L229 269 L211 261 L175 261Z" fill="#546b86"/>
-</g>
-<text x="198" y="237" text-anchor="middle" fill="#b4c7e3" font-size="6">S.J</text>
-`;
-}
+    <linearGradient id="screenA" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#071a3b"/>
+      <stop offset=".45" stop-color="#1d62b9"/>
+      <stop offset="1" stop-color="#b1e6fa"/>
+    </linearGradient>
 
-if(type==="vision32"){
-scene=`
-<rect width="400" height="320" fill="#1a2641"/>
-<circle cx="340" cy="45" r="125" fill="#384a83" opacity=".5"/>
-<path d="M0 265 Q200 230 400 270 V320 H0Z" fill="#263650"/>
-<ellipse cx="205" cy="274" rx="143" ry="12" fill="#071021" opacity=".4"/>
-<g filter="url(#shadow)">
- <path d="M38 67 Q202 31 360 70 L348 232 Q203 216 49 235Z" fill="#091323"/>
- <path d="M45 74 Q202 42 353 77 L341 224 Q204 207 56 227Z" fill="url(#screenB)"/>
- <circle cx="269" cy="112" r="71" fill="#ffacc5" opacity=".17"/>
- <path d="M54 200 Q127 93 211 166 T346 100" fill="none" stroke="#ffb1d6" stroke-width="5" opacity=".65"/>
- <path d="M52 214 Q130 125 216 184 T343 132" fill="none" stroke="#a7d0ff" stroke-width="2" opacity=".7"/>
- <path d="M189 229 L211 229 L214 258 L186 258Z" fill="#61738c"/>
- <path d="M151 270 L250 270 L221 258 L180 258Z" fill="#8292a8"/>
-</g>
-<text x="200" y="239" text-anchor="middle" fill="#8d9ab0" font-size="6">S.J</text>
-`;
-}
+    <linearGradient id="screenB" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#090d29"/>
+      <stop offset=".5" stop-color="#4745a2"/>
+      <stop offset="1" stop-color="#e990b9"/>
+    </linearGradient>
 
-if(type==="tv"){
-scene=`
-<rect width="400" height="320" fill="#eee9e2"/>
-<rect y="237" width="400" height="83" fill="#d5c7b6"/>
-<rect x="24" y="36" width="91" height="136" rx="4" fill="#e2d7c7"/>
-<path d="M44 171 V83 Q44 61 64 61 Q84 61 84 83 V171" fill="#d2c2af"/>
-<rect x="296" y="51" width="63" height="112" rx="3" fill="#e2d9ca"/>
-<circle cx="328" cy="105" r="22" fill="#c5d2d0"/>
-<rect x="35" y="226" width="330" height="15" rx="5" fill="#b9a58f"/>
-<rect x="55" y="240" width="12" height="35" fill="#a59078"/>
-<rect x="333" y="240" width="12" height="35" fill="#a59078"/>
-<g filter="url(#shadow)">
- <rect x="64" y="55" width="271" height="158" rx="5" fill="#15233b"/>
- <rect x="70" y="61" width="259" height="146" rx="2" fill="#477ca3"/>
- <circle cx="251" cy="102" r="37" fill="#f2c69d" opacity=".8"/>
- <path d="M70 172 L136 109 L180 155 L231 92 L329 184 V207 H70Z" fill="#284f67"/>
- <path d="M70 188 L131 147 L190 181 L257 135 L329 183 V207 H70Z" fill="#7fa7a3"/>
- <path d="M70 200 L153 165 L213 190 L280 164 L329 195 V207 H70Z" fill="#193f57"/>
- <path d="M188 213 L211 213 L214 225 L185 225Z" fill="#29374c"/>
-</g>
-<path d="M31 224 Q40 208 46 223" stroke="#6c8c6b" stroke-width="5" fill="none"/>
-<path d="M350 225 Q365 197 374 225" stroke="#6c8c6b" stroke-width="5" fill="none"/>
-`;
-}
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffffff"/>
+      <stop offset=".5" stop-color="#c3cfdb"/>
+      <stop offset="1" stop-color="#6b8099"/>
+    </linearGradient>
 
-if(type==="signage"){
-scene=`
-<rect width="400" height="320" fill="#e4e9ee"/>
-<rect x="0" y="0" width="400" height="214" fill="#d9e2e9"/>
-<path d="M0 214 L400 214 L400 320 L0 320Z" fill="#b9c8d5"/>
-<path d="M0 214 L400 214 M0 270 L400 270 M100 214 L40 320 M300 214 L360 320" stroke="#eef4f8" stroke-width="2"/>
-<rect x="30" y="43" width="85" height="142" fill="#c3d3dd"/>
-<rect x="40" y="53" width="65" height="122" fill="#eff4f7"/>
-<path d="M52 157 L52 110 L92 110 L92 157" fill="#9db7c4"/>
-<ellipse cx="214" cy="283" rx="77" ry="10" fill="#5a718a" opacity=".22"/>
-<g filter="url(#shadow)">
- <rect x="159" y="24" width="111" height="236" rx="9" fill="#18283e"/>
- <rect x="166" y="31" width="97" height="221" rx="4" fill="url(#glass)"/>
- <circle cx="215" cy="96" r="40" fill="#a3ddff" opacity=".5"/>
- <path d="M166 190 Q210 114 263 150 V252 H166Z" fill="#183d81" opacity=".65"/>
- <text x="215" y="146" text-anchor="middle" font-size="24" font-weight="900" fill="white">S.J</text>
- <text x="215" y="164" text-anchor="middle" font-size="7" letter-spacing="2" fill="#d7efff">SMART LIVING</text>
- <rect x="207" y="260" width="16" height="13" fill="#536983"/>
- <path d="M182 278 L248 278 L230 271 L200 271Z" fill="#455c78"/>
-</g>
-<path d="M326 231 L341 178 L354 231Z" fill="#6d997d"/>
-<rect x="331" y="230" width="20" height="18" rx="2" fill="#aeb8bd"/>
-`;
-}
+    <linearGradient id="sign" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#123665"/>
+      <stop offset=".6" stop-color="#2979c4"/>
+      <stop offset="1" stop-color="#9dd9ed"/>
+    </linearGradient>
 
-if(type==="meeting"){
-scene=`
-<rect width="400" height="320" fill="#dce6ed"/>
-<rect y="223" width="400" height="97" fill="#b7c9d6"/>
-<rect x="20" y="25" width="69" height="176" fill="#c3d6e2"/>
-<rect x="29" y="35" width="51" height="157" fill="#edf6fa"/>
-<path d="M54 35 V192" stroke="#bfd2dc" stroke-width="3"/>
-<ellipse cx="210" cy="281" rx="141" ry="17" fill="#738ba1" opacity=".2"/>
-<g filter="url(#shadow)">
- <rect x="74" y="40" width="255" height="153" rx="6" fill="#1c2c42"/>
- <rect x="81" y="47" width="241" height="139" rx="2" fill="#f5f9fd"/>
- <rect x="91" y="57" width="105" height="9" rx="3" fill="#2864dc"/>
- <rect x="91" y="79" width="64" height="45" rx="4" fill="#d7e8fc"/>
- <path d="M102 114 L117 96 L130 105 L143 88" fill="none" stroke="#3978d7" stroke-width="4" stroke-linecap="round"/>
- <rect x="166" y="79" width="60" height="45" rx="4" fill="#e4eff9"/>
- <circle cx="196" cy="99" r="11" fill="#85b4ee"/>
- <rect x="237" y="79" width="73" height="45" rx="4" fill="#dbe7f5"/>
- <path d="M247 112 L257 98 L267 104 L283 88 L300 112" fill="none" stroke="#3978d7" stroke-width="3"/>
- <rect x="91" y="138" width="218" height="6" rx="3" fill="#b7cce4"/>
- <rect x="91" y="153" width="151" height="6" rx="3" fill="#d1ddeb"/>
- <rect x="91" y="168" width="184" height="5" rx="3" fill="#d1ddeb"/>
- <rect x="190" y="193" width="18" height="35" fill="#71859a"/>
- <path d="M151 234 L248 234 L223 226 L176 226Z" fill="#596f87"/>
-</g>
-<path d="M84 255 L316 255 L359 291 L43 291Z" fill="#8a9eaf"/>
-<path d="M55 290 L55 310 M346 290 L346 310" stroke="#63798f" stroke-width="8"/>
-`;
-}
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="11" stdDeviation="10"
+        flood-color="#10243e" flood-opacity=".22"/>
+    </filter>
+  </defs>`;
 
-if(type==="speaker"){
-scene=`
-<rect width="400" height="320" fill="#e9e5df"/>
-<rect x="0" y="205" width="400" height="115" fill="#d0bba6"/>
-<rect x="0" y="206" width="400" height="10" fill="#b99f86"/>
-<circle cx="327" cy="69" r="61" fill="#f6eee4" opacity=".9"/>
-<path d="M36 202 L36 111 L52 111 L52 202" fill="#a9b7ad"/>
-<path d="M44 118 Q14 96 23 71 Q48 79 44 118Z" fill="#77957c"/>
-<path d="M45 135 Q80 97 82 72 Q43 83 45 135Z" fill="#86a58a"/>
-<path d="M45 151 Q9 133 6 109 Q39 110 45 151Z" fill="#6c9078"/>
-<rect x="27" y="190" width="34" height="22" rx="4" fill="#e8e5dd"/>
-<ellipse cx="210" cy="230" rx="88" ry="11" fill="#6d584b" opacity=".17"/>
-<g filter="url(#shadow)">
- <rect x="147" y="75" width="126" height="145" rx="36" fill="#263b55"/>
- <rect x="154" y="81" width="112" height="132" rx="31" fill="#3a536f"/>
- <circle cx="210" cy="139" r="43" fill="#14253a"/>
- <circle cx="210" cy="139" r="35" fill="#5e7794"/>
- <circle cx="210" cy="139" r="25" fill="#20344d"/>
- <circle cx="210" cy="139" r="11" fill="#789bbd"/>
- <circle cx="210" cy="192" r="3" fill="#a9d4ff"/>
- <text x="210" y="95" text-anchor="middle" fill="#d2e6fa" font-size="8" font-weight="800">S.J</text>
-</g>
-<rect x="292" y="179" width="44" height="32" rx="5" fill="#f5f0e8"/>
-<path d="M336 184 Q352 184 348 196 Q346 203 336 202" fill="none" stroke="#f5f0e8" stroke-width="6"/>
-`;
-}
+  let scene = "";
 
-return `
-<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg"
- role="img" aria-label="S.J conceptual product illustration">
- ${defs}${scene}
-</svg>`;
-}
+  if (type === "vision27") {
+    scene = `
+      <rect width="400" height="320" fill="#e8eef4"/>
+      <circle cx="315" cy="46" r="125" fill="#d4e1ed"/>
+      <path d="M0 256 Q180 227 400 254 V320 H0Z" fill="#d8e2ec"/>
+      <ellipse cx="202" cy="275" rx="132" ry="12" fill="#8299b3" opacity=".19"/>
 
-/* ========================================
-   BRAND PUPPY
-======================================== */
-function puppySVG(){
-return `
-<svg viewBox="0 0 230 230" xmlns="http://www.w3.org/2000/svg"
- role="img" aria-label="S.J white and blue puppy">
- <ellipse cx="115" cy="211" rx="64" ry="9" fill="#4677b5" opacity=".17"/>
- <path d="M78 157 Q56 168 68 201 Q115 221 162 201 Q174 168 151 157Z"
-  fill="#f9fcff" stroke="#b9d7fa" stroke-width="3"/>
- <path d="M65 63 Q35 34 24 74 Q18 114 55 121 L76 94Z"
-  fill="#3979d5" stroke="#1d5bb6" stroke-width="3"/>
- <path d="M165 63 Q195 34 206 74 Q212 114 175 121 L154 94Z"
-  fill="#3979d5" stroke="#1d5bb6" stroke-width="3"/>
- <path d="M57 76 Q68 36 115 38 Q162 36 173 76
- Q190 117 167 149 Q149 170 115 170 Q81 170 63 149 Q40 117 57 76Z"
- fill="#fcfeff" stroke="#b9d7fa" stroke-width="3"/>
- <ellipse cx="82" cy="110" rx="10" ry="13" fill="#243e63"/>
- <ellipse cx="148" cy="110" rx="10" ry="13" fill="#243e63"/>
- <circle cx="85" cy="106" r="3" fill="white"/>
- <circle cx="151" cy="106" r="3" fill="white"/>
- <ellipse cx="115" cy="133" rx="12" ry="8" fill="#253e5c"/>
- <path d="M115 140 Q101 154 93 143 M115 140 Q129 154 137 143"
-  fill="none" stroke="#405775" stroke-width="3" stroke-linecap="round"/>
- <ellipse cx="74" cy="135" rx="11" ry="6" fill="#ffbdc9" opacity=".6"/>
- <ellipse cx="156" cy="135" rx="11" ry="6" fill="#ffbdc9" opacity=".6"/>
- <path d="M52 91 Q45 52 75 46 M178 91 Q185 52 155 46"
-  fill="none" stroke="#1c58b8" stroke-width="7" stroke-linecap="round"/>
- <rect x="43" y="86" width="12" height="31" rx="6" fill="#1c58b8"/>
- <rect x="175" y="86" width="12" height="31" rx="6" fill="#1c58b8"/>
- <path d="M89 171 Q115 182 141 171" fill="none"
-  stroke="#3979d5" stroke-width="8" stroke-linecap="round"/>
- <circle cx="115" cy="179" r="14" fill="#245bd6" stroke="#fff" stroke-width="3"/>
- <text x="115" y="183" text-anchor="middle" font-size="9"
-  font-weight="900" fill="white">S.J</text>
- <ellipse cx="81" cy="201" rx="17" ry="9" fill="#fff" stroke="#b9d7fa" stroke-width="2"/>
- <ellipse cx="149" cy="201" rx="17" ry="9" fill="#fff" stroke="#b9d7fa" stroke-width="2"/>
-</svg>`;
-}
+      <g filter="url(#shadow)">
+        <path d="M64 67 L321 48 Q329 47 329 55 L329 224
+          Q329 231 322 232 L64 247 Q57 247 57 240 L57 75
+          Q57 69 64 67Z" fill="#142237"/>
 
-function heroSVG(){
-return `
-<svg viewBox="0 0 460 330" xmlns="http://www.w3.org/2000/svg">
-<defs>
- <linearGradient id="hs" x1="0" y1="0" x2="1" y2="1">
-  <stop stop-color="#132b62"/>
-  <stop offset=".5" stop-color="#4788e4"/>
-  <stop offset="1" stop-color="#b4eaff"/>
- </linearGradient>
- <filter id="drop">
-  <feDropShadow dx="0" dy="18" stdDeviation="13" flood-opacity=".32"/>
- </filter>
-</defs>
-<ellipse cx="228" cy="294" rx="181" ry="13" fill="#05132b" opacity=".4"/>
-<g filter="url(#drop)">
- <rect x="34" y="28" width="392" height="241" rx="12" fill="#071426"/>
- <rect x="42" y="36" width="376" height="224" rx="5" fill="url(#hs)"/>
- <circle cx="322" cy="103" r="80" fill="#b8e9ff" opacity=".16"/>
- <path d="M42 226 Q147 64 241 178 T418 96 L418 260 L42 260Z"
-  fill="#102f70" opacity=".48"/>
- <path d="M42 240 Q150 106 260 196 T418 127"
-  fill="none" stroke="#d0efff" stroke-width="5" opacity=".65"/>
- <path d="M42 181 Q133 37 222 132 T418 61"
-  fill="none" stroke="#d1f1ff" stroke-width="2" opacity=".35"/>
- <text x="230" y="247" text-anchor="middle" fill="#d5ebff"
-  font-size="8" letter-spacing="4">S.J VISION</text>
- <rect x="215" y="269" width="30" height="16" rx="2" fill="#8b9cb4"/>
- <path d="M174 292 L286 292 L267 283 L193 283Z" fill="#9cacc1"/>
-</g>
-</svg>`;
-}
+        <path d="M64 73 L321 55 L321 224 L64 240Z" fill="url(#screenA)"/>
 
-function renderArt(){
- $("heroArt").innerHTML=heroSVG();
- $("feature27").innerHTML=art("vision27");
- $("feature32").innerHTML=art("vision32");
- $("puppyStage").innerHTML=puppySVG();
- $("floatDogArt").innerHTML=puppySVG();
-}
+        <circle cx="245" cy="102" r="73" fill="#b6ebff" opacity=".23"/>
 
-/* ========================================
-   CONFIGURATION & PRICING
-======================================== */
-const configOptions=[
- {key:"resolution",values:[
-  ["1080P",0],["2K (2560×1440)",300],["4K (3840×2160)",800]
- ]},
- {key:"refresh",values:[
-  ["60Hz",0],["75Hz",80],["144Hz",350],["165Hz",500]
- ]},
- {key:"shape",values:[
-  ["flat",0],["curved",250]
- ]},
- {key:"stand",values:[
-  ["standard",0],["adjustable",150]
- ]}
-];
+        <path d="M64 212 Q132 105 198 163 T321 96
+          L321 224 L64 240Z" fill="#103e79" opacity=".6"/>
 
-function optionName(value){
- const labels={
-  flat:["直面屏","Flat"],
-  curved:["曲面屏","Curved"],
-  standard:["标准支架","Standard Stand"],
-  adjustable:["升降旋转支架","Adjustable Stand"]
- };
- return labels[value]?
-  labels[value][lang==="zh"?0:1]:value;
-}
+        <path d="M64 221 Q142 117 216 176 T321 126"
+          fill="none" stroke="#c6efff" stroke-width="3" opacity=".8"/>
 
-function defaultConfig(){
- return {resolution:0,refresh:0,shape:0,stand:0};
-}
+        <path d="M64 185 Q150 66 230 116 T321 80"
+          fill="none" stroke="#e0f8ff" stroke-width="2" opacity=".45"/>
 
-function validConfig(c){
- return !!c && configOptions.every(o=>
-  Number.isInteger(c[o.key]) &&
-  c[o.key]>=0 &&
-  c[o.key]<o.values.length
- );
-}
+        <path d="M187 241 L200 240 L204 264 L184 264Z" fill="url(#metal)"/>
+        <path d="M153 271 L233 271 L210 262 L177 262Z" fill="#586c83"/>
+      </g>
 
-function configText(c){
- return configOptions.map(o=>
-  optionName(o.values[c[o.key]][0])
- ).join(" · ");
-}
-
-function priceOf(p,c){
- if(!p.configurable||!validConfig(c))return p.price;
- return p.price+configOptions.reduce(
-  (sum,o)=>sum+o.values[c[o.key]][1],0
- );
-}
-
-function itemKey(id,c){
- return c?id+"-"+configOptions.map(o=>c[o.key]).join("-"):String(id);
-}
-
-/* ========================================
-   PRODUCT GRID
-======================================== */
-function renderProducts(){
- const search=$("searchInput").value.trim().toLowerCase();
- const filters=$("filters");
- filters.replaceChildren();
-
- ["all","monitor","homecat","business"].forEach(key=>{
-  const b=node("button","filter"+(category===key?" active":""),t(key));
-  b.setAttribute("aria-pressed",String(category===key));
-  b.onclick=()=>{category=key;renderProducts()};
-  filters.append(b);
- });
-
- const filtered=products.filter(p=>{
-  const text=[
-   p.zh,p.en,p.dz,p.de,...p.sz,...p.se
-  ].join(" ").toLowerCase();
-  return (category==="all"||p.cat===category)&&text.includes(search);
- });
-
- $("resultCount").textContent=filtered.length+t("results");
- const grid=$("productGrid");
- grid.replaceChildren();
-
- if(!filtered.length){
-  grid.append(node("div","empty",t("empty")));
-  return;
- }
-
- filtered.forEach(p=>{
-  const card=node("article","product");
-  const media=node("div","product-media");
-  media.innerHTML=art(p.art);
-  media.append(node("span","tag",t(p.cat)));
-
-  const body=node("div","product-body");
-  body.append(
-   node("h3","",pName(p)),
-   node("p","",pDesc(p))
-  );
-
-  const price=node("div","price",money(p.price));
-  if(p.configurable)price.append(node("small",""," "+t("from")));
-
-  const actions=node("div","product-actions");
-  const main=node("button","btn",p.configurable?t("configure"):t("details"));
-  main.onclick=()=>showDetail(p.id);
-  actions.append(main);
-
-  if(!p.configurable){
-   const add=node("button","btn ghost",t("add"));
-   add.onclick=()=>addCart(p.id,null);
-   actions.append(add);
+      <text x="194" y="238" text-anchor="middle"
+        fill="#b9cce5" font-size="6">S.J</text>
+    `;
   }
 
-  body.append(price,actions);
-  card.append(media,body);
-  grid.append(card);
- });
+  if (type === "vision32") {
+    scene = `
+      <rect width="400" height="320" fill="#202b43"/>
+      <circle cx="333" cy="42" r="135" fill="#394a76" opacity=".55"/>
+      <path d="M0 263 Q200 230 400 268 V320 H0Z" fill="#2a3851"/>
+      <ellipse cx="200" cy="275" rx="145" ry="12" fill="#07101e" opacity=".4"/>
+
+      <g filter="url(#shadow)">
+        <path d="M39 69 Q200 33 360 70
+          L348 232 Q203 214 50 235Z" fill="#0a1424"/>
+
+        <path d="M46 76 Q201 43 352 78
+          L341 223 Q204 205 57 226Z" fill="url(#screenB)"/>
+
+        <circle cx="264" cy="106" r="73" fill="#ffb7d5" opacity=".17"/>
+
+        <path d="M53 200 Q129 95 211 164 T346 99"
+          fill="none" stroke="#ffb8dc" stroke-width="5" opacity=".68"/>
+
+        <path d="M54 215 Q131 126 215 185 T343 132"
+          fill="none" stroke="#acd2ff" stroke-width="2" opacity=".8"/>
+
+        <path d="M188 229 L211 229 L215 259 L184 259Z" fill="#63748c"/>
+        <path d="M148 270 L253 270 L221 258 L179 258Z" fill="#8a99ac"/>
+      </g>
+
+      <text x="201" y="238" text-anchor="middle"
+        fill="#aab8cc" font-size="6">S.J</text>
+    `;
+  }
+
+  if (type === "tv") {
+    scene = `
+      <rect width="400" height="320" fill="#eee9e1"/>
+      <rect y="232" width="400" height="88" fill="#d5c7b6"/>
+
+      <rect x="21" y="32" width="88" height="153" rx="3" fill="#dfd4c5"/>
+      <path d="M42 184 V82 Q42 60 64 60 Q86 60 86 82 V184"
+        fill="#c7b9a7"/>
+
+      <rect x="302" y="43" width="63" height="128" rx="3" fill="#e1d7c8"/>
+      <circle cx="333" cy="104" r="22" fill="#becfcd"/>
+
+      <rect x="34" y="225" width="333" height="15" rx="4" fill="#b8a38e"/>
+      <rect x="55" y="240" width="12" height="35" fill="#a28c74"/>
+      <rect x="334" y="240" width="12" height="35" fill="#a28c74"/>
+
+      <g filter="url(#shadow)">
+        <rect x="61" y="54" width="277" height="160" rx="5" fill="#152236"/>
+        <rect x="67" y="60" width="265" height="148" rx="2" fill="#497d9f"/>
+
+        <circle cx="256" cy="102" r="38" fill="#f4c99e" opacity=".85"/>
+
+        <path d="M67 174 L136 106 L180 153 L235 89 L332 182
+          V208 H67Z" fill="#284e66"/>
+
+        <path d="M67 190 L130 145 L191 180 L261 133 L332 182
+          V208 H67Z" fill="#80a7a0"/>
+
+        <path d="M67 202 L155 164 L214 191 L282 164 L332 196
+          V208 H67Z" fill="#183e55"/>
+
+        <path d="M188 214 L212 214 L215 226 L185 226Z" fill="#35485d"/>
+      </g>
+
+      <path d="M29 224 Q38 208 47 224" stroke="#698b6a"
+        stroke-width="5" fill="none"/>
+
+      <path d="M350 225 Q365 197 376 225" stroke="#698b6a"
+        stroke-width="5" fill="none"/>
+    `;
+  }
+
+  if (type === "signage") {
+    scene = `
+      <rect width="400" height="320" fill="#e1e8ee"/>
+      <rect y="215" width="400" height="105" fill="#becbd5"/>
+
+      <path d="M0 215 H400 M0 268 H400 M98 215 L40 320
+        M300 215 L359 320"
+        stroke="#f4f7f9" stroke-width="2"/>
+
+      <rect x="27" y="39" width="91" height="148" fill="#c3d4df"/>
+      <rect x="38" y="49" width="69" height="128" fill="#eef5f8"/>
+
+      <ellipse cx="215" cy="283" rx="80" ry="10"
+        fill="#637c96" opacity=".22"/>
+
+      <g filter="url(#shadow)">
+        <rect x="157" y="21" width="116" height="241" rx="9" fill="#17273c"/>
+        <rect x="165" y="29" width="100" height="225" rx="4" fill="url(#sign)"/>
+
+        <circle cx="216" cy="94" r="43" fill="#b2e7fa" opacity=".37"/>
+
+        <path d="M165 192 Q209 116 265 150 V254 H165Z"
+          fill="#153d7d" opacity=".66"/>
+
+        <text x="215" y="145" text-anchor="middle"
+          font-size="25" font-weight="900" fill="white">S.J</text>
+
+        <text x="215" y="163" text-anchor="middle"
+          font-size="7" letter-spacing="2" fill="#e0f3ff">
+          SMART LIVING
+        </text>
+
+        <rect x="207" y="262" width="17" height="13" fill="#566a82"/>
+        <path d="M181 279 L250 279 L230 272 L201 272Z" fill="#455a74"/>
+      </g>
+
+      <path d="M327 232 L340 181 L354 232Z" fill="#73977e"/>
+      <rect x="330" y="231" width="24" height="18" rx="2" fill="#aab7bb"/>
+    `;
+  }
+
+  if (type === "meeting") {
+    scene = `
+      <rect width="400" height="320" fill="#dce6ed"/>
+      <rect y="222" width="400" height="98" fill="#bdcbd6"/>
+
+      <rect x="19" y="25" width="70" height="177" fill="#c2d5e1"/>
+      <rect x="28" y="35" width="52" height="157" fill="#eff7fa"/>
+      <path d="M54 35 V192" stroke="#bfd1dd" stroke-width="3"/>
+
+      <ellipse cx="207" cy="281" rx="143" ry="16"
+        fill="#708ba2" opacity=".2"/>
+
+      <g filter="url(#shadow)">
+        <rect x="73" y="39" width="257" height="155" rx="6" fill="#1a2a40"/>
+        <rect x="80" y="46" width="243" height="141" rx="2" fill="#f6f9fd"/>
+
+        <rect x="90" y="57" width="105" height="9" rx="3" fill="#2864d9"/>
+
+        <rect x="90" y="78" width="64" height="46" rx="4" fill="#d7e8fc"/>
+        <path d="M101 114 L116 96 L129 105 L142 88"
+          fill="none" stroke="#3978d7" stroke-width="4"/>
+
+        <rect x="165" y="78" width="61" height="46" rx="4" fill="#e4eff9"/>
+        <circle cx="195" cy="100" r="11" fill="#85b4ee"/>
+
+        <rect x="237" y="78" width="73" height="46" rx="4" fill="#dbe7f5"/>
+        <path d="M247 112 L257 98 L267 104 L283 88 L300 112"
+          fill="none" stroke="#3978d7" stroke-width="3"/>
+
+        <rect x="90" y="138" width="220" height="6" rx="3" fill="#b7cce4"/>
+        <rect x="90" y="153" width="151" height="6" rx="3" fill="#d1ddeb"/>
+        <rect x="90" y="168" width="184" height="5" rx="3" fill="#d1ddeb"/>
+
+        <rect x="190" y="194" width="19" height="34" fill="#71859a"/>
+        <path d="M150 234 L249 234 L223 226 L176 226Z" fill="#596f87"/>
+      </g>
+
+      <path d="M84 255 L316 255 L360 291 L42 291Z" fill="#8c9faf"/>
+      <path d="M55 290 V310 M347 290 V310"
+        stroke="#64798f" stroke-width="8"/>
+    `;
+  }
+
+  if (type === "speaker") {
+    scene = `
+      <rect width="400" height="320" fill="#eae6df"/>
+      <rect y="205" width="400" height="115" fill="#d2bca7"/>
+      <rect y="205" width="400" height="10" fill="#b99e84"/>
+
+      <circle cx="327" cy="68" r="61" fill="#f7eee3" opacity=".9"/>
+
+      <path d="M43 202 V112" stroke="#789782" stroke-width="5"/>
+      <path d="M44 118 Q14 96 23 71 Q48 79 44 118Z" fill="#78977f"/>
+      <path d="M45 135 Q80 97 82 72 Q43 83 45 135Z" fill="#86a58a"/>
+      <path d="M45 151 Q9 133 6 109 Q39 110 45 151Z" fill="#6c9078"/>
+
+      <rect x="27" y="190" width="34" height="22" rx="4" fill="#e8e5dd"/>
+
+      <ellipse cx="210" cy="230" rx="88" ry="11"
+        fill="#6d584b" opacity=".17"/>
+
+      <g filter="url(#shadow)">
+        <rect x="147" y="74" width="126" height="146" rx="36" fill="#253b54"/>
+        <rect x="154" y="81" width="112" height="132" rx="31" fill="#3a536f"/>
+
+        <circle cx="210" cy="139" r="43" fill="#14253a"/>
+        <circle cx="210" cy="139" r="35" fill="#5e7794"/>
+        <circle cx="210" cy="139" r="25" fill="#20344d"/>
+        <circle cx="210" cy="139" r="11" fill="#789bbd"/>
+
+        <circle cx="210" cy="192" r="3" fill="#a9d4ff"/>
+
+        <text x="210" y="95" text-anchor="middle"
+          fill="#d2e6fa" font-size="8" font-weight="800">S.J</text>
+      </g>
+
+      <rect x="292" y="179" width="44" height="32" rx="5" fill="#f5f0e8"/>
+      <path d="M336 184 Q352 184 348 196 Q346 203 336 202"
+        fill="none" stroke="#f5f0e8" stroke-width="6"/>
+    `;
+  }
+
+  return `
+    <svg viewBox="0 0 400 320"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="S.J product concept illustration">
+      ${defs}
+      ${scene}
+    </svg>
+  `;
 }
 
-/* ========================================
-   MODALS
-======================================== */
-function closeAll(restore=true){
- $("backdrop").classList.remove("show");
- ["detailModal","chatModal","cartDrawer"].forEach(id=>{
-  $(id).classList.remove("show");
-  $(id).setAttribute("aria-hidden","true");
- });
- document.body.classList.remove("lock");
+/* ==========================================
+   PUPPY ART
+========================================== */
 
- if(restore&&previousFocus&&previousFocus.isConnected){
-  previousFocus.focus();
- }
+function puppySVG() {
+  return `
+  <svg viewBox="0 0 230 230"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="S.J puppy mascot">
+
+    <ellipse cx="115" cy="211" rx="64" ry="9"
+      fill="#4677b5" opacity=".17"/>
+
+    <path d="M78 157 Q56 168 68 201
+      Q115 221 162 201 Q174 168 151 157Z"
+      fill="#f9fcff" stroke="#b9d7fa" stroke-width="3"/>
+
+    <path d="M65 63 Q35 34 24 74 Q18 114 55 121 L76 94Z"
+      fill="#3979d5" stroke="#1d5bb6" stroke-width="3"/>
+
+    <path d="M165 63 Q195 34 206 74 Q212 114 175 121 L154 94Z"
+      fill="#3979d5" stroke="#1d5bb6" stroke-width="3"/>
+
+    <path d="M57 76 Q68 36 115 38 Q162 36 173 76
+      Q190 117 167 149 Q149 170 115 170
+      Q81 170 63 149 Q40 117 57 76Z"
+      fill="#fcfeff" stroke="#b9d7fa" stroke-width="3"/>
+
+    <ellipse cx="82" cy="110" rx="10" ry="13" fill="#243e63"/>
+    <ellipse cx="148" cy="110" rx="10" ry="13" fill="#243e63"/>
+
+    <circle cx="85" cy="106" r="3" fill="white"/>
+    <circle cx="151" cy="106" r="3" fill="white"/>
+
+    <ellipse cx="115" cy="133" rx="12" ry="8" fill="#253e5c"/>
+
+    <path d="M115 140 Q101 154 93 143
+      M115 140 Q129 154 137 143"
+      fill="none" stroke="#405775" stroke-width="3"
+      stroke-linecap="round"/>
+
+    <ellipse cx="74" cy="135" rx="11" ry="6"
+      fill="#ffbdc9" opacity=".6"/>
+
+    <ellipse cx="156" cy="135" rx="11" ry="6"
+      fill="#ffbdc9" opacity=".6"/>
+
+    <path d="M52 91 Q45 52 75 46
+      M178 91 Q185 52 155 46"
+      fill="none" stroke="#1c58b8" stroke-width="7"
+      stroke-linecap="round"/>
+
+    <rect x="43" y="86" width="12" height="31"
+      rx="6" fill="#1c58b8"/>
+
+    <rect x="175" y="86" width="12" height="31"
+      rx="6" fill="#1c58b8"/>
+
+    <path d="M89 171 Q115 182 141 171"
+      fill="none" stroke="#3979d5" stroke-width="8"
+      stroke-linecap="round"/>
+
+    <circle cx="115" cy="179" r="14"
+      fill="#245bd6" stroke="#fff" stroke-width="3"/>
+
+    <text x="115" y="183" text-anchor="middle"
+      font-size="9" font-weight="900" fill="white">S.J</text>
+
+    <ellipse cx="81" cy="201" rx="17" ry="9"
+      fill="#fff" stroke="#b9d7fa" stroke-width="2"/>
+
+    <ellipse cx="149" cy="201" rx="17" ry="9"
+      fill="#fff" stroke="#b9d7fa" stroke-width="2"/>
+  </svg>`;
 }
 
-function openModal(id){
- closeAll(false);
- previousFocus=document.activeElement;
- $("backdrop").classList.add("show");
- $(id).classList.add("show");
- $(id).setAttribute("aria-hidden","false");
- document.body.classList.add("lock");
- $(id).querySelector(".close").focus();
+function heroSVG() {
+  return `
+  <svg viewBox="0 0 460 330" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="hs" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#132b62"/>
+        <stop offset=".5" stop-color="#4788e4"/>
+        <stop offset="1" stop-color="#b4eaff"/>
+      </linearGradient>
+
+      <filter id="drop">
+        <feDropShadow dx="0" dy="18" stdDeviation="13"
+          flood-opacity=".32"/>
+      </filter>
+    </defs>
+
+    <ellipse cx="228" cy="294" rx="181" ry="13"
+      fill="#05132b" opacity=".4"/>
+
+    <g filter="url(#drop)">
+      <rect x="34" y="28" width="392" height="241"
+        rx="12" fill="#071426"/>
+
+      <rect x="42" y="36" width="376" height="224"
+        rx="5" fill="url(#hs)"/>
+
+      <circle cx="322" cy="103" r="80"
+        fill="#b8e9ff" opacity=".16"/>
+
+      <path d="M42 226 Q147 64 241 178 T418 96
+        L418 260 L42 260Z"
+        fill="#102f70" opacity=".48"/>
+
+      <path d="M42 240 Q150 106 260 196 T418 127"
+        fill="none" stroke="#d0efff" stroke-width="5"
+        opacity=".65"/>
+
+      <path d="M42 181 Q133 37 222 132 T418 61"
+        fill="none" stroke="#d1f1ff" stroke-width="2"
+        opacity=".35"/>
+
+      <text x="230" y="247" text-anchor="middle"
+        fill="#d5ebff" font-size="8" letter-spacing="4">
+        S.J VISION
+      </text>
+
+      <rect x="215" y="269" width="30" height="16"
+        rx="2" fill="#8b9cb4"/>
+
+      <path d="M174 292 L286 292 L267 283 L193 283Z"
+        fill="#9cacc1"/>
+    </g>
+  </svg>`;
 }
 
-function showDetail(id){
- const p=products.find(x=>x.id===id);
- if(!p)return;
+function renderArt() {
+  $("heroArt").innerHTML = heroSVG();
+  $("feature27").innerHTML = art("vision27");
+  $("feature32").innerHTML = art("vision32");
+  $("puppyStage").innerHTML = puppySVG();
+  $("floatDogArt").innerHTML = puppySVG();
+}
 
- $("detailTitle").textContent=pName(p);
- const box=$("detailContent");
- box.replaceChildren();
+/* ==========================================
+   CONFIGURATION
+========================================== */
 
- const media=node("div","detail-media");
- media.innerHTML=art(p.art);
+const configOptions = [
+  {
+    key: "resolution",
+    values: [
+      ["1080P", 0],
+      ["2K (2560×1440)", 300],
+      ["4K (3840×2160)", 800]
+    ]
+  },
+  {
+    key: "refresh",
+    values: [
+      ["60Hz", 0],
+      ["75Hz", 80],
+      ["144Hz", 350],
+      ["165Hz", 500]
+    ]
+  },
+  {
+    key: "shape",
+    values: [
+      ["flat", 0],
+      ["curved", 250]
+    ]
+  },
+  {
+    key: "stand",
+    values: [
+      ["standard", 0],
+      ["adjustable", 150]
+    ]
+  }
+];
 
- box.append(
-  media,
-  node("p","detail-desc",pDesc(p)),
-  node("h3","",t("productInfo"))
- );
-
- const list=node("ul","spec-list");
- pSpecs(p).forEach(s=>list.append(node("li","",s)));
- box.append(list);
-
- if(!p.configurable){
-  box.append(
-   node("div","price",money(p.price)),
-   node("p","small-note",t("reference"))
-  );
-
-  const actions=node("div","modal-actions");
-  const add=node("button","btn",t("add"));
-  add.onclick=()=>{
-   addCart(p.id,null);
-   closeAll();
+function optionName(value) {
+  const labels = {
+    flat: ["直面屏", "Flat"],
+    curved: ["曲面屏", "Curved"],
+    standard: ["标准支架", "Standard Stand"],
+    adjustable: ["升降旋转支架", "Adjustable Stand"]
   };
 
-  const inquiry=node("a","btn ghost",t("inquire"));
-  inquiry.href=wa(
-   (lang==="zh"
-    ?"你好，请确认以下商品的实际规格、供货情况及报价：\n"
-    :"Hello, please confirm the specifications, availability and price of:\n"
-   )+pName(p)
+  return labels[value]
+    ? labels[value][lang === "zh" ? 0 : 1]
+    : value;
+}
+
+function defaultConfig() {
+  return {
+    resolution: 0,
+    refresh: 0,
+    shape: 0,
+    stand: 0
+  };
+}
+
+function validConfig(c) {
+  return !!c && configOptions.every(o =>
+    Number.isInteger(c[o.key]) &&
+    c[o.key] >= 0 &&
+    c[o.key] < o.values.length
   );
-  inquiry.target="_blank";
-  inquiry.rel="noopener noreferrer";
+}
 
-  actions.append(add,inquiry);
-  box.append(actions);
-  openModal("detailModal");
-  return;
- }
+function configText(c) {
+  return configOptions
+    .map(o => optionName(o.values[c[o.key]][0]))
+    .join(" · ");
+}
 
- const config=defaultConfig();
- const selectors=node("div","config-grid");
- const total=node("div","total-panel");
- const actions=node("div","modal-actions");
+function priceOf(p, c) {
+  if (!p.configurable || !validConfig(c)) return p.price;
 
- const add=node("button","btn",t("add"));
- const inquiry=node("a","btn ghost",t("inquire"));
- inquiry.target="_blank";
- inquiry.rel="noopener noreferrer";
-
- function update(){
-  const amount=priceOf(p,config);
-  total.replaceChildren(
-   node("small","",t("configured")),
-   node("strong","",money(amount)),
-   node("small","",configText(config))
+  return p.price + configOptions.reduce(
+    (sum, o) => sum + o.values[c[o.key]][1],
+    0
   );
+}
 
-  inquiry.href=wa(
-   (lang==="zh"
-    ?"你好，请确认以下显示器配置的实际供货与正式报价：\n\n"
-    :"Hello, please confirm actual availability and quotation for:\n\n"
-   )+
-   pName(p)+"\n"+configText(config)+"\n"+
-   (lang==="zh"?"网站演示价格：":"Demo price: ")+money(amount)
-  );
- }
+function itemKey(id, c) {
+  return c
+    ? id + "-" + configOptions.map(o => c[o.key]).join("-")
+    : String(id);
+}
 
- configOptions.forEach(o=>{
-  const label=node("label","",t(o.key));
-  const select=node("select");
+/* ==========================================
+   PRODUCTS
+========================================== */
 
-  o.values.forEach(([name,extra],index)=>{
-   const option=node(
-    "option","",
-    optionName(name)+(extra?"  +"+money(extra):"")
-   );
-   option.value=String(index);
-   select.append(option);
+function renderProducts() {
+  const search = $("searchInput").value.trim().toLowerCase();
+  const filters = $("filters");
+
+  filters.replaceChildren();
+
+  ["all", "monitor", "homecat", "business"].forEach(key => {
+    const b = node(
+      "button",
+      "filter" + (category === key ? " active" : ""),
+      t(key)
+    );
+
+    b.setAttribute("aria-pressed", String(category === key));
+
+    b.onclick = () => {
+      category = key;
+      renderProducts();
+    };
+
+    filters.append(b);
   });
 
-  select.value=String(config[o.key]);
-  select.onchange=()=>{
-   config[o.key]=Number(select.value);
-   update();
-  };
+  const filtered = products.filter(p => {
+    const text = [
+      p.zh, p.en, p.dz, p.de, ...p.sz, ...p.se
+    ].join(" ").toLowerCase();
 
-  label.append(select);
-  selectors.append(label);
- });
+    return (
+      (category === "all" || p.cat === category) &&
+      text.includes(search)
+    );
+  });
 
- add.onclick=()=>{
-  addCart(p.id,{...config});
-  closeAll();
- };
+  $("resultCount").textContent = filtered.length + t("results");
 
- actions.append(add,inquiry);
- box.append(
-  selectors,total,
-  node("p","small-note",t("reference")),
-  actions
- );
+  const grid = $("productGrid");
+  grid.replaceChildren();
 
- update();
- openModal("detailModal");
-}
-
-/* ========================================
-   CART & LEGACY DATA CLEANUP
-======================================== */
-function loadCart(){
- let saved;
- try{saved=JSON.parse(getStorage("sj5_cart")||"[]")}
- catch(e){saved=[]}
-
- if(!Array.isArray(saved))return;
-
- saved.forEach(item=>{
-  const p=products.find(x=>x.id===item.id);
-
-  // Removed products 1 and 2 are ignored.
-  if(!p)return;
-
-  if(!Number.isInteger(item.qty)||item.qty<1||item.qty>99)return;
-
-  const c=p.configurable?item.config:null;
-  if(p.configurable&&!validConfig(c))return;
-
-  const key=itemKey(p.id,c);
-  const old=cart.find(x=>x.key===key);
-
-  if(old)old.qty=Math.min(99,old.qty+item.qty);
-  else cart.push({id:p.id,key,config:c,qty:item.qty});
- });
-}
-
-function saveCart(){
- setStorage("sj5_cart",JSON.stringify(cart));
- $("cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0);
-}
-
-function notify(message){
- const toast=$("toast");
- toast.textContent=message;
- toast.classList.add("show");
- clearTimeout(toastTimer);
- toastTimer=setTimeout(()=>toast.classList.remove("show"),2200);
-}
-
-function addCart(id,c){
- const p=products.find(x=>x.id===id);
- if(!p)return;
-
- const config=p.configurable?(c||defaultConfig()):null;
- if(p.configurable&&!validConfig(config))return;
-
- const key=itemKey(id,config);
- const old=cart.find(x=>x.key===key);
-
- if(old){
-  if(old.qty>=99){notify(t("max"));return}
-  old.qty++;
- }else{
-  cart.push({id,key,config,qty:1});
- }
-
- saveCart();
- renderCart();
- notify(t("added"));
-}
-
-function changeQty(key,change){
- const item=cart.find(x=>x.key===key);
- if(!item)return;
-
- item.qty=Math.min(99,item.qty+change);
- if(item.qty<=0)cart=cart.filter(x=>x.key!==key);
-
- saveCart();
- renderCart();
-}
-
-function renderCart(){
- const box=$("cartItems");
- box.replaceChildren();
-
- let total=0;
-
- if(!cart.length){
-  box.append(node("div","empty",t("emptyCart")));
- }
-
- cart.forEach(item=>{
-  const p=products.find(x=>x.id===item.id);
-  if(!p)return;
-
-  const price=priceOf(p,item.config);
-  total+=price*item.qty;
-
-  const row=node("div","cart-item");
-  row.append(node("b","",pName(p)));
-
-  if(item.config){
-   row.append(node("small","",configText(item.config)));
+  if (!filtered.length) {
+    grid.append(node("div", "empty", t("empty")));
+    return;
   }
 
-  row.append(node("strong","",money(price*item.qty)));
+  filtered.forEach(p => {
+    const card = node("article", "product");
 
-  const qty=node("div","qty");
-  const minus=node("button","","−");
-  const amount=node("span","",String(item.qty));
-  const plus=node("button","","+");
-  const remove=node("button","remove",t("remove"));
+    const media = node("div", "product-media");
+    media.innerHTML = art(p.art);
+    media.append(node("span", "tag", t(p.cat)));
 
-  minus.onclick=()=>changeQty(item.key,-1);
-  plus.onclick=()=>changeQty(item.key,1);
-  plus.disabled=item.qty>=99;
+    const body = node("div", "product-body");
 
-  remove.onclick=()=>{
-   cart=cart.filter(x=>x.key!==item.key);
-   saveCart();
-   renderCart();
-   notify(t("removed"));
-  };
+    body.append(
+      node("h3", "product-name", pName(p)),
+      node("p", "product-desc", pDesc(p))
+    );
 
-  qty.append(minus,amount,plus,remove);
-  row.append(qty);
-  box.append(row);
- });
+    const price = node("div", "price", money(p.price));
 
- $("cartTotal").textContent=money(total);
- $("cartInquiry").disabled=!cart.length;
-}
-
-function sendInquiry(){
- if(!cart.length)return;
-
- const lines=cart.map((item,i)=>{
-  const p=products.find(x=>x.id===item.id);
-  return (i+1)+". "+pName(p)+
-   (item.config?"\n   "+configText(item.config):"")+
-   "\n   "+money(priceOf(p,item.config))+" × "+item.qty;
- });
-
- const total=cart.reduce((sum,item)=>{
-  const p=products.find(x=>x.id===item.id);
-  return sum+priceOf(p,item.config)*item.qty;
- },0);
-
- const message=
-  (lang==="zh"
-   ?"你好，我想咨询以下 S.J 思晶商品的实际规格、供货情况及正式报价：\n\n"
-   :"Hello, please confirm specifications, availability and quotation for:\n\n"
-  )+
-  lines.join("\n\n")+"\n\n"+
-  (lang==="zh"?"网站演示合计：":"Demo subtotal: ")+money(total)+
-  "\n"+
-  (lang==="zh"
-   ?"注：此清单仅用于询价，不是正式订单。"
-   :"Note: This is an inquiry, not a confirmed order."
-  );
-
- openWA(message);
-}
-
-/* ========================================
-   JING SMART LOCAL GUIDE
-   Product-aware / Budget / Context
-======================================== */
-const dogContext={
- size:27,
- resolution:0,
- refresh:0,
- shape:0,
- stand:0,
- use:"general",
- hasRecommendation:false
-};
-
-function findBudget(text){
- const q=text.toLowerCase().replace(/[,，]/g,"");
-
- let match=q.match(/(?:预算|大概|左右|around|under|budget|约|不到|以内|低于|不超过)\s*(?:是|为|在|of|¥|￥|rmb|cny|\s)*(\d+(?:\.\d+)?)\s*(万|千|k|元|块|rmb|cny|yuan)?/i);
-
- if(!match){
-  match=q.match(/(?:¥|￥)\s*(\d+(?:\.\d+)?)\s*(万|千|k)?/i);
- }
-
- if(!match){
-  match=q.match(/(\d+(?:\.\d+)?)\s*(万|千|k|元|块|rmb|cny|yuan)/i);
- }
-
- if(!match)return null;
-
- let n=Number(match[1]);
- const unit=(match[2]||"").toLowerCase();
-
- if(unit==="万")n*=10000;
- if(unit==="千"||unit==="k")n*=1000;
-
- return n>=100&&n<=100000?n:null;
-}
-
-function has(q,regex){return regex.test(q)}
-
-function makeRecommendation(size,c,budget){
- const p=products.find(x=>x.id===(size===32?8:7));
- const amount=priceOf(p,c);
-
- const intro=lang==="zh"
-  ?"汪！根据目前的商城演示数据，我建议先看看："
-  :"Woof! Based on the current store's demo data, consider:";
-
- const priceLine=lang==="zh"
-  ?"演示价格："+money(amount)
-  :"Demo price: "+money(amount);
-
- const budgetLine=budget===null?"":(
-  amount<=budget
-   ?(lang==="zh"
-     ?"\n符合你提到的 "+money(budget)+" 预算。"
-     :"\nWithin your stated "+money(budget)+" budget.")
-   :(lang==="zh"
-     ?"\n比你提到的预算高 "+money(amount-budget)+"，可以考虑降低部分配置。"
-     :"\nThis exceeds your budget by "+money(amount-budget)+". Consider reducing some options.")
- );
-
- const disclaimer=lang==="zh"
-  ?"\n\n以上为配置演示，不保证所有组合均有对应现货。正式型号与报价需确认。"
-  :"\n\nThis is a configuration demo. Actual model combinations, stock and quotations require confirmation.";
-
- return intro+"\n"+pName(p)+"\n"+
-  configText(c)+"\n"+priceLine+budgetLine+disclaimer;
-}
-
-function recommendForBudget(budget,use){
- const sizes=[27,32];
- const resolutions=[0,1,2];
- const refreshes=[0,1,2,3];
-
- const candidates=[];
-
- sizes.forEach(size=>{
-  const p=products.find(x=>x.id===(size===27?7:8));
-
-  resolutions.forEach(resolution=>{
-   refreshes.forEach(refresh=>{
-    const c={resolution,refresh,shape:0,stand:0};
-    const price=priceOf(p,c);
-
-    if(price>budget)return;
-
-    let score=0;
-
-    if(use==="gaming"){
-     score+=refresh*13+resolution*9;
-     if(refresh>=2)score+=30;
-     if(size===27)score+=5;
-    }else if(use==="office"){
-     score+=resolution*17+refresh*3;
-     if(size===27)score+=12;
-     if(refresh===1)score+=7;
-    }else{
-     score+=resolution*11+refresh*5;
-     if(size===27)score+=5;
+    if (p.configurable) {
+      price.append(node("small", "", t("from")));
     }
 
-    score+=Math.min(price/budget,1)*4;
+    const action = node("div", "product-action");
 
-    candidates.push({size,c,score});
-   });
+    const button = node(
+      "button",
+      "btn",
+      p.configurable ? t("configure") : t("details")
+    );
+
+    button.onclick = () => showDetail(p.id);
+
+    action.append(button);
+    body.append(price, action);
+    card.append(media, body);
+    grid.append(card);
   });
- });
-
- candidates.sort((a,b)=>b.score-a.score);
-
- return candidates[0]||null;
 }
 
-function dogAnswer(question){
- const q=question.toLowerCase().replace(/\s+/g," ");
- const budget=findBudget(q);
+/* ==========================================
+   MODALS
+========================================== */
 
- if(has(q,/^(你好|嗨|hi|hello|hey|汪|在吗)[!！。.？?\s]*$/)){
-  return t("welcome");
- }
+function closeAll(restore = true) {
+  $("backdrop").classList.remove("show");
 
- if(has(q,/询价|怎么买|怎么购买|联系|whatsapp|quote|contact|buy|purchase/)){
-  return lang==="zh"
-   ?"汪！选择商品及配置后，加入购物车，点击「发送完整询价清单」即可通过 WhatsApp 联系思晶。网站目前不支持真实在线支付。"
-   :"Choose products and configurations, add them to your cart, then send your complete inquiry via WhatsApp. Real online payment is not available.";
- }
+  ["detailModal", "chatModal", "cartDrawer"].forEach(id => {
+    $(id).classList.remove("show");
+    $(id).setAttribute("aria-hidden", "true");
+  });
 
- if(has(q,/付款|支付|payment|checkout/)){
-  return lang==="zh"
-   ?"目前网站是演示商城，没有接入真实支付。可以先通过 WhatsApp 确认商品与正式报价。"
-   :"This is a demo storefront without real payment. Please confirm products and formal quotations via WhatsApp.";
- }
+  document.body.classList.remove("lock");
 
- if(has(q,/2k.*4k|4k.*2k|分辨率区别|resolution difference/)){
-  return lang==="zh"
-   ?"2K 通常指 2560×1440，4K 为 3840×2160。4K 像素更多，但也需要考虑电脑输出能力、刷新率和预算。"
-   :"2K commonly refers to 2560×1440, while 4K is 3840×2160. Consider device compatibility, refresh rate and budget.";
- }
+  if (
+    restore &&
+    previousFocus &&
+    previousFocus.isConnected
+  ) {
+    previousFocus.focus();
+  }
+}
 
- if(has(q,/27.*32|32.*27|尺寸区别|size difference/)){
-  return lang==="zh"
-   ?"27英寸更适合希望桌面紧凑的用户；32英寸提供更宽阔的画面空间。当前商城两款显示器基础演示价格分别为 ¥899 和 ¥1,299。"
-   :"27 inches suits a more compact desk; 32 inches offers a larger viewing area. Demo starting prices are ¥899 and ¥1,299.";
- }
+function openModal(id) {
+  closeAll(false);
 
- if(has(q,/广告机|signage|商场|门店|店铺/)){
-  return lang==="zh"
-   ?"商业信息展示可以了解65英寸立式广告机，演示参考价 ¥4,999。实际亮度、联网及内容管理功能需要确认。"
-   :"Consider the 65-inch floor signage for commercial displays. Demo reference price: ¥4,999. Confirm actual specifications.";
- }
+  previousFocus = document.activeElement;
 
- if(has(q,/会议|meeting|conference|协作/)){
-  return lang==="zh"
-   ?"会议展示可以先了解75英寸智能会议机，演示参考价 ¥7,999。触控、投屏及系统功能需要进一步确认。"
-   :"Consider the 75-inch meeting display, with a demo reference price of ¥7,999. Confirm actual features.";
- }
+  $("backdrop").classList.add("show");
+  $(id).classList.add("show");
+  $(id).setAttribute("aria-hidden", "false");
 
- if(has(q,/电视|客厅|tv|television|living room/)){
-  return lang==="zh"
-   ?"家庭娱乐可以了解55英寸智能电视，演示参考价 ¥2,999。具体系统、面板和接口请以正式资料为准。"
-   :"For home entertainment, consider the 55-inch Smart TV. Demo reference price: ¥2,999. Confirm actual specifications.";
- }
+  document.body.classList.add("lock");
 
- if(has(q,/音箱|音响|speaker|audio|音乐/)){
-  return lang==="zh"
-   ?"智能桌面音箱的演示参考价为 ¥399。实际连接方式、音质和智能功能仍需确认。"
-   :"The desktop speaker has a demo reference price of ¥399. Actual audio and connectivity specifications require confirmation.";
- }
+  $("floatDog").classList.add("hide");
 
- const gaming=has(q,/电竞|游戏|gaming|game|fps|144hz|165hz/);
- const office=has(q,/办公|工作|学习|office|work|study/);
+  $(id).querySelector(".close").focus();
+}
 
- if(gaming)dogContext.use="gaming";
- if(office)dogContext.use="office";
+function showDetail(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
 
- const use=dogContext.use;
+  $("detailTitle").textContent = pName(p);
 
- const size32=has(q,/32\s*(寸|英寸|inch|")|vision 32|换成32|32寸|32-inch/);
- const size27=has(q,/27\s*(寸|英寸|inch|")|vision 27|换成27|27寸|27-inch/);
+  const box = $("detailContent");
+  box.replaceChildren();
 
- if(size32)dogContext.size=32;
- if(size27)dogContext.size=27;
+  const media = node("div", "detail-media");
+  media.innerHTML = art(p.art);
 
- const changeSize=has(q,/换成|改成|换为|换到|instead|switch|what if|那.*呢/);
- const mentionsSize=size32||size27;
+  box.append(
+    media,
+    node("p", "detail-desc", pDesc(p)),
+    node("h3", "", t("productInfo"))
+  );
 
- const asksConfig=has(q,/显示器|monitor|配置|推荐|预算|budget|左右|以内|多少钱|price|多少元|多少块|¥|￥|2k|4k|1080p|hz|曲面|直面|支架|stand|curved|flat/);
+  const list = node("ul", "spec-list");
 
- const explicitResolution=
-  has(q,/4k|3840/) ? 2 :
-  has(q,/2k|1440/) ? 1 :
-  has(q,/1080p|1920/) ? 0 : null;
+  pSpecs(p).forEach(s => {
+    list.append(node("li", "", s));
+  });
 
- const explicitRefresh=
-  has(q,/165\s*hz/) ? 3 :
-  has(q,/144\s*hz/) ? 2 :
-  has(q,/75\s*hz/) ? 1 :
-  has(q,/60\s*hz/) ? 0 : null;
+  box.append(list);
 
- if(explicitResolution!==null)dogContext.resolution=explicitResolution;
- if(explicitRefresh!==null)dogContext.refresh=explicitRefresh;
+  if (!p.configurable) {
+    box.append(
+      node("div", "price", money(p.price)),
+      node("p", "small-note", t("reference"))
+    );
 
- if(has(q,/曲面|curved/))dogContext.shape=1;
- if(has(q,/直面|flat/))dogContext.shape=0;
- if(has(q,/升降|旋转|adjustable/))dogContext.stand=1;
- if(has(q,/标准支架|standard stand/))dogContext.stand=0;
+    const actions = node("div", "modal-actions");
 
- if(budget!==null){
-  const result=recommendForBudget(budget,use);
+    const add = node("button", "btn", t("add"));
 
-  if(!result){
-   return lang==="zh"
-    ?"汪！当前两款显示器最低演示价格为 ¥899。如果预算低于这个金额，暂时没有符合条件的显示器方案。"
-    :"The lowest monitor demo price is ¥899. No current monitor option fits a lower budget.";
+    add.onclick = () => {
+      addCart(p.id, null);
+      closeAll();
+    };
+
+    const inquiry = node("a", "btn secondary", t("inquire"));
+
+    inquiry.href = wa(
+      (lang === "zh"
+        ? "你好，请确认以下商品的实际规格、供货情况及正式报价：\n"
+        : "Hello, please confirm specifications, availability and quotation for:\n"
+      ) + pName(p)
+    );
+
+    inquiry.target = "_blank";
+    inquiry.rel = "noopener noreferrer";
+
+    actions.append(add, inquiry);
+    box.append(actions);
+
+    openModal("detailModal");
+    return;
   }
 
-  dogContext.size=result.size;
-  dogContext.resolution=result.c.resolution;
-  dogContext.refresh=result.c.refresh;
-  dogContext.shape=result.c.shape;
-  dogContext.stand=result.c.stand;
-  dogContext.hasRecommendation=true;
+  const config = defaultConfig();
+  const selectors = node("div", "config-grid");
+  const total = node("div", "total-panel");
+  const actions = node("div", "modal-actions");
 
-  return makeRecommendation(result.size,result.c,budget);
- }
+  const add = node("button", "btn", t("add"));
+  const inquiry = node("a", "btn secondary", t("inquire"));
 
- if(
-  dogContext.hasRecommendation &&
-  (mentionsSize||explicitResolution!==null||explicitRefresh!==null||
-   has(q,/曲面|直面|支架|curved|flat|stand/)) &&
-  (changeSize||asksConfig)
- ){
-  const c={
-   resolution:dogContext.resolution,
-   refresh:dogContext.refresh,
-   shape:dogContext.shape,
-   stand:dogContext.stand
-  };
-  return makeRecommendation(dogContext.size,c,null);
- }
+  inquiry.target = "_blank";
+  inquiry.rel = "noopener noreferrer";
 
- if(gaming||office||asksConfig){
-  if(gaming){
-   dogContext.resolution=explicitResolution??1;
-   dogContext.refresh=explicitRefresh??2;
-  }else if(office){
-   dogContext.resolution=explicitResolution??1;
-   dogContext.refresh=explicitRefresh??1;
+  function update() {
+    const amount = priceOf(p, config);
+
+    total.replaceChildren(
+      node("small", "", t("configured")),
+      node("strong", "", money(amount)),
+      node("small", "", configText(config))
+    );
+
+    inquiry.href = wa(
+      (lang === "zh"
+        ? "你好，请确认以下显示器配置的实际供货与正式报价：\n\n"
+        : "Hello, please confirm availability and quotation for:\n\n"
+      ) +
+      pName(p) + "\n" +
+      configText(config) + "\n" +
+      (lang === "zh" ? "网站演示价格：" : "Demo price: ") +
+      money(amount)
+    );
   }
 
-  const c={
-   resolution:dogContext.resolution,
-   refresh:dogContext.refresh,
-   shape:dogContext.shape,
-   stand:dogContext.stand
+  configOptions.forEach(o => {
+    const label = node("label", "", t(o.key));
+    const select = node("select");
+
+    o.values.forEach(([name, extra], index) => {
+      const option = node(
+        "option",
+        "",
+        optionName(name) + (extra ? " +" + money(extra) : "")
+      );
+
+      option.value = String(index);
+      select.append(option);
+    });
+
+    select.value = String(config[o.key]);
+
+    select.onchange = () => {
+      config[o.key] = Number(select.value);
+      update();
+    };
+
+    label.append(select);
+    selectors.append(label);
+  });
+
+  add.onclick = () => {
+    addCart(p.id, { ...config });
+    closeAll();
   };
 
-  dogContext.hasRecommendation=true;
-  return makeRecommendation(dogContext.size,c,null);
- }
+  actions.append(add, inquiry);
 
- return lang==="zh"
-  ?"汪！我目前比较擅长回答六款商品的介绍，以及显示器的预算、尺寸、分辨率、刷新率和配置问题。你可以试试「预算2000元，主要玩游戏」。"
-  :"Woof! I can help with our six products, monitor budgets, sizes, resolutions and configurations. Try asking for a gaming monitor around ¥2000.";
+  box.append(
+    selectors,
+    total,
+    node("p", "small-note", t("reference")),
+    actions
+  );
+
+  update();
+  openModal("detailModal");
 }
 
-function bubble(text,isUser=false){
- const b=node("div","bubble"+(isUser?" user":""),text);
- $("chatLog").append(b);
- $("chatLog").scrollTop=$("chatLog").scrollHeight;
+/* ==========================================
+   CART
+========================================== */
+
+function loadCart() {
+  let saved;
+
+  try {
+    saved = JSON.parse(getStorage("sj5_cart") || "[]");
+  } catch {
+    saved = [];
+  }
+
+  if (!Array.isArray(saved)) return;
+
+  saved.forEach(item => {
+    const p = products.find(x => x.id === item.id);
+
+    // Products 1 and 2 were removed.
+    if (!p) return;
+
+    if (
+      !Number.isInteger(item.qty) ||
+      item.qty < 1 ||
+      item.qty > 99
+    ) return;
+
+    const c = p.configurable ? item.config : null;
+
+    if (p.configurable && !validConfig(c)) return;
+
+    const key = itemKey(p.id, c);
+    const old = cart.find(x => x.key === key);
+
+    if (old) {
+      old.qty = Math.min(99, old.qty + item.qty);
+    } else {
+      cart.push({
+        id: p.id,
+        key,
+        config: c,
+        qty: item.qty
+      });
+    }
+  });
 }
 
-function renderGuide(){
- $("guideAnswer").textContent=t("welcome");
- $("guideQuestions").replaceChildren();
- $("chatQuestions").replaceChildren();
+function saveCart() {
+  setStorage("sj5_cart", JSON.stringify(cart));
 
- t("questions").forEach(q=>{
-  const a=node("button","",q);
-  a.onclick=()=>{
-   $("guideAnswer").textContent=dogAnswer(q);
-  };
-  $("guideQuestions").append(a);
-
-  const b=node("button","",q);
-  b.onclick=()=>{
-   bubble(q,true);
-   bubble(dogAnswer(q));
-  };
-  $("chatQuestions").append(b);
- });
+  $("cartCount").textContent = cart.reduce(
+    (sum, item) => sum + item.qty,
+    0
+  );
 }
 
-function openChat(){
- if(!$("chatLog").children.length){
-  bubble(t("welcome"));
- }
- openModal("chatModal");
+function notify(message) {
+  const toast = $("toast");
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2200);
 }
 
-/* ========================================
+function addCart(id, c) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+
+  const config = p.configurable
+    ? (c || defaultConfig())
+    : null;
+
+  if (p.configurable && !validConfig(config)) return;
+
+  const key = itemKey(id, config);
+  const old = cart.find(x => x.key === key);
+
+  if (old) {
+    if (old.qty >= 99) {
+      notify(t("max"));
+      return;
+    }
+
+    old.qty++;
+  } else {
+    cart.push({
+      id,
+      key,
+      config,
+      qty: 1
+    });
+  }
+
+  saveCart();
+  renderCart();
+  notify(t("added"));
+}
+
+function changeQty(key, change) {
+  const item = cart.find(x => x.key === key);
+  if (!item) return;
+
+  item.qty = Math.min(99, item.qty + change);
+
+  if (item.qty <= 0) {
+    cart = cart.filter(x => x.key !== key);
+  }
+
+  saveCart();
+  renderCart();
+}
+
+function renderCart() {
+  const box = $("cartItems");
+  box.replaceChildren();
+
+  let total = 0;
+
+  if (!cart.length) {
+    box.append(node("div", "empty", t("emptyCart")));
+  }
+
+  cart.forEach(item => {
+    const p = products.find(x => x.id === item.id);
+    if (!p) return;
+
+    const price = priceOf(p, item.config);
+    total += price * item.qty;
+
+    const row = node("div", "cart-item");
+
+    row.append(node("b", "", pName(p)));
+
+    if (item.config) {
+      row.append(
+        node("small", "", configText(item.config))
+      );
+    }
+
+    row.append(
+      node("strong", "", money(price * item.qty))
+    );
+
+    const qty = node("div", "qty");
+
+    const minus = node("button", "", "−");
+    const amount = node("span", "", String(item.qty));
+    const plus = node("button", "", "+");
+    const remove = node("button", "remove", t("remove"));
+
+    minus.onclick = () => changeQty(item.key, -1);
+    plus.onclick = () => changeQty(item.key, 1);
+
+    plus.disabled = item.qty >= 99;
+
+    remove.onclick = () => {
+      cart = cart.filter(x => x.key !== item.key);
+
+      saveCart();
+      renderCart();
+      notify(t("removed"));
+    };
+
+    qty.append(minus, amount, plus, remove);
+    row.append(qty);
+    box.append(row);
+  });
+
+  $("cartTotal").textContent = money(total);
+  $("cartInquiry").disabled = !cart.length;
+}
+
+function sendInquiry() {
+  if (!cart.length) return;
+
+  const lines = cart.map((item, i) => {
+    const p = products.find(x => x.id === item.id);
+
+    return (
+      (i + 1) + ". " + pName(p) +
+      (item.config ? "\n   " + configText(item.config) : "") +
+      "\n   " + money(priceOf(p, item.config)) +
+      " × " + item.qty
+    );
+  });
+
+  const total = cart.reduce((sum, item) => {
+    const p = products.find(x => x.id === item.id);
+
+    return sum + priceOf(p, item.config) * item.qty;
+  }, 0);
+
+  const message =
+    (lang === "zh"
+      ? "你好，我想咨询以下 S.J 思晶商品的实际规格、供货情况及正式报价：\n\n"
+      : "Hello, please confirm specifications, availability and quotation for:\n\n"
+    ) +
+    lines.join("\n\n") +
+    "\n\n" +
+    (lang === "zh" ? "网站演示合计：" : "Demo subtotal: ") +
+    money(total) +
+    "\n" +
+    (lang === "zh"
+      ? "注：此清单仅用于询价，不是正式订单。"
+      : "Note: This is an inquiry, not a confirmed order."
+    );
+
+  openWA(message);
+}
+
+/* ==========================================
+   JING — LOCAL SMART GUIDE
+========================================== */
+
+const dogContext = {
+  size: 27,
+  resolution: 0,
+  refresh: 0,
+  shape: 0,
+  stand: 0,
+  use: "general",
+  hasRecommendation: false
+};
+
+function findBudget(text) {
+  const q = text.toLowerCase().replace(/[,，]/g, "");
+
+  let match = q.match(
+    /(?:预算|大概|左右|around|under|budget|约|不到|以内|低于|不超过)\s*(?:是|为|在|of|¥|￥|rmb|cny|\s)*(\d+(?:\.\d+)?)\s*(万|千|k|元|块|rmb|cny|yuan)?/i
+  );
+
+  if (!match) {
+    match = q.match(
+      /(?:¥|￥)\s*(\d+(?:\.\d+)?)\s*(万|千|k)?/i
+    );
+  }
+
+  if (!match) {
+    match = q.match(
+      /(\d+(?:\.\d+)?)\s*(万|千|k|元|块|rmb|cny|yuan)/i
+    );
+  }
+
+  if (!match) return null;
+
+  let n = Number(match[1]);
+  const unit = (match[2] || "").toLowerCase();
+
+  if (unit === "万") n *= 10000;
+  if (unit === "千" || unit === "k") n *= 1000;
+
+  return n >= 100 && n <= 100000 ? n : null;
+}
+
+function has(q, regex) {
+  return regex.test(q);
+}
+
+function makeRecommendation(size, c, budget) {
+  const p = products.find(
+    x => x.id === (size === 32 ? 8 : 7)
+  );
+
+  const amount = priceOf(p, c);
+
+  const intro = lang === "zh"
+    ? "汪！根据目前的商城演示数据，我建议先看看："
+    : "Woof! Based on this store's demo data, consider:";
+
+  const priceLine = lang === "zh"
+    ? "演示价格：" + money(amount)
+    : "Demo price: " + money(amount);
+
+  let budgetLine = "";
+
+  if (budget !== null) {
+    if (amount <= budget) {
+      budgetLine = lang === "zh"
+        ? "\n符合你提到的 " + money(budget) + " 预算。"
+        : "\nWithin your stated " + money(budget) + " budget.";
+    } else {
+      budgetLine = lang === "zh"
+        ? "\n比预算高 " + money(amount - budget) + "，可以考虑降低部分配置。"
+        : "\nExceeds your budget by " + money(amount - budget) + ".";
+    }
+  }
+
+  const disclaimer = lang === "zh"
+    ? "\n\n以上为配置演示，不保证所有组合均有对应现货。正式型号与报价需确认。"
+    : "\n\nConfiguration demo only. Actual models, stock and quotations require confirmation.";
+
+  return (
+    intro + "\n" +
+    pName(p) + "\n" +
+    configText(c) + "\n" +
+    priceLine +
+    budgetLine +
+    disclaimer
+  );
+}
+
+function recommendForBudget(budget, use) {
+  const candidates = [];
+
+  [27, 32].forEach(size => {
+    const p = products.find(
+      x => x.id === (size === 27 ? 7 : 8)
+    );
+
+    [0, 1, 2].forEach(resolution => {
+      [0, 1, 2, 3].forEach(refresh => {
+        const c = {
+          resolution,
+          refresh,
+          shape: 0,
+          stand: 0
+        };
+
+        const price = priceOf(p, c);
+        if (price > budget) return;
+
+        let score = 0;
+
+        if (use === "gaming") {
+          score += refresh * 13 + resolution * 9;
+          if (refresh >= 2) score += 30;
+          if (size === 27) score += 5;
+        } else if (use === "office") {
+          score += resolution * 17 + refresh * 3;
+          if (size === 27) score += 12;
+          if (refresh === 1) score += 7;
+        } else {
+          score += resolution * 11 + refresh * 5;
+          if (size === 27) score += 5;
+        }
+
+        score += Math.min(price / budget, 1) * 4;
+
+        candidates.push({ size, c, score });
+      });
+    });
+  });
+
+  candidates.sort((a, b) => b.score - a.score);
+
+  return candidates[0] || null;
+}
+
+function dogAnswer(question) {
+  const q = question.toLowerCase().replace(/\s+/g, " ");
+  const budget = findBudget(q);
+
+  if (has(q, /^(你好|嗨|hi|hello|hey|汪|在吗)[!！。.？?\s]*$/)) {
+    return t("welcome");
+  }
+
+  if (has(q, /询价|怎么买|怎么购买|联系|whatsapp|quote|contact|buy|purchase/)) {
+    return lang === "zh"
+      ? "汪！选择商品及配置后，加入购物车，点击「发送完整询价清单」即可通过 WhatsApp 联系思晶。网站目前不支持真实在线支付。"
+      : "Choose products and configurations, add them to your cart, then send your inquiry via WhatsApp. Real online payment is not available.";
+  }
+
+  if (has(q, /付款|支付|payment|checkout/)) {
+    return lang === "zh"
+      ? "目前网站是演示商城，没有接入真实支付。可以先通过 WhatsApp 确认商品与正式报价。"
+      : "This demo storefront has no real payment. Please confirm products and quotations via WhatsApp.";
+  }
+
+  if (has(q, /2k.*4k|4k.*2k|分辨率区别|resolution difference/)) {
+    return lang === "zh"
+      ? "2K 通常指 2560×1440，4K 为 3840×2160。4K 像素更多，但也需要考虑电脑输出能力、刷新率和预算。"
+      : "2K commonly refers to 2560×1440, while 4K is 3840×2160. Consider compatibility, refresh rate and budget.";
+  }
+
+  if (has(q, /27.*32|32.*27|尺寸区别|size difference/)) {
+    return lang === "zh"
+      ? "27英寸适合希望桌面更紧凑的用户；32英寸提供更宽阔的画面空间。当前两款显示器的基础演示价格分别为 ¥899 和 ¥1,299。"
+      : "27 inches suits a compact desk; 32 inches offers a larger viewing area. Demo starting prices are ¥899 and ¥1,299.";
+  }
+
+  if (has(q, /广告机|signage|商场|门店|店铺/)) {
+    return lang === "zh"
+      ? "商业信息展示可以了解65英寸立式广告机，演示参考价 ¥4,999。实际亮度、联网及内容管理功能需要确认。"
+      : "Consider the 65-inch floor signage. Demo reference price: ¥4,999. Confirm actual specifications.";
+  }
+
+  if (has(q, /会议|meeting|conference|协作/)) {
+    return lang === "zh"
+      ? "会议展示可以了解75英寸智能会议机，演示参考价 ¥7,999。触控、投屏及系统功能需要进一步确认。"
+      : "Consider the 75-inch meeting display, demo reference price ¥7,999. Confirm actual features.";
+  }
+
+  if (has(q, /电视|客厅|tv|television|living room/)) {
+    return lang === "zh"
+      ? "家庭娱乐可以了解55英寸智能电视，演示参考价 ¥2,999。具体系统、面板和接口请以正式资料为准。"
+      : "For home entertainment, consider the 55-inch Smart TV. Demo reference price: ¥2,999.";
+  }
+
+  if (has(q, /音箱|音响|speaker|audio|音乐/)) {
+    return lang === "zh"
+      ? "智能桌面音箱的演示参考价为 ¥399。实际连接方式、音质和智能功能仍需确认。"
+      : "The desktop speaker has a demo reference price of ¥399. Actual specifications require confirmation.";
+  }
+
+  const gaming = has(q, /电竞|游戏|gaming|game|fps|144hz|165hz/);
+  const office = has(q, /办公|工作|学习|office|work|study/);
+
+  if (gaming) dogContext.use = "gaming";
+  if (office) dogContext.use = "office";
+
+  const use = dogContext.use;
+
+  const size32 = has(
+    q,
+    /32\s*(寸|英寸|inch|")|vision 32|换成32|32寸|32-inch/
+  );
+
+  const size27 = has(
+    q,
+    /27\s*(寸|英寸|inch|")|vision 27|换成27|27寸|27-inch/
+  );
+
+  if (size32) dogContext.size = 32;
+  if (size27) dogContext.size = 27;
+
+  const changeSize = has(
+    q,
+    /换成|改成|换为|换到|instead|switch|what if|那.*呢/
+  );
+
+  const mentionsSize = size32 || size27;
+
+  const asksConfig = has(
+    q,
+    /显示器|monitor|配置|推荐|预算|budget|左右|以内|多少钱|price|多少元|多少块|¥|￥|2k|4k|1080p|hz|曲面|直面|支架|stand|curved|flat/
+  );
+
+  const explicitResolution =
+    has(q, /4k|3840/) ? 2 :
+    has(q, /2k|1440/) ? 1 :
+    has(q, /1080p|1920/) ? 0 : null;
+
+  const explicitRefresh =
+    has(q, /165\s*hz/) ? 3 :
+    has(q, /144\s*hz/) ? 2 :
+    has(q, /75\s*hz/) ? 1 :
+    has(q, /60\s*hz/) ? 0 : null;
+
+  if (explicitResolution !== null) {
+    dogContext.resolution = explicitResolution;
+  }
+
+  if (explicitRefresh !== null) {
+    dogContext.refresh = explicitRefresh;
+  }
+
+  if (has(q, /曲面|curved/)) dogContext.shape = 1;
+  if (has(q, /直面|flat/)) dogContext.shape = 0;
+  if (has(q, /升降|旋转|adjustable/)) dogContext.stand = 1;
+  if (has(q, /标准支架|standard stand/)) dogContext.stand = 0;
+
+  if (budget !== null) {
+    const result = recommendForBudget(budget, use);
+
+    if (!result) {
+      return lang === "zh"
+        ? "汪！当前两款显示器最低演示价格为 ¥899。如果预算低于这个金额，暂时没有符合条件的显示器方案。"
+        : "The lowest monitor demo price is ¥899. No current monitor option fits a lower budget.";
+    }
+
+    dogContext.size = result.size;
+    dogContext.resolution = result.c.resolution;
+    dogContext.refresh = result.c.refresh;
+    dogContext.shape = result.c.shape;
+    dogContext.stand = result.c.stand;
+    dogContext.hasRecommendation = true;
+
+    return makeRecommendation(result.size, result.c, budget);
+  }
+
+  if (
+    dogContext.hasRecommendation &&
+    (
+      mentionsSize ||
+      explicitResolution !== null ||
+      explicitRefresh !== null ||
+      has(q, /曲面|直面|支架|curved|flat|stand/)
+    ) &&
+    (changeSize || asksConfig)
+  ) {
+    const c = {
+      resolution: dogContext.resolution,
+      refresh: dogContext.refresh,
+      shape: dogContext.shape,
+      stand: dogContext.stand
+    };
+
+    return makeRecommendation(dogContext.size, c, null);
+  }
+
+  if (gaming || office || asksConfig) {
+    if (gaming) {
+      dogContext.resolution = explicitResolution ?? 1;
+      dogContext.refresh = explicitRefresh ?? 2;
+    } else if (office) {
+      dogContext.resolution = explicitResolution ?? 1;
+      dogContext.refresh = explicitRefresh ?? 1;
+    }
+
+    const c = {
+      resolution: dogContext.resolution,
+      refresh: dogContext.refresh,
+      shape: dogContext.shape,
+      stand: dogContext.stand
+    };
+
+    dogContext.hasRecommendation = true;
+
+    return makeRecommendation(dogContext.size, c, null);
+  }
+
+  return lang === "zh"
+    ? "汪！我目前比较擅长回答六款商品的介绍，以及显示器的预算、尺寸、分辨率、刷新率和配置问题。你可以试试「预算2000元，主要玩游戏」。"
+    : "Woof! I can help with our six products, monitor budgets, sizes, resolutions and configurations.";
+}
+
+function bubble(text, isUser = false) {
+  const b = node(
+    "div",
+    "bubble" + (isUser ? " user" : ""),
+    text
+  );
+
+  $("chatLog").append(b);
+  $("chatLog").scrollTop = $("chatLog").scrollHeight;
+}
+
+function renderGuide() {
+  $("guideAnswer").textContent = t("welcome");
+
+  $("guideQuestions").replaceChildren();
+  $("chatQuestions").replaceChildren();
+
+  t("questions").forEach(q => {
+    const a = node("button", "", q);
+
+    a.onclick = () => {
+      $("guideAnswer").textContent = dogAnswer(q);
+    };
+
+    $("guideQuestions").append(a);
+
+    const b = node("button", "", q);
+
+    b.onclick = () => {
+      bubble(q, true);
+      bubble(dogAnswer(q));
+    };
+
+    $("chatQuestions").append(b);
+  });
+}
+
+function openChat() {
+  if (!$("chatLog").children.length) {
+    bubble(t("welcome"));
+  }
+
+  openModal("chatModal");
+}
+
+/* ==========================================
    LANGUAGE & THEME
-======================================== */
-function renderFAQ(){
- const box=$("faqList");
- box.replaceChildren();
+========================================== */
 
- t("faq").forEach(([q,a])=>{
-  const d=node("details");
-  d.append(node("summary","",q),node("p","",a));
-  box.append(d);
- });
+function renderFAQ() {
+  const box = $("faqList");
+  box.replaceChildren();
+
+  t("faq").forEach(([q, a]) => {
+    const d = node("details");
+
+    d.append(
+      node("summary", "", q),
+      node("p", "", a)
+    );
+
+    box.append(d);
+  });
 }
 
-function applyLanguage(){
- document.documentElement.lang=lang==="zh"?"zh-CN":"en";
+function applyLanguage() {
+  document.documentElement.lang =
+    lang === "zh" ? "zh-CN" : "en";
 
- document.querySelectorAll("[data-t]").forEach(el=>{
-  const key=el.dataset.t;
-  const value=t(key);
-  if(typeof value!=="string")return;
+  document.querySelectorAll("[data-t]").forEach(el => {
+    const value = t(el.dataset.t);
 
-  if(key==="heroTitle"){
-   const parts=value.split("<br>");
-   el.replaceChildren();
-   parts.forEach((part,i)=>{
-    if(i)el.append(document.createElement("br"));
-    el.append(document.createTextNode(part));
-   });
-  }else{
-   el.textContent=value;
-  }
- });
+    if (typeof value === "string") {
+      el.textContent = value;
+    }
+  });
 
- $("langBtn").textContent=lang==="zh"?"EN":"中文";
- $("searchInput").placeholder=t("search");
- $("chatInput").placeholder=lang==="zh"
-  ?"告诉晶小狗你的需求……"
-  :"Tell Jing what you need...";
+  const hero = $("heroTitle");
+  hero.replaceChildren();
 
- setStorage("sj5_lang",lang);
+  t("heroTitle").forEach((line, i) => {
+    if (i) hero.append(document.createElement("br"));
+    hero.append(document.createTextNode(line));
+  });
 
- renderProducts();
- renderCart();
- renderGuide();
- renderFAQ();
+  $("langBtn").textContent = lang === "zh" ? "EN" : "中文";
+  $("searchInput").placeholder = t("search");
+
+  $("chatInput").placeholder = lang === "zh"
+    ? "告诉晶小狗你的需求……"
+    : "Tell Jing what you need...";
+
+  setStorage("sj5_lang", lang);
+
+  renderProducts();
+  renderCart();
+  renderGuide();
+  renderFAQ();
 }
 
-function applyTheme(){
- const dark=document.body.classList.contains("dark");
- $("themeBtn").textContent=dark?"☀":"☾";
- setStorage("sj5_theme",dark?"dark":"light");
+function applyTheme() {
+  const dark = document.body.classList.contains("dark");
+
+  $("themeBtn").textContent = dark ? "☀" : "☾";
+
+  setStorage(
+    "sj5_theme",
+    dark ? "dark" : "light"
+  );
 }
 
-/* ========================================
+/* ==========================================
    EVENTS
-======================================== */
-$("searchInput").oninput=renderProducts;
+========================================== */
 
-$("langBtn").onclick=()=>{
- lang=lang==="zh"?"en":"zh";
- applyLanguage();
+$("searchInput").oninput = renderProducts;
+
+$("langBtn").onclick = () => {
+  lang = lang === "zh" ? "en" : "zh";
+  applyLanguage();
 };
 
-$("themeBtn").onclick=()=>{
- document.body.classList.toggle("dark");
- applyTheme();
+$("themeBtn").onclick = () => {
+  document.body.classList.toggle("dark");
+  applyTheme();
 };
 
-$("cartBtn").onclick=()=>{
- renderCart();
- openModal("cartDrawer");
+$("cartBtn").onclick = () => {
+  renderCart();
+  openModal("cartDrawer");
 };
 
-$("cartInquiry").onclick=sendInquiry;
+$("cartInquiry").onclick = sendInquiry;
 
-["heroDog","openChatBtn","floatDog"].forEach(id=>{
- $(id).onclick=openChat;
+["heroDog", "openChatBtn", "floatDog"].forEach(id => {
+  $(id).onclick = openChat;
 });
 
-$("chatForm").onsubmit=e=>{
- e.preventDefault();
- const input=$("chatInput");
- const q=input.value.trim();
- if(!q)return;
-
- bubble(q,true);
- bubble(dogAnswer(q));
- input.value="";
-};
-
-$("backdrop").onclick=()=>closeAll();
-
-document.querySelectorAll("[data-close]").forEach(b=>{
- b.onclick=()=>closeAll();
-});
-
-document.addEventListener("keydown",e=>{
- if(e.key==="Escape"){
-  closeAll();
-  return;
- }
-
- if(e.key!=="Tab")return;
-
- const active=["detailModal","chatModal","cartDrawer"]
-  .map(id=>$(id))
-  .find(el=>el.classList.contains("show"));
-
- if(!active)return;
-
- const items=[...active.querySelectorAll(
-  "button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled)"
- )].filter(el=>el.getClientRects().length);
-
- if(!items.length)return;
-
- const first=items[0];
- const last=items[items.length-1];
-
- if(e.shiftKey&&document.activeElement===first){
+$("chatForm").onsubmit = e => {
   e.preventDefault();
-  last.focus();
- }else if(!e.shiftKey&&document.activeElement===last){
-  e.preventDefault();
-  first.focus();
- }
+
+  const input = $("chatInput");
+  const q = input.value.trim();
+
+  if (!q) return;
+
+  bubble(q, true);
+  bubble(dogAnswer(q));
+
+  input.value = "";
+};
+
+$("backdrop").onclick = () => closeAll();
+
+document.querySelectorAll("[data-close]").forEach(b => {
+  b.onclick = () => closeAll();
 });
 
-/* ========================================
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    closeAll();
+    return;
+  }
+
+  if (e.key !== "Tab") return;
+
+  const active = [
+    "detailModal",
+    "chatModal",
+    "cartDrawer"
+  ]
+    .map(id => $(id))
+    .find(el => el.classList.contains("show"));
+
+  if (!active) return;
+
+  const items = [
+    ...active.querySelectorAll(
+      "button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled)"
+    )
+  ].filter(el => el.getClientRects().length);
+
+  if (!items.length) return;
+
+  const first = items[0];
+  const last = items[items.length - 1];
+
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+});
+
+/* ==========================================
+   MOBILE PUPPY BEHAVIOUR
+========================================== */
+
+let scrollTimer = null;
+let lastScrollY = window.scrollY;
+
+function anyModalOpen() {
+  return ["detailModal", "chatModal", "cartDrawer"]
+    .some(id => $(id).classList.contains("show"));
+}
+
+function updatePuppyVisibility() {
+  const dog = $("floatDog");
+
+  if (anyModalOpen()) {
+    dog.classList.add("hide");
+    return;
+  }
+
+  if (window.innerWidth > 740) {
+    dog.classList.remove("hide");
+    return;
+  }
+
+  const guide = $("guide").getBoundingClientRect();
+
+  // The full puppy section already contains its own chat button.
+  if (guide.top < window.innerHeight && guide.bottom > 0) {
+    dog.classList.add("hide");
+    return;
+  }
+
+  // On mobile, avoid covering shopping cards while they are visible.
+  const shop = $("shop").getBoundingClientRect();
+
+  if (shop.top < window.innerHeight && shop.bottom > 0) {
+    dog.classList.add("hide");
+    return;
+  }
+
+  dog.classList.remove("hide");
+}
+
+window.addEventListener("scroll", () => {
+  if (window.innerWidth <= 740) {
+    $("floatDog").classList.add("hide");
+  }
+
+  clearTimeout(scrollTimer);
+
+  scrollTimer = setTimeout(() => {
+    updatePuppyVisibility();
+  }, 220);
+
+  lastScrollY = window.scrollY;
+}, { passive: true });
+
+window.addEventListener("resize", updatePuppyVisibility);
+
+/* ==========================================
    INITIALISATION
-======================================== */
-if(getStorage("sj5_theme")==="dark"){
- document.body.classList.add("dark");
+========================================== */
+
+if (getStorage("sj5_theme") === "dark") {
+  document.body.classList.add("dark");
 }
 
 renderArt();
@@ -2319,6 +3338,7 @@ loadCart();
 saveCart();
 applyTheme();
 applyLanguage();
+updatePuppyVisibility();
 
 </script>
 </body>
