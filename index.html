@@ -2,373 +2,998 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>S.J 思晶 V5.0｜智慧生活旗舰店</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f8fa">
+<meta name="description" content="S.J 思晶智慧生活商城，探索智能显示器与科技产品。">
+<title>S.J 思晶 | Pure Edition V5.1</title>
+
 <style>
+/* =========================
+   S.J DESIGN SYSTEM
+========================= */
 :root{
-  --bg:#f5f8ff;--card:#fff;--text:#14213d;
-  --muted:#66758e;--line:#dce5f3;--blue:#2563eb;
-  --soft:#eaf2ff
+  --bg:#f7f8fa;
+  --surface:#ffffff;
+  --surface2:#f0f3f8;
+  --text:#17243b;
+  --muted:#778397;
+  --line:#e5e9ef;
+  --brand:#245bd6;
+  --brand2:#143e9d;
+  --dark:#101e36;
+  --shadow:0 16px 48px rgba(24,43,78,.055);
+  --radius:18px;
 }
 body.dark{
-  --bg:#0b1223;--card:#14213a;--text:#edf4ff;
-  --muted:#a7b7d1;--line:#304360;--blue:#81b4ff;
-  --soft:#203657
+  --bg:#0d1421;
+  --surface:#172234;
+  --surface2:#202e44;
+  --text:#edf3ff;
+  --muted:#a2b0c5;
+  --line:#304057;
+  --brand:#8bb4ff;
+  --brand2:#568df4;
+  --dark:#0b1425;
+  --shadow:0 16px 48px rgba(0,0,0,.15);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
-  margin:0;background:var(--bg);color:var(--text);
-  font:15px/1.6 system-ui,-apple-system,"Microsoft YaHei",sans-serif
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:15px/1.65 system-ui,-apple-system,"Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
 button,input,select{font:inherit}
 button{cursor:pointer}
-button:disabled{opacity:.5;cursor:not-allowed}
+button:disabled{opacity:.45;cursor:not-allowed}
 a{text-decoration:none;color:inherit}
-header{
-  position:sticky;top:0;z-index:20;background:var(--card);
-  border-bottom:1px solid var(--line)
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid var(--brand);
+  outline-offset:3px;
 }
-nav{
-  max-width:1200px;margin:auto;padding:12px 18px;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:12px
+button{transition:background .2s,transform .2s}
+button:active{transform:scale(.97)}
+.container{max-width:1180px;margin:auto;padding:0 25px}
+.muted{color:var(--muted)}
+.eyebrow{
+  font-size:11px;
+  letter-spacing:2.4px;
+  font-weight:800;
+  color:var(--brand);
 }
-.logo{font-size:24px;font-weight:900;white-space:nowrap}
-.logo span{color:var(--blue)}
-.links{display:flex;gap:15px;flex-wrap:wrap;font-size:13px}
-.actions{display:flex;gap:7px}
-.mini,.chip{
-  border:1px solid var(--line);background:var(--soft);
-  color:var(--text);border-radius:10px;padding:8px 12px
-}
-.wrap{max-width:1200px;margin:auto;padding:20px}
-.hero{
-  background:radial-gradient(circle at 85% 25%,#3978fa,transparent 38%),
-  linear-gradient(125deg,#101a35,#173d9c);
-  color:white;border-radius:24px;padding:55px 38px;
-  display:grid;grid-template-columns:1.5fr 1fr;align-items:center;
-  gap:20px;overflow:hidden
-}
-.hero h1{font-size:clamp(32px,5vw,55px);line-height:1.2}
-.hero p{color:#dce8ff}
-.hero small{letter-spacing:2px;color:#a8d5ff}
-.hero-dog{text-align:center;font-size:120px;animation:bob 4s infinite}
-.hero-dog small{display:block;font-size:13px}
-@keyframes bob{50%{transform:translateY(-10px)}}
 .btn{
-  border:0;border-radius:10px;padding:11px 16px;
-  background:#2563eb;color:white;font-weight:800;display:inline-block
+  border:0;
+  border-radius:11px;
+  padding:12px 19px;
+  background:#245bd6;
+  color:white;
+  font-weight:750;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:45px;
 }
-.hero .btn{background:white;color:#1645ae}
-.hero .outline{background:#ffffff22;color:white;border:1px solid #ffffff66}
-.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.benefits{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:12px;margin-top:17px
+.btn:hover{background:#1748b9}
+.btn.secondary{
+  background:var(--surface2);
+  color:var(--text);
 }
-.benefit,.panel,.product,.faq details{
-  background:var(--card);border:1px solid var(--line);border-radius:16px
+.btn.secondary:hover{background:var(--line)}
+.btn.full{width:100%}
+.btn.white{background:white;color:#163e9a}
+.btn.white:hover{background:#edf3ff}
+.icon-btn{
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:11px;
+  min-width:40px;
+  min-height:40px;
+  padding:8px 11px;
+  font-weight:750;
 }
-.benefit{padding:17px}
-.benefit strong{display:block}
-.benefit small,.sub,.hint{color:var(--muted)}
-.section-head{margin:43px 0 18px}
-.section-head h2{margin:0;font-size:27px}
-.section-head p{margin:4px 0;color:var(--muted);font-size:13px}
-.dog-section{display:grid;grid-template-columns:190px 1fr;gap:15px}
-.dog-avatar{
-  background:linear-gradient(145deg,#d5eaff,#4587eb);
-  border-radius:17px;display:grid;place-items:center;
-  text-align:center;min-height:210px;color:#153b87
+
+/* =========================
+   HEADER
+========================= */
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
 }
-.dog-avatar .dog{font-size:90px}
-.panel{padding:22px}
-.quick{display:flex;gap:8px;flex-wrap:wrap}
-.quick button{
-  border:1px solid var(--line);border-radius:22px;
-  background:var(--soft);color:var(--text);padding:8px 12px
+.nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.brand{
+  font-weight:900;
+  font-size:24px;
+  letter-spacing:-1.2px;
+  white-space:nowrap;
+}
+.brand span{color:var(--brand)}
+.brand small{
+  font-size:9px;
+  display:block;
+  letter-spacing:2.5px;
+  color:var(--muted);
+  line-height:1;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:29px;
+  font-size:13px;
+  font-weight:650;
+}
+.nav-links a:hover{color:var(--brand)}
+.nav-actions{display:flex;gap:8px}
+.cart-count{
+  display:inline-grid;
+  place-items:center;
+  background:#245bd6;
+  color:white;
+  font-size:10px;
+  min-width:17px;
+  height:17px;
+  border-radius:20px;
+  margin-left:3px;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero{padding-top:24px}
+.hero-card{
+  min-height:440px;
+  background:
+    radial-gradient(circle at 84% 30%,rgba(88,145,255,.4),transparent 31%),
+    linear-gradient(125deg,#101c33,#153c88 72%,#245bd6);
+  color:white;
+  border-radius:24px;
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  align-items:center;
+  overflow:hidden;
+  padding:56px 62px;
+  position:relative;
+}
+.hero-card:after{
+  content:"";
+  position:absolute;
+  width:430px;
+  height:430px;
+  border:1px solid #ffffff19;
+  border-radius:50%;
+  right:-120px;
+  top:-180px;
+  pointer-events:none;
+}
+.hero h1{
+  font-size:clamp(35px,4.7vw,57px);
+  line-height:1.17;
+  letter-spacing:-2px;
+  margin:16px 0 19px;
+}
+.hero p{
+  max-width:450px;
+  color:#c7d8f5;
+  margin-bottom:28px;
+}
+.hero .eyebrow{color:#8cbaff}
+.hero-buttons{display:flex;gap:10px;flex-wrap:wrap}
+.hero-art{
+  width:100%;
+  max-width:460px;
+  justify-self:center;
+  filter:drop-shadow(0 25px 25px #06152b55);
+}
+.hero-art svg{display:block;width:100%;height:auto}
+.hero-note{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 3px;
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:.4px;
+  gap:12px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.section{padding-top:76px}
+.section-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:24px;
+}
+.section-heading h2{
+  margin:7px 0 5px;
+  font-size:clamp(26px,3vw,35px);
+  letter-spacing:-1px;
+  line-height:1.3;
+}
+.section-heading p{margin:0;color:var(--muted);font-size:13px}
+.section-heading a{font-size:13px;color:var(--brand);font-weight:800}
+.collection{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+.feature-card{
+  min-height:265px;
+  border-radius:19px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:27px;
+}
+.feature-card:nth-child(2){background:var(--surface2)}
+.feature-card h3{
+  font-size:24px;
+  letter-spacing:-.6px;
+  line-height:1.3;
+  margin:9px 0;
+}
+.feature-card p{font-size:12px;color:var(--muted)}
+.feature-card button{
+  background:transparent;
+  color:var(--brand);
+  border:0;
+  padding:0;
+  font-weight:800;
+  margin-top:9px;
+}
+.feature-art svg{width:100%;height:auto;display:block}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+.shop-tools{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:14px;
 }
 .search{
-  width:100%;background:var(--card);color:var(--text);
-  border:1px solid var(--line);border-radius:11px;padding:13px 15px
+  width:min(360px,100%);
+  background:var(--surface);
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 16px;
+  outline:0;
 }
-.filters{display:flex;gap:9px;overflow:auto;padding:15px 0}
-.chip{white-space:nowrap}
-.chip.active{background:#2563eb;color:white}
-.grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));
-  gap:16px
+.search:focus{border-color:var(--brand)}
+.filters{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  padding:0 0 20px;
+  scrollbar-width:none;
 }
-.product{overflow:hidden}
-.art{
-  height:190px;display:grid;place-items:center;
-  background:linear-gradient(145deg,#dbeafe,#b5cbf7);
-  position:relative
+.filters::-webkit-scrollbar{display:none}
+.filter{
+  white-space:nowrap;
+  padding:8px 15px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  color:var(--muted);
+  border-radius:25px;
+  font-size:12px;
+  font-weight:750;
 }
-.art .emoji{font-size:85px}
-.art:after{
-  content:"S.J SMART LIVING";position:absolute;bottom:10px;
-  font-size:10px;letter-spacing:3px;color:#35548c
+.filter.active{background:var(--dark);border-color:var(--dark);color:white}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
 }
-.product-body{padding:16px}
-.tag{
-  display:inline-block;background:var(--soft);color:var(--blue);
-  font-size:11px;border-radius:5px;padding:4px 8px
+.product{
+  min-width:0;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:17px;
+  overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
 }
-.product h3{font-size:16px;margin:10px 0 4px}
-.product p{font-size:12px;color:var(--muted);min-height:39px}
-.price{font-size:23px;color:#e84b56;font-weight:900}
-.hint{font-size:11px}
-.product-buttons{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
-.product-buttons button,.product-buttons a{
-  border:0;border-radius:8px;padding:9px;font-size:12px;font-weight:800
+.product:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.product-art{
+  position:relative;
+  height:210px;
+  background:linear-gradient(145deg,#edf3fa,#dce7f4);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
 }
-.product-buttons .btn{flex:1}
-.secondary{background:var(--soft);color:var(--text)}
-.green{background:#16a765;color:white}
-.faq details{padding:15px 18px;margin:10px 0}
-.faq summary{font-weight:750;cursor:pointer}
-.faq p{color:var(--muted)}
-.contact{
-  background:linear-gradient(120deg,#111e3a,#1c50b8);
-  color:white;text-align:center;border-radius:20px;padding:38px 18px
+.product-art svg{width:85%;height:85%}
+.product-tag{
+  position:absolute;
+  top:13px;
+  left:13px;
+  background:#ffffffdc;
+  color:#315480;
+  font-size:10px;
+  font-weight:800;
+  padding:5px 9px;
+  border-radius:6px;
 }
-.contact p{color:#dce8ff}
+.product-content{padding:17px}
+.product-content h3{
+  font-size:14px;
+  line-height:1.5;
+  margin:0 0 6px;
+  min-height:42px;
+}
+.product-content p{
+  color:var(--muted);
+  font-size:11px;
+  min-height:35px;
+  margin:0 0 13px;
+}
+.product-price{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:-.6px;
+}
+.product-price small{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:500;
+}
+.product-actions{display:flex;gap:7px;margin-top:15px}
+.product-actions button{flex:1;padding:9px 5px;font-size:11px;min-height:39px}
+.empty{
+  grid-column:1/-1;
+  padding:50px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* =========================
+   PUPPY
+========================= */
+.guide-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:22px;
+  display:grid;
+  grid-template-columns:300px 1fr;
+  overflow:hidden;
+}
+.puppy-scene{
+  min-height:285px;
+  background:radial-gradient(circle at 50% 45%,#d6eaff,#9bc2f4);
+  display:grid;
+  place-items:center;
+}
+.puppy-scene svg{width:215px;max-width:85%}
+.guide-content{padding:39px;align-self:center}
+.guide-content h2{
+  font-size:28px;
+  line-height:1.3;
+  margin:10px 0;
+}
+.guide-content p{color:var(--muted);font-size:13px;max-width:500px}
+.quick-questions{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.quick-questions button{
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--surface2);
+  color:var(--text);
+  padding:8px 12px;
+  font-size:11px;
+}
+.guide-reply{
+  border-left:3px solid var(--brand);
+  background:var(--surface2);
+  padding:11px 15px;
+  font-size:12px;
+  border-radius:0 9px 9px 0;
+  margin-bottom:16px;
+}
+.note{font-size:11px;color:var(--muted)}
+
+/* =========================
+   FOOTER
+========================= */
+.service{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:28px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+.service b{font-size:13px}
+.service p{font-size:11px;color:var(--muted);margin:5px 0 0}
+.faq details{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:15px 18px;
+  margin-bottom:9px;
+}
+.faq summary{cursor:pointer;font-weight:750;font-size:13px}
+.faq details p{font-size:12px;color:var(--muted)}
+.contact-card{
+  background:linear-gradient(115deg,#142442,#1c4ca9);
+  border-radius:20px;
+  padding:40px;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.contact-card h2{font-size:27px;margin:5px 0}
+.contact-card p{color:#c4d5f3;font-size:12px}
 footer{
-  text-align:center;color:var(--muted);font-size:12px;
-  border-top:1px solid var(--line);padding:35px 15px;margin-top:35px
+  border-top:1px solid var(--line);
+  margin-top:75px;
+  padding:34px 0;
+  color:var(--muted);
+  font-size:11px;
 }
-.float-dog{
-  position:fixed;right:17px;bottom:18px;z-index:25;
-  border:2px solid white;background:#2563eb;color:white;
-  border-radius:35px;padding:9px 15px;font-weight:800;
-  box-shadow:0 8px 25px #0003
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  align-items:center;
 }
+.footer-inner .brand{color:var(--text)}
+
+/* =========================
+   MODALS
+========================= */
 .overlay{
-  display:none;position:fixed;inset:0;background:#071124bb;z-index:30
+  position:fixed;
+  inset:0;
+  background:#071226b5;
+  z-index:30;
+  display:none;
 }
 .overlay.show{display:block}
 .modal{
-  display:none;position:fixed;z-index:31;left:50%;top:50%;
-  transform:translate(-50%,-50%);width:min(620px,94vw);
-  max-height:88vh;overflow:auto;background:var(--card);
-  border-radius:18px;padding:20px
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:min(640px,94vw);
+  max-height:88dvh;
+  overflow:auto;
+  background:var(--surface);
+  border-radius:20px;
+  padding:24px;
+  z-index:31;
+  display:none;
 }
 .modal.show{display:block}
-.modal-head{display:flex;justify-content:space-between;align-items:center}
-.close{
-  background:var(--soft);border:0;border-radius:50%;
-  width:36px;height:36px;color:var(--text);font-size:23px
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:17px;
 }
+.modal-head h2{font-size:21px;margin:0}
+.close{
+  border:0;
+  background:var(--surface2);
+  color:var(--text);
+  border-radius:50%;
+  width:36px;
+  height:36px;
+  font-size:23px;
+  flex-shrink:0;
+}
+.detail-art{
+  height:200px;
+  border-radius:13px;
+  background:linear-gradient(135deg,#eef4fc,#cbdcf4);
+  display:grid;
+  place-items:center;
+}
+.detail-art svg{width:65%;height:90%}
+.detail-list{padding-left:20px;color:var(--muted);font-size:13px}
+.detail-list li{margin:6px 0}
+.config-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+  margin:20px 0;
+}
+.config-grid label{font-size:12px;font-weight:800}
+.config-grid select{
+  display:block;
+  width:100%;
+  margin-top:7px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:9px;
+  padding:11px;
+}
+.config-total{
+  padding:17px;
+  border-radius:12px;
+  background:var(--surface2);
+  margin-bottom:14px;
+}
+.config-total strong{font-size:27px;display:block}
+.modal-actions{display:flex;gap:9px;flex-wrap:wrap}
+.modal-actions>*{flex:1}
 .drawer{
-  position:fixed;right:0;top:0;bottom:0;z-index:32;
-  width:min(430px,100vw);background:var(--card);
-  transform:translateX(105%);transition:.25s;
-  display:flex;flex-direction:column
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  z-index:32;
+  background:var(--surface);
+  width:min(430px,100%);
+  transform:translateX(105%);
+  transition:transform .25s;
+  display:flex;
+  flex-direction:column;
 }
 .drawer.show{transform:translateX(0)}
-.drawer .modal-head,.drawer-foot{padding:19px;border-bottom:1px solid var(--line)}
-.drawer-body{flex:1;overflow:auto;padding:18px}
-.drawer-foot{border-top:1px solid var(--line)}
-.cart-row{padding:12px 0;border-bottom:1px solid var(--line)}
-.cart-row b{display:block}
-.cart-row small{color:var(--muted)}
-.qty{display:flex;align-items:center;gap:9px;margin-top:8px}
+.drawer>.modal-head{
+  padding:21px;
+  border-bottom:1px solid var(--line);
+  margin:0;
+}
+.cart-body{flex:1;overflow:auto;padding:12px 22px}
+.cart-item{padding:17px 0;border-bottom:1px solid var(--line)}
+.cart-item b{display:block;font-size:13px}
+.cart-item small{display:block;color:var(--muted);margin:5px 0}
+.cart-item strong{font-size:17px}
+.qty{display:flex;align-items:center;gap:10px;margin-top:10px}
 .qty button{
-  background:var(--soft);color:var(--text);
-  border:1px solid var(--line);border-radius:6px;
-  min-width:29px;min-height:29px
+  border:1px solid var(--line);
+  background:var(--surface2);
+  color:var(--text);
+  border-radius:7px;
+  min-width:30px;
+  min-height:30px;
 }
-.qty .remove{margin-left:auto;color:#ef4444}
-.total{display:flex;justify-content:space-between;font-weight:800;margin-bottom:12px}
-.total strong{color:#ef4444;font-size:22px}
-.full{width:100%}
-.config-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0}
-.config-grid label{display:block;font-weight:750;font-size:13px}
-.config-grid select{
-  display:block;width:100%;margin-top:5px;background:var(--card);
-  color:var(--text);border:1px solid var(--line);border-radius:9px;padding:10px
+.qty .remove{margin-left:auto;padding:4px 9px;font-size:11px}
+.cart-foot{border-top:1px solid var(--line);padding:22px}
+.cart-sum{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
 }
-.config-price{background:var(--soft);padding:13px;border-radius:11px;margin:15px 0}
+.cart-sum strong{font-size:24px}
 .chat-log{
-  height:245px;overflow:auto;background:var(--bg);
-  border:1px solid var(--line);border-radius:12px;padding:12px;margin:12px 0
+  height:265px;
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--bg);
+  padding:13px;
+  margin-bottom:12px;
 }
 .bubble{
-  max-width:92%;background:var(--soft);padding:9px 12px;
-  border-radius:12px;margin:8px 0;font-size:13px;white-space:pre-wrap
+  background:var(--surface2);
+  padding:10px 13px;
+  border-radius:12px;
+  font-size:12px;
+  margin:8px 0;
+  max-width:90%;
+  white-space:pre-wrap;
 }
-.bubble.user{background:#2563eb;color:white;margin-left:auto}
-.chat-input{display:flex;gap:7px}
-.chat-input input{
-  min-width:0;flex:1;background:var(--card);color:var(--text);
-  border:1px solid var(--line);border-radius:9px;padding:10px
+.bubble.user{
+  background:#245bd6;
+  color:white;
+  margin-left:auto;
 }
-.empty{text-align:center;color:var(--muted);padding:35px 10px;grid-column:1/-1}
+.chat-form{display:flex;gap:8px;margin-top:13px}
+.chat-form input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  padding:11px;
+  border-radius:9px;
+}
+.float-dog{
+  position:fixed;
+  right:20px;
+  bottom:19px;
+  z-index:25;
+  background:#245bd6;
+  border:2px solid white;
+  border-radius:50px;
+  color:white;
+  box-shadow:0 10px 28px #102d6450;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 14px 7px 7px;
+  font-weight:800;
+  font-size:12px;
+}
+.float-dog svg{width:37px;height:37px}
 .toast{
-  position:fixed;bottom:80px;left:50%;transform:translate(-50%,50px);
-  opacity:0;transition:.25s;z-index:50;background:#111d35;color:white;
-  padding:10px 17px;border-radius:10px;text-align:center;pointer-events:none
+  position:fixed;
+  left:50%;
+  bottom:85px;
+  transform:translate(-50%,20px);
+  background:#152541;
+  color:white;
+  padding:10px 18px;
+  border-radius:10px;
+  z-index:50;
+  opacity:0;
+  transition:.2s;
+  pointer-events:none;
+  text-align:center;
+  font-size:12px;
 }
 .toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:750px){
-  .links{order:3;width:100%;justify-content:center}
-  .hero{grid-template-columns:1fr;padding:35px 23px}
-  .hero-dog{font-size:75px}
-  .benefits{grid-template-columns:repeat(2,1fr)}
-  .dog-section{grid-template-columns:1fr}
-  .dog-avatar{min-height:150px}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:950px){
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .nav-links{gap:14px}
+  .hero-card{padding:42px}
 }
-@media(max-width:530px){
-  .wrap{padding:13px}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .art{height:130px}.art .emoji{font-size:58px}
-  .product-body{padding:10px}.product h3{font-size:13px}
-  .product-buttons{flex-direction:column}.price{font-size:19px}
+@media(max-width:700px){
+  .container{padding:0 16px}
+  .nav{height:65px}
+  .nav-links{display:none}
+  .hero-card{
+    grid-template-columns:1fr;
+    padding:35px 25px 20px;
+    min-height:0;
+  }
+  .hero h1{font-size:37px}
+  .hero-art{max-width:320px;margin-top:15px}
+  .hero-note{font-size:9px}
+  .section{padding-top:55px}
+  .collection{grid-template-columns:1fr}
+  .feature-card{min-height:220px}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .product-art{height:155px}
+  .product-content{padding:12px}
+  .product-content h3{font-size:12px;min-height:38px}
+  .product-price{font-size:19px}
+  .product-actions{flex-direction:column}
+  .guide-card{grid-template-columns:1fr}
+  .puppy-scene{min-height:205px}
+  .puppy-scene svg{width:155px}
+  .guide-content{padding:25px}
+  .service{grid-template-columns:1fr;gap:15px}
+  .contact-card{display:block;padding:29px}
+  .contact-card .btn{margin-top:10px}
+  .footer-inner{display:block}
+  .footer-inner p{margin-top:15px}
+}
+@media(max-width:400px){
+  .brand{font-size:21px}
+  .nav-actions{gap:5px}
+  .icon-btn{min-width:36px;padding:6px}
+  .hero h1{font-size:32px}
   .config-grid{grid-template-columns:1fr}
-  .links{font-size:12px;gap:11px}
+  .section-heading h2{font-size:25px}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation:none!important;transition:none!important}
+  *,*:before,*:after{
+    scroll-behavior:auto!important;
+    animation:none!important;
+    transition:none!important;
+  }
 }
 </style>
 </head>
+
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
-<nav>
-  <a class="logo" href="#home">S.J <span>思晶</span></a>
-  <div class="links">
-    <a href="#home" data-t="home">首页</a>
-    <a href="#shop" data-t="products">产品中心</a>
-    <a href="#guide" data-t="guide">晶小汪导购</a>
-    <a href="#faq" data-t="faq">常见问题</a>
-    <a href="#contact" data-t="contact">联系我们</a>
-  </div>
-  <div class="actions">
-    <button class="mini" id="theme">🌙</button>
-    <button class="mini" id="lang">EN</button>
-    <button class="mini" id="cartOpen">🛒 <span id="count">0</span></button>
-  </div>
-</nav>
+  <nav class="container nav">
+    <a href="#home" class="brand" aria-label="S.J 思晶首页">
+      S.J <span>思晶</span>
+      <small>SMART LIVING</small>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home" data-i="home">首页</a>
+      <a href="#collection" data-i="collection">精选系列</a>
+      <a href="#shop" data-i="shop">全部产品</a>
+      <a href="#guide" data-i="guide">晶小狗</a>
+      <a href="#contact" data-i="contact">联系我们</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="languageBtn" aria-label="切换语言">EN</button>
+      <button class="icon-btn" id="themeBtn" aria-label="切换主题">☾</button>
+      <button class="icon-btn" id="cartBtn" aria-label="打开购物车">
+        ♧ <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
 </header>
 
-<main class="wrap">
-<section class="hero" id="home">
-  <div>
-    <small>S.J SMART LIVING · V5.0</small>
-    <h1 data-t="hero">智享生活，晶彩未来。</h1>
-    <p data-t="heroText">探索智能电视、专业显示器和智慧商用设备。让科技与生活更亲近。</p>
-    <div class="hero-buttons">
-      <a class="btn" href="#shop" data-t="explore">探索新品 →</a>
-      <button class="btn outline" id="heroChat" data-t="askDog">🐶 问问晶小汪</button>
-    </div>
-  </div>
-  <div class="hero-dog">🐶<small>晶小汪 · S.J DIGITAL GUIDE</small></div>
-</section>
+<main>
 
-<div class="benefits">
-  <div class="benefit"><strong>🖥️ Vision Series</strong><small data-t="b1">27/32 英寸配置选择</small></div>
-  <div class="benefit"><strong>🐶 S.J Guide</strong><small data-t="b2">可爱数字导购</small></div>
-  <div class="benefit"><strong>🛒 Smart Cart</strong><small data-t="b3">独立保存每组配置</small></div>
-  <div class="benefit"><strong>💬 WhatsApp</strong><small data-t="b4">完整配置一键询价</small></div>
-</div>
+<!-- ================= HERO ================= -->
+<section class="container hero" id="home">
+  <div class="hero-card">
+    <div>
+      <div class="eyebrow" style="color:#a4c8ff">
+        S.J PURE EDITION / V5.1
+      </div>
 
-<section id="guide">
-  <div class="section-head">
-    <h2 data-t="guideTitle">认识晶小汪 🐾</h2>
-    <p data-t="guideSub">S.J 思晶的专属数字导购小狗。</p>
+      <h1 data-i="heroTitle">
+        让科技回归<br>生活本身。
+      </h1>
+
+      <p data-i="heroDesc">
+        简洁设计，清晰体验。探索 S.J Vision 显示器及更多智慧生活产品。
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#shop" class="btn white" data-i="explore">探索产品 ↗</a>
+        <button class="btn" style="background:#ffffff20;border:1px solid #ffffff55"
+                id="heroGuide" data-i="askDog">
+          认识晶小狗
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-art" id="heroVisual" aria-hidden="true"></div>
   </div>
-  <div class="dog-section">
-    <div class="dog-avatar">
-      <div><div class="dog">🐶</div><b>S.J · 晶小汪</b></div>
-    </div>
-    <div class="panel">
-      <h3 data-t="dogHello">汪！欢迎来到思晶 V5.0！</h3>
-      <p id="dogAnswer" class="sub"></p>
-      <div class="quick" id="quick"></div>
-      <p class="hint" data-t="scriptNote">当前为本地预设问答演示，尚未接入真正的生成式 AI。</p>
-      <button class="btn" id="openChat" data-t="openChat">打开导购聊天 →</button>
-    </div>
+
+  <div class="hero-note">
+    <span>DESIGNED FOR EVERYDAY LIFE</span>
+    <span>DISPLAY · SMART HOME · COMMERCIAL</span>
   </div>
 </section>
 
-<section id="shop">
-  <div class="section-head">
-    <h2 data-t="shopTitle">精选智能产品</h2>
-    <p data-t="shopSub">两款全新 Vision 显示器，支持配置实时计价。</p>
-    <small id="result" class="sub"></small>
+<!-- ================= COLLECTION ================= -->
+<section class="container section" id="collection">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">THE COLLECTION</div>
+      <h2 data-i="collectionTitle">恰到好处的科技体验</h2>
+      <p data-i="collectionDesc">从日常办公到沉浸娱乐，发现适合自己的显示方案。</p>
+    </div>
   </div>
-  <input id="search" class="search" type="search" placeholder="搜索显示器、电视、广告机……">
+
+  <div class="collection">
+    <article class="feature-card">
+      <div>
+        <div class="eyebrow">VISION SERIES / 01</div>
+        <h3>S.J Vision 27</h3>
+        <p data-i="vision27">27 英寸 · 灵活配置 · 轻松融入日常空间</p>
+        <button onclick="showDetail(7)" data-i="viewProduct">了解产品 ↗</button>
+      </div>
+      <div class="feature-art" id="feature27"></div>
+    </article>
+
+    <article class="feature-card">
+      <div>
+        <div class="eyebrow">VISION SERIES / 02</div>
+        <h3>S.J Vision 32 Pro</h3>
+        <p data-i="vision32">32 英寸 · 宽阔视野 · 个性化大屏体验</p>
+        <button onclick="showDetail(8)" data-i="viewProduct">了解产品 ↗</button>
+      </div>
+      <div class="feature-art" id="feature32"></div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="container section" id="shop">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">OUR PRODUCTS</div>
+      <h2 data-i="shopTitle">精选产品</h2>
+      <p data-i="shopDesc">每一款产品，都有属于自己的使用场景。</p>
+    </div>
+    <span class="muted" style="font-size:12px" id="resultCount"></span>
+  </div>
+
+  <div class="shop-tools">
+    <input class="search" id="searchInput" type="search"
+           placeholder="搜索你感兴趣的产品……"
+           aria-label="搜索商品">
+  </div>
+
   <div class="filters" id="filters"></div>
-  <div class="grid" id="grid"></div>
+  <div class="product-grid" id="productGrid"></div>
+
+  <p class="note" style="margin-top:17px" data-i="productNote">
+    商品图片为风格化示意图。规格、供货及价格请以实际确认结果为准。
+  </p>
 </section>
 
-<section id="faq">
-  <div class="section-head">
-    <h2 data-t="faqTitle">常见问题</h2>
-    <p data-t="faqSub">了解定制配置与购买方式。</p>
+<!-- ================= PUPPY ================= -->
+<section class="container section" id="guide">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">MEET OUR LITTLE GUIDE</div>
+      <h2 data-i="guideTitle">你好，我是晶小狗。</h2>
+      <p data-i="guideDesc">一个小小的科技伙伴，让选择产品变得简单一点。</p>
+    </div>
   </div>
-  <div class="faq" id="faqs"></div>
+
+  <div class="guide-card">
+    <div class="puppy-scene" id="puppyScene"></div>
+
+    <div class="guide-content">
+      <div class="eyebrow">S.J DIGITAL COMPANION</div>
+      <h2 data-i="puppyHello">汪！今天想了解什么？</h2>
+      <p data-i="puppyIntro">
+        不知道显示器该怎么选？可以先问问我。我会用简单的方式介绍产品。
+      </p>
+
+      <div class="quick-questions" id="guideQuestions"></div>
+
+      <div class="guide-reply" id="guideReply" aria-live="polite"></div>
+
+      <button class="btn" id="guideChatBtn" data-i="chatBtn">
+        与晶小狗聊聊 ↗
+      </button>
+
+      <p class="note" data-i="aiNote">
+        当前采用本地预设回答，尚未接入生成式 AI。
+      </p>
+    </div>
+  </div>
 </section>
 
-<section id="contact">
-  <div class="section-head"><h2 data-t="contactTitle">联系 S.J 思晶</h2></div>
-  <div class="contact">
-    <h2 data-t="contactHeading">开启你的智慧生活</h2>
-    <p data-t="contactText">产品规格、配置组合与正式报价，请通过 WhatsApp 咨询。</p>
-    <p><b>+86 130 7308 6313</b></p>
-    <a class="btn green" href="https://wa.me/8613073086313" target="_blank" rel="noopener noreferrer" data-t="contactButton">💬 WhatsApp 咨询</a>
+<!-- ================= SERVICE ================= -->
+<section class="container section">
+  <div class="service">
+    <div>
+      <b data-i="service1">01 / 清晰展示</b>
+      <p data-i="service1d">简洁呈现产品特点和配置选项。</p>
+    </div>
+    <div>
+      <b data-i="service2">02 / 自由配置</b>
+      <p data-i="service2d">显示器配置改变时，演示价格同步更新。</p>
+    </div>
+    <div>
+      <b data-i="service3">03 / 便捷咨询</b>
+      <p data-i="service3d">将完整配置发送至 WhatsApp 进行核实。</p>
+    </div>
   </div>
 </section>
+
+<!-- ================= FAQ ================= -->
+<section class="container section" id="faq">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">HELP CENTER</div>
+      <h2 data-i="faqTitle">常见问题</h2>
+    </div>
+  </div>
+  <div class="faq" id="faqList"></div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="container section" id="contact">
+  <div class="contact-card">
+    <div>
+      <div class="eyebrow" style="color:#9dc3ff">LET'S CONNECT</div>
+      <h2 data-i="contactTitle">找到适合你的科技产品。</h2>
+      <p data-i="contactDesc">
+        有关产品、配置及正式报价，欢迎通过 WhatsApp 联系我们。
+      </p>
+    </div>
+    <a class="btn white"
+       href="https://wa.me/8613073086313"
+       target="_blank"
+       rel="noopener noreferrer"
+       data-i="contactBtn">
+      联系 S.J 思晶 ↗
+    </a>
+  </div>
+</section>
+
 </main>
 
 <footer>
-  <div class="logo">S.J <span>思晶</span></div>
-  <p>SMART LIVING · BRIGHTER FUTURE</p>
-  <p>© 2026 S.J 思晶 · V5.0</p>
-  <p data-t="disclaimer">本网站为产品及配置演示，显示价格并非正式报价，不支持真实在线支付。</p>
+  <div class="container footer-inner">
+    <div class="brand">
+      S.J <span>思晶</span>
+      <small>SMART LIVING</small>
+    </div>
+    <div>
+      <div>© 2026 S.J 思晶 · Pure Edition V5.1</div>
+      <p data-i="footerNote">
+        本站为演示商城，不支持真实在线支付。产品规格与价格需正式确认。
+      </p>
+    </div>
+  </div>
 </footer>
 
-<button class="float-dog" id="floatingDog">🐶 晶小汪</button>
+<!-- ================= FLOATING GUIDE ================= -->
+<button class="float-dog" id="floatDog" aria-label="打开晶小狗导购">
+  <span id="floatPuppy"></span>
+  <span data-i="dogShort">晶小狗</span>
+</button>
+
 <div class="overlay" id="overlay"></div>
 
-<div class="modal" id="detailModal" role="dialog" aria-modal="true" aria-hidden="true">
+<!-- ================= PRODUCT DETAIL ================= -->
+<section class="modal" id="detailModal"
+         role="dialog" aria-modal="true" aria-hidden="true"
+         aria-label="商品详情">
   <div class="modal-head">
     <h2 id="detailTitle"></h2>
-    <button class="close" data-close>×</button>
+    <button class="close" data-close aria-label="关闭">×</button>
   </div>
-  <div id="detailBody"></div>
-</div>
+  <div id="detailContent"></div>
+</section>
 
-<div class="modal" id="chatModal" role="dialog" aria-modal="true" aria-hidden="true">
+<!-- ================= CHAT ================= -->
+<section class="modal" id="chatModal"
+         role="dialog" aria-modal="true" aria-hidden="true"
+         aria-label="晶小狗导购">
   <div class="modal-head">
-    <h2 data-t="chatTitle">🐶 晶小汪导购</h2>
-    <button class="close" data-close>×</button>
+    <h2 data-i="chatTitle">晶小狗 · 产品导购</h2>
+    <button class="close" data-close aria-label="关闭">×</button>
   </div>
+
   <div class="chat-log" id="chatLog" aria-live="polite"></div>
-  <div class="quick" id="chatQuick"></div>
-  <form class="chat-input" id="chatForm" style="margin-top:12px">
-    <input id="chatInput" maxlength="250" placeholder="问问晶小汪……">
-    <button class="btn" type="submit" data-t="send">发送</button>
-  </form>
-  <p class="hint" data-t="scriptNote">当前为本地预设问答演示，尚未接入真正的生成式 AI。</p>
-</div>
+  <div class="quick-questions" id="chatQuestions"></div>
 
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-hidden="true">
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" maxlength="250"
+           placeholder="问问晶小狗……"
+           aria-label="聊天内容">
+    <button class="btn" type="submit" data-i="send">发送</button>
+  </form>
+  <p class="note" data-i="aiNote">
+    当前采用本地预设回答，尚未接入生成式 AI。
+  </p>
+</section>
+
+<!-- ================= CART ================= -->
+<aside class="drawer" id="cartDrawer"
+       role="dialog" aria-modal="true" aria-hidden="true"
+       aria-label="购物车">
   <div class="modal-head">
-    <h2 data-t="cartTitle">🛒 我的购物车</h2>
-    <button class="close" data-close>×</button>
+    <h2 data-i="cartTitle">我的购物车</h2>
+    <button class="close" data-close aria-label="关闭">×</button>
   </div>
-  <div class="drawer-body" id="cartBody"></div>
-  <div class="drawer-foot">
-    <div class="total">
-      <span data-t="subtotal">演示合计</span>
+
+  <div class="cart-body" id="cartItems"></div>
+
+  <div class="cart-foot">
+    <div class="cart-sum">
+      <span data-i="subtotal">演示合计</span>
       <strong id="cartTotal">¥0</strong>
     </div>
-    <button class="btn full green" id="inquireCart" data-t="inquireCart">发送完整询价清单 →</button>
-    <p class="hint" data-t="cartNote">点击后将通过 WhatsApp 发送商品和所选配置，不会自动创建真实订单。</p>
+    <button class="btn full" id="cartInquiry" data-i="cartInquiry">
+      发送完整询价清单 ↗
+    </button>
+    <p class="note" data-i="cartNote">
+      这将打开 WhatsApp 询价，不会创建真实订单。
+    </p>
   </div>
 </aside>
 
@@ -377,544 +1002,1231 @@ footer{
 <script>
 "use strict";
 
-const $=id=>document.getElementById(id);
-const fmt=n=>"¥"+n.toLocaleString("zh-CN");
-const el=(tag,cls="",txt="")=>{
-  const e=document.createElement(tag);
-  e.className=cls;
-  e.textContent=txt;
-  return e;
-};
-const wa=text=>"https://wa.me/8613073086313?text="+encodeURIComponent(text);
+/* =========================
+   UTILITIES
+========================= */
+const $ = id => document.getElementById(id);
+const money = n => "¥" + n.toLocaleString("zh-CN");
+const WHATSAPP = "8613073086313";
 
-const words={
-zh:{
- home:"首页",products:"产品中心",guide:"晶小汪导购",faq:"常见问题",contact:"联系我们",
- hero:"智享生活，晶彩未来。",
- heroText:"探索智能电视、专业显示器和智慧商用设备。让科技与生活更亲近。",
- explore:"探索新品 →",askDog:"🐶 问问晶小汪",
- b1:"27/32 英寸配置选择",b2:"可爱数字导购",b3:"独立保存每组配置",b4:"完整配置一键询价",
- guideTitle:"认识晶小汪 🐾",guideSub:"S.J 思晶的专属数字导购小狗。",
- dogHello:"汪！欢迎来到思晶 V5.0！",
- scriptNote:"当前为本地预设问答演示，尚未接入真正的生成式 AI。",
- openChat:"打开导购聊天 →",
- shopTitle:"精选智能产品",shopSub:"两款全新 Vision 显示器，支持配置实时计价。",
- faqTitle:"常见问题",faqSub:"了解定制配置与购买方式。",
- contactTitle:"联系 S.J 思晶",contactHeading:"开启你的智慧生活",
- contactText:"产品规格、配置组合与正式报价，请通过 WhatsApp 咨询。",
- contactButton:"💬 WhatsApp 咨询",
- disclaimer:"本网站为产品及配置演示，显示价格并非正式报价，不支持真实在线支付。",
- chatTitle:"🐶 晶小汪导购",send:"发送",cartTitle:"🛒 我的购物车",
- subtotal:"演示合计",inquireCart:"发送完整询价清单 →",
- cartNote:"点击后将通过 WhatsApp 发送商品和所选配置，不会自动创建真实订单。",
- all:"全部",monitor:"显示器",homecat:"智能家电",commercial:"商用设备",
- digital:"数字产品",creative:"创意好物",
- detail:"查看详情",configure:"选择配置",add:"加入购物车",ask:"咨询",
- demo:"演示参考价，实际报价待确认",base:"起",count:" 件商品",
- noResults:"没有找到相关商品",empty:"购物车还是空的",
- added:"已加入购物车",max:"每组配置最多添加99件",remove:"删除",
- removed:"商品已删除",specs:"产品介绍及配置说明",
- resolution:"分辨率",refresh:"刷新率",shape:"屏幕形态",stand:"显示器支架",
- configured:"当前配置演示价格",inquire:"咨询此配置",
- dogWelcome:"汪！我是晶小汪。你可以问我显示器、电竞、办公、分辨率和报价问题。",
- qs:["推荐电竞显示器","办公显示器怎么选？","2K 和 4K 有什么区别？","怎么购买？"],
- faqItems:[
-  ["配置价格是正式售价吗？","不是。目前均为演示参考价，具体型号、配置和实际价格请向思晶确认。"],
-  ["可以自由选择4K和165Hz吗？","网站提供组合计价演示，实际供货时需确认是否存在相应硬件型号。"],
-  ["不同配置会合并到购物车吗？","不会。相同商品的不同配置将作为独立条目保存。"],
-  ["网站支持直接付款吗？","暂未接入正式支付。可以通过 WhatsApp 发送完整询价清单。"]
- ]
-},
-en:{
- home:"Home",products:"Products",guide:"Puppy Guide",faq:"FAQ",contact:"Contact",
- hero:"Smart Living, Brighter Future.",
- heroText:"Explore smart TVs, configurable monitors and commercial display solutions.",
- explore:"Explore Products →",askDog:"🐶 Ask the Puppy",
- b1:"27/32-inch configurations",b2:"Friendly digital guide",b3:"Save each configuration",b4:"Complete WhatsApp inquiry",
- guideTitle:"Meet Our Puppy 🐾",guideSub:"The S.J digital shopping guide.",
- dogHello:"Woof! Welcome to S.J V5.0!",
- scriptNote:"This is a scripted local demo, not a connected generative AI.",
- openChat:"Open Chat →",
- shopTitle:"Featured Products",shopSub:"Two new configurable Vision monitors.",
- faqTitle:"FAQ",faqSub:"Learn about configurations and inquiries.",
- contactTitle:"Contact S.J",contactHeading:"Explore Smart Living",
- contactText:"For specifications and official quotations, contact us via WhatsApp.",
- contactButton:"💬 WhatsApp Inquiry",
- disclaimer:"Product and configuration demonstration only. Displayed prices are not official quotations. No real online payment.",
- chatTitle:"🐶 Puppy Guide",send:"Send",cartTitle:"🛒 My Cart",
- subtotal:"Demo Subtotal",inquireCart:"Send Complete Inquiry →",
- cartNote:"Sends selected products and configurations via WhatsApp. No real order is created.",
- all:"All",monitor:"Monitors",homecat:"Smart Home",commercial:"Commercial",
- digital:"Digital",creative:"Creative",
- detail:"Details",configure:"Configure",add:"Add to Cart",ask:"Inquire",
- demo:"Demo price; confirm actual quotation",base:"from",count:" products",
- noResults:"No matching products",empty:"Your cart is empty",
- added:"Added to cart",max:"Maximum 99 per configuration",remove:"Remove",
- removed:"Product removed",specs:"Features and Specifications",
- resolution:"Resolution",refresh:"Refresh Rate",shape:"Screen Shape",stand:"Stand",
- configured:"Configured Demo Price",inquire:"Inquire About This Configuration",
- dogWelcome:"Woof! Ask me about monitors, gaming, office use, resolutions or quotations.",
- qs:["Recommend a gaming monitor","Which monitor for office use?","2K vs 4K?","How do I buy?"],
- faqItems:[
-  ["Are the displayed prices final?","No. These are demo reference prices. Please confirm actual specifications and pricing."],
-  ["Can I order any 4K/165Hz combination?","The configurator demonstrates pricing. Actual hardware combinations must be confirmed."],
-  ["Are different configurations saved separately?","Yes. Different configurations remain separate cart items."],
-  ["Can I pay directly?","Not yet. Send your complete inquiry via WhatsApp."]
- ]
+function create(tag, className = "", text = "") {
+  const node = document.createElement(tag);
+  node.className = className;
+  node.textContent = text;
+  return node;
 }
+
+function whatsapp(message) {
+  return "https://wa.me/" + WHATSAPP +
+    "?text=" + encodeURIComponent(message);
+}
+
+function safeGet(key) {
+  try { return localStorage.getItem(key); }
+  catch (e) { return null; }
+}
+
+function safeSet(key, value) {
+  try { localStorage.setItem(key, value); }
+  catch (e) { console.warn("Storage unavailable:", e); }
+}
+
+let language = safeGet("sj5_lang") === "en" ? "en" : "zh";
+let category = "all";
+let cart = [];
+let previousFocus = null;
+
+/* =========================
+   TRANSLATIONS
+========================= */
+const copy = {
+  zh: {
+    home:"首页",
+    collection:"精选系列",
+    shop:"全部产品",
+    guide:"晶小狗",
+    contact:"联系我们",
+    heroTitle:"让科技回归<br>生活本身。",
+    heroDesc:"简洁设计，清晰体验。探索 S.J Vision 显示器及更多智慧生活产品。",
+    explore:"探索产品 ↗",
+    askDog:"认识晶小狗",
+    collectionTitle:"恰到好处的科技体验",
+    collectionDesc:"从日常办公到沉浸娱乐，发现适合自己的显示方案。",
+    vision27:"27 英寸 · 灵活配置 · 轻松融入日常空间",
+    vision32:"32 英寸 · 宽阔视野 · 个性化大屏体验",
+    viewProduct:"了解产品 ↗",
+    shopTitle:"精选产品",
+    shopDesc:"每一款产品，都有属于自己的使用场景。",
+    productNote:"商品图片为风格化示意图。规格、供货及价格请以实际确认结果为准。",
+    guideTitle:"你好，我是晶小狗。",
+    guideDesc:"一个小小的科技伙伴，让选择产品变得简单一点。",
+    puppyHello:"汪！今天想了解什么？",
+    puppyIntro:"不知道显示器该怎么选？可以先问问我。我会用简单的方式介绍产品。",
+    chatBtn:"与晶小狗聊聊 ↗",
+    aiNote:"当前采用本地预设回答，尚未接入生成式 AI。",
+    service1:"01 / 清晰展示",
+    service1d:"简洁呈现产品特点和配置选项。",
+    service2:"02 / 自由配置",
+    service2d:"显示器配置改变时，演示价格同步更新。",
+    service3:"03 / 便捷咨询",
+    service3d:"将完整配置发送至 WhatsApp 进行核实。",
+    faqTitle:"常见问题",
+    contactTitle:"找到适合你的科技产品。",
+    contactDesc:"有关产品、配置及正式报价，欢迎通过 WhatsApp 联系我们。",
+    contactBtn:"联系 S.J 思晶 ↗",
+    footerNote:"本站为演示商城，不支持真实在线支付。产品规格与价格需正式确认。",
+    dogShort:"晶小狗",
+    chatTitle:"晶小狗 · 产品导购",
+    send:"发送",
+    cartTitle:"我的购物车",
+    subtotal:"演示合计",
+    cartInquiry:"发送完整询价清单 ↗",
+    cartNote:"这将打开 WhatsApp 询价，不会创建真实订单。",
+    search:"搜索你感兴趣的产品……",
+    all:"全部",
+    monitor:"显示器",
+    homecat:"智能家居",
+    business:"商用设备",
+    other:"其他产品",
+    results:"款产品",
+    emptySearch:"暂时没有找到相关产品。",
+    details:"查看详情",
+    configure:"选择配置",
+    add:"加入购物车",
+    starting:"起",
+    reference:"演示参考价，实际报价待确认",
+    productInfo:"产品介绍",
+    resolution:"分辨率",
+    refresh:"刷新率",
+    shape:"屏幕形态",
+    stand:"支架",
+    configured:"当前配置演示价格",
+    inquire:"咨询此配置",
+    emptyCart:"购物车还是空的。",
+    remove:"删除",
+    added:"已加入购物车",
+    removed:"已移除商品",
+    max:"单组配置最多添加 99 件",
+    dogWelcome:"汪！我是晶小狗。可以问我显示器配置、日常办公、电竞和询价问题。",
+    questions:["办公显示器怎么选？","推荐电竞配置","2K 和 4K 有什么区别？","如何询价？"],
+    faq:[
+      ["网站显示的是正式售价吗？","不是。网站目前展示的是演示参考价。实际商品规格、价格与供货情况请通过 WhatsApp 确认。"],
+      ["所有显示器配置都可以购买吗？","配置选择器用于展示不同配置的价格变化。具体组合是否有对应实物型号，需要在购买前向供应商核实。"],
+      ["购物车会保存不同配置吗？","会。同款显示器的不同配置会作为独立商品条目保存。"],
+      ["可以直接在线支付吗？","目前不支持真实在线支付。你可以将完整商品及配置清单发送至 WhatsApp 咨询。"]
+    ]
+  },
+
+  en: {
+    home:"Home",
+    collection:"Collection",
+    shop:"Products",
+    guide:"Puppy Guide",
+    contact:"Contact",
+    heroTitle:"Technology for<br>Everyday Living.",
+    heroDesc:"Thoughtful design, effortless experience. Discover S.J Vision and more smart products.",
+    explore:"Explore Products ↗",
+    askDog:"Meet Our Puppy",
+    collectionTitle:"Technology, Thoughtfully Made",
+    collectionDesc:"Explore display solutions for work, entertainment and everyday use.",
+    vision27:"27 inches · Flexible configuration · Everyday spaces",
+    vision32:"32 inches · Expansive view · Personalised experience",
+    viewProduct:"View Product ↗",
+    shopTitle:"Selected Products",
+    shopDesc:"Discover products for different moments in life.",
+    productNote:"Images are stylised illustrations. Specifications, availability and pricing require confirmation.",
+    guideTitle:"Hello, I'm your S.J Puppy.",
+    guideDesc:"A little technology companion to make product selection easier.",
+    puppyHello:"Woof! What can I help with?",
+    puppyIntro:"Not sure which monitor to choose? Ask me for a simple introduction.",
+    chatBtn:"Chat with Puppy ↗",
+    aiNote:"Currently using local scripted responses, not generative AI.",
+    service1:"01 / Clear Presentation",
+    service1d:"Simple product details and configuration choices.",
+    service2:"02 / Flexible Options",
+    service2d:"Monitor demo prices update with each selection.",
+    service3:"03 / Easy Inquiry",
+    service3d:"Send complete configurations through WhatsApp.",
+    faqTitle:"Frequently Asked Questions",
+    contactTitle:"Find Technology That Fits.",
+    contactDesc:"Contact us on WhatsApp for product information and confirmed quotations.",
+    contactBtn:"Contact S.J ↗",
+    footerNote:"Demo storefront only. No real online payment. Confirm all specifications and prices.",
+    dogShort:"S.J Puppy",
+    chatTitle:"S.J Puppy · Product Guide",
+    send:"Send",
+    cartTitle:"My Cart",
+    subtotal:"Demo Subtotal",
+    cartInquiry:"Send Complete Inquiry ↗",
+    cartNote:"Opens WhatsApp for an inquiry. No real order is created.",
+    search:"Search for a product...",
+    all:"All",
+    monitor:"Monitors",
+    homecat:"Smart Home",
+    business:"Commercial",
+    other:"Other",
+    results:" products",
+    emptySearch:"No matching products found.",
+    details:"View Details",
+    configure:"Configure",
+    add:"Add to Cart",
+    starting:"from",
+    reference:"Demo reference price; confirm actual quote",
+    productInfo:"Product Information",
+    resolution:"Resolution",
+    refresh:"Refresh Rate",
+    shape:"Screen Shape",
+    stand:"Stand",
+    configured:"Configured Demo Price",
+    inquire:"Inquire About Configuration",
+    emptyCart:"Your cart is empty.",
+    remove:"Remove",
+    added:"Added to cart",
+    removed:"Product removed",
+    max:"Maximum 99 units per configuration",
+    dogWelcome:"Woof! Ask me about monitors, office use, gaming or quotations.",
+    questions:["Monitor for office use?","Recommend gaming specs","2K vs 4K?","How do I inquire?"],
+    faq:[
+      ["Are these final prices?","No. All displayed prices are demo references. Please confirm actual products, specifications and availability."],
+      ["Can every configuration be purchased?","The configurator demonstrates pricing. Actual hardware combinations must be verified before purchase."],
+      ["Are different configurations saved separately?","Yes. Different configurations of the same monitor are separate cart entries."],
+      ["Can I pay online?","Real online payment is not available yet. You can send your full inquiry via WhatsApp."]
+    ]
+  }
 };
 
-let lang="zh";
-let category="all";
-let cart=[];
+function t(key) {
+  return copy[language][key];
+}
 
-try{
-  lang=localStorage.getItem("sj5_lang")==="en"?"en":"zh";
-  if(localStorage.getItem("sj5_theme")==="dark"){
-    document.body.classList.add("dark");
+/* =========================
+   PRODUCT DATA
+========================= */
+const products = [
+  {
+    id:7, category:"monitor",
+    zh:"S.J Vision 27｜27英寸显示器",
+    en:"S.J Vision 27｜27-inch Monitor",
+    price:899, art:"monitor27", configurable:true,
+    descZh:"灵活配置，兼顾日常办公与娱乐体验。",
+    descEn:"Flexible configurations for work and entertainment.",
+    specsZh:["27英寸产品方案","可选择分辨率、刷新率与屏幕形态","实际型号、接口和供货情况待确认"],
+    specsEn:["27-inch product concept","Configurable resolution, refresh rate and screen shape","Actual model and availability TBD"]
+  },
+  {
+    id:8, category:"monitor",
+    zh:"S.J Vision 32 Pro｜32英寸显示器",
+    en:"S.J Vision 32 Pro｜32-inch Monitor",
+    price:1299, art:"monitor32", configurable:true,
+    descZh:"宽阔视野，打造更沉浸的大屏体验。",
+    descEn:"An expansive display for an immersive experience.",
+    specsZh:["32英寸产品方案","支持配置组合演示","实际型号、接口和供货情况待确认"],
+    specsEn:["32-inch product concept","Configuration preview available","Actual model and availability TBD"]
+  },
+  {
+    id:3, category:"homecat",
+    zh:"55英寸智能电视",
+    en:"55-inch Smart TV",
+    price:2999, art:"tv",
+    descZh:"为家庭娱乐带来更宽广的观看空间。",
+    descEn:"A larger view for home entertainment.",
+    specsZh:["55英寸产品示例","显示技术、系统和接口待确认"],
+    specsEn:["55-inch product concept","Panel, system and ports TBD"]
+  },
+  {
+    id:4, category:"business",
+    zh:"65英寸立式广告机",
+    en:"65-inch Floor Signage",
+    price:4999, art:"signage",
+    descZh:"以数字画面呈现品牌与商业信息。",
+    descEn:"Digital presentation for commercial spaces.",
+    specsZh:["65英寸竖屏产品示例","亮度、联网与内容管理功能待确认"],
+    specsEn:["65-inch portrait display concept","Brightness and management features TBD"]
+  },
+  {
+    id:5, category:"business",
+    zh:"75英寸智能会议机",
+    en:"75-inch Meeting Display",
+    price:7999, art:"meeting",
+    descZh:"为会议展示和团队协作提供大屏空间。",
+    descEn:"A larger canvas for meetings and collaboration.",
+    specsZh:["75英寸产品示例","触控、投屏和系统配置待确认"],
+    specsEn:["75-inch product concept","Touch, casting and system TBD"]
+  },
+  {
+    id:6, category:"homecat",
+    zh:"智能桌面音箱",
+    en:"Smart Desktop Speaker",
+    price:399, art:"speaker",
+    descZh:"简洁外形，让声音融入生活。",
+    descEn:"Compact audio with a simple design.",
+    specsZh:["桌面音频设备示例","连接方式及智能功能待确认"],
+    specsEn:["Desktop speaker concept","Connectivity and smart features TBD"]
+  },
+  {
+    id:1, category:"other",
+    zh:"思晶神秘盲盒",
+    en:"S.J Mystery Box",
+    price:99, art:"gift",
+    descZh:"一份带着惊喜感的创意礼物。",
+    descEn:"A creative gift with a little surprise.",
+    specsZh:["创意商品示例","具体内容与包装待确认"],
+    specsEn:["Creative product concept","Contents and packaging TBD"]
+  },
+  {
+    id:2, category:"other",
+    zh:"典藏版网站源码",
+    en:"Website Source Collection",
+    price:199, art:"code",
+    descZh:"为喜欢网页设计与创作的人准备。",
+    descEn:"A sample collection for web creators.",
+    specsZh:["HTML、CSS、JavaScript 示例","具体交付内容与授权待确认"],
+    specsEn:["HTML, CSS and JavaScript examples","Delivery and licence TBD"]
   }
-}catch(e){console.warn(e)}
-
-const t=k=>words[lang][k];
-
-const products=[
- {id:1,zh:"思晶神秘盲盒",en:"S.J Mystery Box",cat:"creative",price:99,icon:"🎁",
- descZh:"每一次开启，都是一场未知惊喜。",descEn:"A surprise in every box.",
- featuresZh:["创意礼品演示","具体内容及包装待确认"],
- featuresEn:["Demo gift product","Contents and packaging TBD"]},
- {id:2,zh:"典藏版网站源码",en:"Website Source Collection",cat:"digital",price:199,icon:"💻",
- descZh:"为热爱编程与创造的你准备。",descEn:"A sample resource for creators.",
- featuresZh:["HTML / CSS / JavaScript","授权及交付内容待确认"],
- featuresEn:["HTML / CSS / JavaScript","License and delivery TBD"]},
- {id:3,zh:"55英寸智能电视",en:"55-inch Smart TV",cat:"homecat",price:2999,icon:"📺",
- descZh:"大屏视界，沉浸式家庭娱乐。",descEn:"Big-screen home entertainment.",
- featuresZh:["55英寸示例","4K、OLED/LED、语音控制等配置待核实"],
- featuresEn:["55-inch example","Display and smart features TBD"]},
- {id:4,zh:"65英寸立式广告机",en:"65-inch Floor Signage",cat:"commercial",price:4999,icon:"🖥️",
- descZh:"高清数字展示，让品牌更出众。",descEn:"Commercial digital signage.",
- featuresZh:["65英寸竖屏示例","亮度、联网和内容管理功能待确认"],
- featuresEn:["65-inch portrait example","Brightness and networking TBD"]},
- {id:5,zh:"75英寸智能会议机",en:"75-inch Meeting Display",cat:"commercial",price:7999,icon:"📺",
- descZh:"高效协作，开启智慧办公。",descEn:"A collaborative meeting display.",
- featuresZh:["75英寸示例","触控、投屏和系统配置待确认"],
- featuresEn:["75-inch example","Touch, casting and system TBD"]},
- {id:6,zh:"智能桌面音箱",en:"Smart Desktop Speaker",cat:"homecat",price:399,icon:"🔊",
- descZh:"好声音，为生活增添氛围。",descEn:"Compact audio for your space.",
- featuresZh:["桌面音频设备示例","连接和语音功能待确认"],
- featuresEn:["Desktop speaker example","Connectivity and voice features TBD"]},
- {id:7,zh:"S.J Vision 27｜27英寸显示器",en:"S.J Vision 27 Monitor",cat:"monitor",price:899,icon:"🖥️",config:true,
- descZh:"自由搭配分辨率、刷新率、屏幕形态和支架。",
- descEn:"Customize resolution, refresh rate, shape and stand.",
- featuresZh:["27英寸配置演示","1080P / 2K / 4K","60Hz / 75Hz / 144Hz / 165Hz","直面 / 曲面"],
- featuresEn:["27-inch demo","1080P / 2K / 4K","60Hz / 75Hz / 144Hz / 165Hz","Flat / Curved"]},
- {id:8,zh:"S.J Vision 32 Pro｜32英寸显示器",en:"S.J Vision 32 Pro Monitor",cat:"monitor",price:1299,icon:"🖥️",config:true,
- descZh:"更宽阔的视野，打造个性化大屏体验。",
- descEn:"A larger, configurable display experience.",
- featuresZh:["32英寸配置演示","1080P / 2K / 4K","60Hz / 75Hz / 144Hz / 165Hz","直面 / 曲面"],
- featuresEn:["32-inch demo","1080P / 2K / 4K","60Hz / 75Hz / 144Hz / 165Hz","Flat / Curved"]}
 ];
 
-const options=[
- {key:"resolution",values:[["1080P",0],["2K (2560×1440)",300],["4K (3840×2160)",800]]},
- {key:"refresh",values:[["60Hz",0],["75Hz",80],["144Hz",350],["165Hz",500]]},
- {key:"shape",values:[["flat",0],["curved",250]]},
- {key:"stand",values:[["standard",0],["adjustable",150]]}
+function productName(p) {
+  return language === "zh" ? p.zh : p.en;
+}
+function productDesc(p) {
+  return language === "zh" ? p.descZh : p.descEn;
+}
+function productSpecs(p) {
+  return language === "zh" ? p.specsZh : p.specsEn;
+}
+
+/* =========================
+   VECTOR PRODUCT ART
+   No external image dependency
+========================= */
+function svgFrame(content) {
+  return `
+  <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Product illustration">
+    <defs>
+      <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#0c244a"/>
+        <stop offset=".48" stop-color="#3975da"/>
+        <stop offset="1" stop-color="#8fd3f7"/>
+      </linearGradient>
+      <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#172d56"/>
+        <stop offset="1" stop-color="#609bea"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="150" cy="209" rx="105" ry="10" fill="#6482ac" opacity=".15"/>
+    ${content}
+  </svg>`;
+}
+
+function productArt(type) {
+  if (type === "monitor27" || type === "monitor32") {
+    const wide = type === "monitor32";
+    const x = wide ? 24 : 37;
+    const width = wide ? 252 : 226;
+    return svgFrame(`
+      <rect x="${x}" y="40" width="${width}" height="143" rx="9" fill="#14223a"/>
+      <rect x="${x+5}" y="45" width="${width-10}" height="131" rx="4" fill="url(#screen)"/>
+      <path d="M${x+5} 150 Q130 68 ${x+width-5} 70 L${x+width-5} 176 L${x+5} 176Z"
+            fill="#9cddff" opacity=".22"/>
+      <path d="M${x+5} 145 Q160 25 ${x+width-5} 120"
+            fill="none" stroke="#d5f4ff" stroke-width="3" opacity=".65"/>
+      <path d="M${x+5} 164 Q170 82 ${x+width-5} 82"
+            fill="none" stroke="#a7dcff" stroke-width="2" opacity=".4"/>
+      <rect x="145" y="183" width="10" height="19" rx="2" fill="#50627b"/>
+      <path d="M118 207 L182 207 L171 201 L129 201Z" fill="#536783"/>
+      <text x="150" y="188" font-size="5" text-anchor="middle" fill="#94a8c7">S.J</text>
+    `);
+  }
+  if (type === "tv" || type === "meeting") {
+    return svgFrame(`
+      <rect x="23" y="42" width="254" height="148" rx="7" fill="#18253d"/>
+      <rect x="28" y="47" width="244" height="138" rx="3" fill="url(#screen)"/>
+      <circle cx="203" cy="90" r="48" fill="#bcecff" opacity=".28"/>
+      <path d="M28 161 Q100 85 162 139 T272 106 L272 185 L28 185Z"
+            fill="#173c85" opacity=".65"/>
+      <path d="M28 175 Q110 111 183 151 T272 126"
+            fill="none" stroke="#b3e5ff" stroke-width="3" opacity=".6"/>
+      <rect x="146" y="190" width="8" height="15" fill="#51627d"/>
+      <path d="M110 209 L190 209 L180 204 L120 204Z" fill="#51627d"/>
+    `);
+  }
+  if (type === "signage") {
+    return svgFrame(`
+      <rect x="91" y="13" width="118" height="190" rx="10" fill="#17243c"/>
+      <rect x="97" y="19" width="106" height="177" rx="5" fill="url(#glass)"/>
+      <circle cx="150" cy="71" r="29" fill="#c6e8ff" opacity=".5"/>
+      <text x="150" y="123" text-anchor="middle" fill="white"
+            font-size="22" font-weight="800">S.J</text>
+      <text x="150" y="141" text-anchor="middle" fill="#d4e8ff"
+            font-size="7" letter-spacing="2">SMART LIVING</text>
+      <rect x="141" y="203" width="18" height="8" fill="#455a79"/>
+      <path d="M112 215 L188 215 L175 210 L125 210Z" fill="#344c70"/>
+    `);
+  }
+  if (type === "speaker") {
+    return svgFrame(`
+      <rect x="89" y="40" width="122" height="153" rx="35" fill="#253a59"/>
+      <rect x="96" y="47" width="108" height="139" rx="29" fill="#344d70"/>
+      <circle cx="150" cy="111" r="43" fill="#152740"/>
+      <circle cx="150" cy="111" r="35" fill="#506b8e"/>
+      <circle cx="150" cy="111" r="21" fill="#172941"/>
+      <circle cx="150" cy="111" r="9" fill="#729cc7"/>
+      <circle cx="150" cy="169" r="3" fill="#a5c7ed"/>
+      <text x="150" y="59" text-anchor="middle" font-size="7" fill="#b7d6fa">S.J</text>
+    `);
+  }
+  if (type === "gift") {
+    return svgFrame(`
+      <rect x="67" y="91" width="166" height="107" rx="7" fill="#477bd0"/>
+      <rect x="60" y="77" width="180" height="30" rx="5" fill="#2458b5"/>
+      <rect x="137" y="77" width="26" height="121" fill="#dceaff"/>
+      <path d="M150 78 C88 63 105 22 136 43 C149 52 150 78 150 78Z"
+            fill="#c8dfff" stroke="#477bd0" stroke-width="4"/>
+      <path d="M150 78 C212 63 195 22 164 43 C151 52 150 78 150 78Z"
+            fill="#c8dfff" stroke="#477bd0" stroke-width="4"/>
+      <text x="150" y="156" text-anchor="middle" font-size="12"
+            font-weight="800" fill="#fff">S.J</text>
+    `);
+  }
+  return svgFrame(`
+    <rect x="47" y="48" width="206" height="135" rx="10" fill="#1b2b45"/>
+    <rect x="53" y="54" width="194" height="122" rx="5" fill="url(#screen)"/>
+    <text x="150" y="112" text-anchor="middle" fill="white"
+          font-size="25" font-weight="800">&lt;/&gt;</text>
+    <text x="150" y="135" text-anchor="middle" fill="#d5eaff"
+          font-size="9" letter-spacing="2">S.J CREATIVE</text>
+    <path d="M47 184 L253 184 L275 197 L25 197Z" fill="#617793"/>
+    <path d="M25 197 L275 197 L263 202 L37 202Z" fill="#415775"/>
+  `);
+}
+
+/* =========================
+   ORIGINAL PUPPY MASCOT
+========================= */
+function puppySVG() {
+  return `
+  <svg viewBox="0 0 230 230" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="S.J white and blue puppy mascot">
+    <ellipse cx="115" cy="211" rx="64" ry="9" fill="#4677b5" opacity=".17"/>
+    <path d="M78 157 Q56 168 68 201 Q115 221 162 201 Q174 168 151 157Z"
+          fill="#f9fcff" stroke="#b9d7fa" stroke-width="3"/>
+    <path d="M65 63 Q35 34 24 74 Q18 114 55 121 L76 94Z"
+          fill="#3979d5" stroke="#1d5bb6" stroke-width="3"/>
+    <path d="M165 63 Q195 34 206 74 Q212 114 175 121 L154 94Z"
+          fill="#3979d5" stroke="#1d5bb6" stroke-width="3"/>
+    <path d="M57 76 Q68 36 115 38 Q162 36 173 76
+             Q190 117 167 149 Q149 170 115 170
+             Q81 170 63 149 Q40 117 57 76Z"
+          fill="#fcfeff" stroke="#b9d7fa" stroke-width="3"/>
+    <ellipse cx="82" cy="110" rx="10" ry="13" fill="#243e63"/>
+    <ellipse cx="148" cy="110" rx="10" ry="13" fill="#243e63"/>
+    <circle cx="85" cy="106" r="3" fill="white"/>
+    <circle cx="151" cy="106" r="3" fill="white"/>
+    <ellipse cx="115" cy="133" rx="12" ry="8" fill="#253e5c"/>
+    <path d="M115 140 Q101 154 93 143 M115 140 Q129 154 137 143"
+          fill="none" stroke="#405775" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="74" cy="135" rx="11" ry="6" fill="#ffbdc9" opacity=".6"/>
+    <ellipse cx="156" cy="135" rx="11" ry="6" fill="#ffbdc9" opacity=".6"/>
+    <path d="M52 91 Q45 52 75 46 M178 91 Q185 52 155 46"
+          fill="none" stroke="#1c58b8" stroke-width="7" stroke-linecap="round"/>
+    <rect x="43" y="86" width="12" height="31" rx="6" fill="#1c58b8"/>
+    <rect x="175" y="86" width="12" height="31" rx="6" fill="#1c58b8"/>
+    <path d="M89 171 Q115 182 141 171" fill="none"
+          stroke="#3979d5" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="115" cy="179" r="14" fill="#245bd6" stroke="#fff" stroke-width="3"/>
+    <text x="115" y="183" text-anchor="middle" font-size="9"
+          font-weight="900" fill="white">S.J</text>
+    <ellipse cx="81" cy="201" rx="17" ry="9" fill="#fff" stroke="#b9d7fa" stroke-width="2"/>
+    <ellipse cx="149" cy="201" rx="17" ry="9" fill="#fff" stroke="#b9d7fa" stroke-width="2"/>
+  </svg>`;
+}
+
+function renderStaticArt() {
+  $("feature27").innerHTML = productArt("monitor27");
+  $("feature32").innerHTML = productArt("monitor32");
+  $("puppyScene").innerHTML = puppySVG();
+  $("floatPuppy").innerHTML = puppySVG();
+
+  $("heroVisual").innerHTML = `
+    <svg viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="heroScreen" x1="0" y1="0" x2="1" y2="1">
+          <stop stop-color="#132e66"/>
+          <stop offset=".55" stop-color="#498be5"/>
+          <stop offset="1" stop-color="#a1d6ff"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="225" cy="291" rx="183" ry="13" fill="#06142d" opacity=".35"/>
+      <rect x="38" y="28" width="384" height="237" rx="13" fill="#071426"/>
+      <rect x="46" y="36" width="368" height="219" rx="6" fill="url(#heroScreen)"/>
+      <circle cx="316" cy="97" r="80" fill="#b8e9ff" opacity=".16"/>
+      <path d="M46 221 Q146 60 240 172 T414 95 L414 255 L46 255Z"
+            fill="#102f70" opacity=".48"/>
+      <path d="M46 239 Q154 107 260 191 T414 123"
+            fill="none" stroke="#d0efff" stroke-width="5" opacity=".6"/>
+      <path d="M46 180 Q130 37 222 128 T414 60"
+            fill="none" stroke="#d1f1ff" stroke-width="2" opacity=".3"/>
+      <text x="230" y="242" text-anchor="middle" fill="#d5ebff"
+            font-size="8" letter-spacing="4">S.J VISION</text>
+      <rect x="215" y="265" width="30" height="16" rx="2" fill="#8b9cb4"/>
+      <path d="M175 288 L285 288 L267 280 L193 280Z" fill="#9cacc1"/>
+    </svg>`;
+}
+
+/* =========================
+   CONFIGURATOR
+========================= */
+const configOptions = [
+  {
+    key:"resolution",
+    values:[
+      ["1080P",0],
+      ["2K (2560×1440)",300],
+      ["4K (3840×2160)",800]
+    ]
+  },
+  {
+    key:"refresh",
+    values:[
+      ["60Hz",0],
+      ["75Hz",80],
+      ["144Hz",350],
+      ["165Hz",500]
+    ]
+  },
+  {
+    key:"shape",
+    values:[
+      ["flat",0],
+      ["curved",250]
+    ]
+  },
+  {
+    key:"stand",
+    values:[
+      ["standard",0],
+      ["adjustable",150]
+    ]
+  }
 ];
 
-function optionLabel(key,value){
-  const labels={
+function optionName(value) {
+  const labels = {
     flat:["直面屏","Flat"],
     curved:["曲面屏","Curved"],
     standard:["标准支架","Standard Stand"],
     adjustable:["升降旋转支架","Adjustable Stand"]
   };
-  return labels[value]?labels[value][lang==="zh"?0:1]:value;
+  return labels[value]
+    ? labels[value][language === "zh" ? 0 : 1]
+    : value;
 }
-function defaultConfig(){
+
+function defaultConfig() {
   return {resolution:0,refresh:0,shape:0,stand:0};
 }
-function validConfig(c){
-  return c&&options.every(o=>Number.isInteger(c[o.key])&&c[o.key]>=0&&c[o.key]<o.values.length);
-}
-function configText(c){
-  return options.map(o=>optionLabel(o.key,o.values[c[o.key]][0])).join(" · ");
-}
-function priceOf(p,c){
-  if(!p.config||!validConfig(c))return p.price;
-  return p.price+options.reduce((sum,o)=>sum+o.values[c[o.key]][1],0);
-}
-function keyOf(id,c){
-  return c?id+"-"+options.map(o=>c[o.key]).join("-"):String(id);
-}
-function name(p){return lang==="zh"?p.zh:p.en}
-function desc(p){return lang==="zh"?p.descZh:p.descEn}
-function features(p){return lang==="zh"?p.featuresZh:p.featuresEn}
 
-try{
-  const raw=JSON.parse(localStorage.getItem("sj5_cart")||"[]");
-  if(Array.isArray(raw)){
-    raw.forEach(item=>{
-      const p=products.find(x=>x.id===item.id);
-      if(!p||!Number.isInteger(item.qty)||item.qty<1||item.qty>99)return;
-      const c=p.config?item.config:null;
-      if(p.config&&!validConfig(c))return;
-      const key=keyOf(p.id,c);
-      const existing=cart.find(x=>x.key===key);
-      if(existing)existing.qty=Math.min(99,existing.qty+item.qty);
-      else cart.push({id:p.id,key,config:c,qty:item.qty});
-    });
-  }
-}catch(e){console.warn(e)}
-
-function save(){
-  try{localStorage.setItem("sj5_cart",JSON.stringify(cart))}
-  catch(e){console.warn(e)}
-  $("count").textContent=cart.reduce((s,x)=>s+x.qty,0);
-}
-let toastTimer;
-function notify(message){
-  $("toast").textContent=message;
-  $("toast").classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2200);
-}
-
-function renderProducts(){
-  const q=$("search").value.trim().toLowerCase();
-  const f=$("filters");
-  f.replaceChildren();
-  ["all","monitor","homecat","commercial","digital","creative"].forEach(k=>{
-    const b=el("button","chip"+(category===k?" active":""),t(k));
-    b.setAttribute("aria-pressed",String(category===k));
-    b.onclick=()=>{category=k;renderProducts()};
-    f.append(b);
-  });
-  const matches=products.filter(p=>
-    (category==="all"||p.cat===category)&&
-    [p.zh,p.en,p.descZh,p.descEn,...p.featuresZh,...p.featuresEn]
-    .join(" ").toLowerCase().includes(q)
+function validConfig(c) {
+  return !!c && configOptions.every(o =>
+    Number.isInteger(c[o.key]) &&
+    c[o.key] >= 0 &&
+    c[o.key] < o.values.length
   );
-  $("result").textContent=matches.length+t("count");
-  const grid=$("grid");
+}
+
+function configText(c) {
+  return configOptions.map(o =>
+    optionName(o.values[c[o.key]][0])
+  ).join(" · ");
+}
+
+function productPrice(p,c) {
+  if (!p.configurable || !validConfig(c)) return p.price;
+
+  return p.price + configOptions.reduce(
+    (sum,o) => sum + o.values[c[o.key]][1],0
+  );
+}
+
+function cartKey(id,c) {
+  return c
+    ? id + "-" + configOptions.map(o => c[o.key]).join("-")
+    : String(id);
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+function renderProducts() {
+  const query = $("searchInput").value.trim().toLowerCase();
+
+  const filters = $("filters");
+  filters.replaceChildren();
+
+  ["all","monitor","homecat","business","other"].forEach(key => {
+    const button = create(
+      "button",
+      "filter" + (category === key ? " active" : ""),
+      t(key)
+    );
+    button.setAttribute("aria-pressed",String(category === key));
+    button.onclick = () => {
+      category = key;
+      renderProducts();
+    };
+    filters.append(button);
+  });
+
+  const matching = products.filter(p => {
+    const inCategory = category === "all" || p.category === category;
+    const searchable = [
+      p.zh,p.en,p.descZh,p.descEn,
+      ...p.specsZh,...p.specsEn
+    ].join(" ").toLowerCase();
+
+    return inCategory && searchable.includes(query);
+  });
+
+  $("resultCount").textContent = matching.length + t("results");
+
+  const grid = $("productGrid");
   grid.replaceChildren();
-  if(!matches.length){
-    grid.append(el("div","empty",t("noResults")));
+
+  if (!matching.length) {
+    grid.append(create("div","empty",t("emptySearch")));
     return;
   }
-  matches.forEach(p=>{
-    const card=el("article","product");
-    const art=el("div","art");
-    art.append(el("span","emoji",p.icon));
-    const body=el("div","product-body");
-    const tag=el("span","tag",t(p.cat));
-    const title=el("h3","",name(p));
-    const description=el("p","",desc(p));
-    const price=el("div","price",fmt(p.price)+(p.config?" "+t("base"):""));
-    const note=el("div","hint",t("demo"));
-    const actions=el("div","product-buttons");
-    const detail=el("button","secondary",p.config?t("configure"):t("detail"));
-    const add=el("button","btn",t("add"));
-    const link=el("a","green",t("ask"));
-    detail.onclick=()=>showDetail(p.id);
-    add.onclick=()=>p.config?showDetail(p.id):addCart(p.id,null);
-    link.href=wa((lang==="zh"?"你好，我想咨询：":"Hello, please quote: ")+name(p));
-    link.target="_blank";
-    link.rel="noopener noreferrer";
-    actions.append(detail,add,link);
-    body.append(tag,title,description,price,note,actions);
-    card.append(art,body);
+
+  matching.forEach(p => {
+    const card = create("article","product");
+
+    const art = create("div","product-art");
+    art.innerHTML = productArt(p.art);
+    art.append(create("span","product-tag",t(p.category)));
+
+    const content = create("div","product-content");
+    content.append(
+      create("h3","",productName(p)),
+      create("p","",productDesc(p))
+    );
+
+    const price = create("div","product-price",money(p.price));
+    if (p.configurable) {
+      price.append(create("small","", " " + t("starting")));
+    }
+
+    const actions = create("div","product-actions");
+
+    const detail = create(
+      "button","btn secondary",
+      p.configurable ? t("configure") : t("details")
+    );
+    detail.onclick = () => showDetail(p.id);
+
+    const add = create("button","btn",t("add"));
+    add.onclick = () => {
+      if (p.configurable) showDetail(p.id);
+      else addCart(p.id,null);
+    };
+
+    actions.append(detail,add);
+    content.append(price,actions);
+    card.append(art,content);
     grid.append(card);
   });
 }
 
-let priorFocus=null;
-function closeAll(restore=true){
+/* =========================
+   MODAL CONTROLS
+========================= */
+function closeAll(restore = true) {
   $("overlay").classList.remove("show");
-  ["detailModal","chatModal","drawer"].forEach(id=>{
+
+  ["detailModal","chatModal","cartDrawer"].forEach(id => {
     $(id).classList.remove("show");
     $(id).setAttribute("aria-hidden","true");
   });
-  document.body.style.overflow="";
-  if(restore&&priorFocus&&priorFocus.isConnected)priorFocus.focus();
+
+  document.body.style.overflow = "";
+
+  if (restore && previousFocus && previousFocus.isConnected) {
+    previousFocus.focus();
+  }
 }
-function openModal(id){
+
+function openModal(id) {
   closeAll(false);
-  priorFocus=document.activeElement;
+  previousFocus = document.activeElement;
+
   $("overlay").classList.add("show");
   $(id).classList.add("show");
   $(id).setAttribute("aria-hidden","false");
-  document.body.style.overflow="hidden";
+
+  document.body.style.overflow = "hidden";
   $(id).querySelector(".close").focus();
 }
 
-function showDetail(id){
-  const p=products.find(x=>x.id===id);
-  if(!p)return;
-  $("detailTitle").textContent=name(p);
-  const box=$("detailBody");
+/* =========================
+   PRODUCT DETAILS
+========================= */
+function showDetail(id) {
+  const p = products.find(item => item.id === id);
+  if (!p) return;
+
+  $("detailTitle").textContent = productName(p);
+
+  const box = $("detailContent");
   box.replaceChildren();
-  box.append(el("p","sub",desc(p)));
-  const list=el("ul");
-  features(p).forEach(s=>list.append(el("li","",s)));
-  box.append(el("h3","",t("specs")),list);
 
-  if(p.config){
-    const c=defaultConfig();
-    const selectors=el("div","config-grid");
-    const price=el("div","config-price");
-    const actions=el("div","product-buttons");
-    const add=el("button","btn",t("add"));
-    const inquire=el("a","green",t("inquire"));
+  const art = create("div","detail-art");
+  art.innerHTML = productArt(p.art);
 
-    function update(){
-      const value=priceOf(p,c);
-      price.replaceChildren(
-        el("small","",t("configured")),
-        el("div","price",fmt(value)),
-        el("div","hint",configText(c)+" · "+t("demo"))
-      );
-      inquire.href=wa(
-        (lang==="zh"?"你好，请核实以下显示器配置及实际报价：\n":
-        "Hello, please verify this monitor configuration and quote:\n")+
-        name(p)+"\n"+configText(c)+"\n"+
-        (lang==="zh"?"网站演示价：":"Demo price: ")+fmt(value)
-      );
-    }
+  box.append(
+    art,
+    create("p","muted",productDesc(p)),
+    create("h3","",t("productInfo"))
+  );
 
-    options.forEach(o=>{
-      const label=el("label","",t(o.key));
-      const select=el("select");
-      o.values.forEach(([value,extra],i)=>{
-        const opt=el("option","",optionLabel(o.key,value)+(extra?" +"+fmt(extra):""));
-        opt.value=String(i);
-        select.append(opt);
-      });
-      select.value=String(c[o.key]);
-      select.onchange=()=>{
-        c[o.key]=Number(select.value);
-        update();
-      };
-      label.append(select);
-      selectors.append(label);
-    });
+  const list = create("ul","detail-list");
+  productSpecs(p).forEach(spec => {
+    list.append(create("li","",spec));
+  });
+  box.append(list);
 
-    add.onclick=()=>{
-      addCart(p.id,{...c});
+  if (!p.configurable) {
+    box.append(
+      create("div","product-price",money(p.price)),
+      create("p","note",t("reference"))
+    );
+
+    const actions = create("div","modal-actions");
+
+    const add = create("button","btn",t("add"));
+    add.onclick = () => {
+      addCart(p.id,null);
       closeAll();
     };
-    inquire.target="_blank";
-    inquire.rel="noopener noreferrer";
-    actions.append(add,inquire);
-    box.append(selectors,price,el("p","hint",t("demo")),actions);
-    update();
-  }else{
-    box.append(el("div","price",fmt(p.price)),el("p","hint",t("demo")));
-    const actions=el("div","product-buttons");
-    const add=el("button","btn",t("add"));
-    const inquire=el("a","green",t("ask"));
-    add.onclick=()=>{addCart(p.id,null);closeAll()};
-    inquire.href=wa((lang==="zh"?"你好，我想咨询：":"Hello, please quote: ")+name(p));
-    inquire.target="_blank";
-    inquire.rel="noopener noreferrer";
-    actions.append(add,inquire);
+
+    const inquiry = create("a","btn secondary",t("inquire"));
+    inquiry.href = whatsapp(
+      (language === "zh"
+        ? "你好，我想咨询以下商品的实际规格及报价：\n"
+        : "Hello, please confirm the specifications and price of:\n"
+      ) + productName(p)
+    );
+    inquiry.target = "_blank";
+    inquiry.rel = "noopener noreferrer";
+
+    actions.append(add,inquiry);
     box.append(actions);
+
+    openModal("detailModal");
+    return;
   }
+
+  const config = defaultConfig();
+  const selectors = create("div","config-grid");
+  const total = create("div","config-total");
+  const actions = create("div","modal-actions");
+
+  const add = create("button","btn",t("add"));
+  const inquiry = create("a","btn secondary",t("inquire"));
+  inquiry.target = "_blank";
+  inquiry.rel = "noopener noreferrer";
+
+  function updatePrice() {
+    const amount = productPrice(p,config);
+
+    total.replaceChildren(
+      create("div","note",t("configured")),
+      create("strong","",money(amount)),
+      create("div","note",configText(config))
+    );
+
+    inquiry.href = whatsapp(
+      (language === "zh"
+        ? "你好，请确认以下显示器配置的实际供货及报价：\n\n"
+        : "Hello, please confirm availability and quotation for:\n\n"
+      ) +
+      productName(p) + "\n" +
+      configText(config) + "\n" +
+      (language === "zh" ? "网站演示价格：" : "Demo price: ") +
+      money(amount)
+    );
+  }
+
+  configOptions.forEach(option => {
+    const label = create("label","",t(option.key));
+    const select = create("select");
+
+    option.values.forEach(([value,extra],index) => {
+      const item = create(
+        "option","",
+        optionName(value) + (extra ? "  +" + money(extra) : "")
+      );
+      item.value = String(index);
+      select.append(item);
+    });
+
+    select.value = String(config[option.key]);
+
+    select.onchange = () => {
+      config[option.key] = Number(select.value);
+      updatePrice();
+    };
+
+    label.append(select);
+    selectors.append(label);
+  });
+
+  add.onclick = () => {
+    addCart(p.id,{...config});
+    closeAll();
+  };
+
+  actions.append(add,inquiry);
+
+  box.append(
+    selectors,
+    total,
+    create("p","note",t("reference")),
+    actions
+  );
+
+  updatePrice();
   openModal("detailModal");
 }
 
-function addCart(id,c){
-  const p=products.find(x=>x.id===id);
-  if(!p)return;
-  const config=p.config?c||defaultConfig():null;
-  if(p.config&&!validConfig(config))return;
-  const key=keyOf(id,config);
-  const item=cart.find(x=>x.key===key);
-  if(item){
-    if(item.qty>=99){notify(t("max"));return}
-    item.qty++;
-  }else{
-    cart.push({id,key,config,qty:1});
+/* =========================
+   CART STORAGE
+========================= */
+function loadCart() {
+  try {
+    const stored = JSON.parse(safeGet("sj5_cart") || "[]");
+    if (!Array.isArray(stored)) return;
+
+    stored.forEach(item => {
+      const p = products.find(x => x.id === item.id);
+      if (!p) return;
+
+      if (
+        !Number.isInteger(item.qty) ||
+        item.qty < 1 ||
+        item.qty > 99
+      ) return;
+
+      const config = p.configurable ? item.config : null;
+      if (p.configurable && !validConfig(config)) return;
+
+      const key = cartKey(p.id,config);
+      const existing = cart.find(x => x.key === key);
+
+      if (existing) {
+        existing.qty = Math.min(99,existing.qty + item.qty);
+      } else {
+        cart.push({
+          id:p.id,
+          key,
+          config,
+          qty:item.qty
+        });
+      }
+    });
+  } catch (e) {
+    console.warn("Could not restore cart:",e);
   }
-  save();
+}
+
+function saveCart() {
+  safeSet("sj5_cart",JSON.stringify(cart));
+  $("cartCount").textContent = cart.reduce(
+    (sum,item) => sum + item.qty,0
+  );
+}
+
+let toastTimeout;
+
+function notify(message) {
+  const toast = $("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove("show");
+  },2200);
+}
+
+function addCart(id,config) {
+  const p = products.find(item => item.id === id);
+  if (!p) return;
+
+  const c = p.configurable
+    ? config || defaultConfig()
+    : null;
+
+  if (p.configurable && !validConfig(c)) return;
+
+  const key = cartKey(id,c);
+  const existing = cart.find(item => item.key === key);
+
+  if (existing) {
+    if (existing.qty >= 99) {
+      notify(t("max"));
+      return;
+    }
+    existing.qty++;
+  } else {
+    cart.push({
+      id,
+      key,
+      config:c,
+      qty:1
+    });
+  }
+
+  saveCart();
   renderCart();
   notify(t("added"));
 }
 
-function renderCart(){
-  const box=$("cartBody");
+function changeQuantity(key,amount) {
+  const item = cart.find(x => x.key === key);
+  if (!item) return;
+
+  item.qty = Math.min(99,item.qty + amount);
+
+  if (item.qty <= 0) {
+    cart = cart.filter(x => x.key !== key);
+  }
+
+  saveCart();
+  renderCart();
+}
+
+function renderCart() {
+  const box = $("cartItems");
   box.replaceChildren();
-  let total=0;
-  if(!cart.length)box.append(el("div","empty",t("empty")));
-  cart.forEach(item=>{
-    const p=products.find(x=>x.id===item.id);
-    if(!p)return;
-    const unit=priceOf(p,item.config);
-    total+=unit*item.qty;
-    const row=el("div","cart-row");
-    row.append(el("b","",name(p)));
-    if(item.config)row.append(el("small","",configText(item.config)));
-    row.append(el("div","price",fmt(unit*item.qty)));
-    const controls=el("div","qty");
-    const minus=el("button","","−");
-    const count=el("span","",String(item.qty));
-    const plus=el("button","","+");
-    const remove=el("button","remove",t("remove"));
-    minus.onclick=()=>changeQty(item.key,-1);
-    plus.onclick=()=>changeQty(item.key,1);
-    plus.disabled=item.qty>=99;
-    remove.onclick=()=>{
-      cart=cart.filter(x=>x.key!==item.key);
-      save();renderCart();notify(t("removed"));
+
+  let subtotal = 0;
+
+  if (!cart.length) {
+    box.append(create("div","empty",t("emptyCart")));
+  }
+
+  cart.forEach(item => {
+    const p = products.find(x => x.id === item.id);
+    if (!p) return;
+
+    const price = productPrice(p,item.config);
+    subtotal += price * item.qty;
+
+    const row = create("div","cart-item");
+    row.append(create("b","",productName(p)));
+
+    if (item.config) {
+      row.append(create("small","",configText(item.config)));
+    }
+
+    row.append(create("strong","",money(price * item.qty)));
+
+    const controls = create("div","qty");
+
+    const minus = create("button","","−");
+    const quantity = create("span","",String(item.qty));
+    const plus = create("button","","+");
+    const remove = create("button","remove",t("remove"));
+
+    minus.onclick = () => changeQuantity(item.key,-1);
+    plus.onclick = () => changeQuantity(item.key,1);
+    plus.disabled = item.qty >= 99;
+
+    remove.onclick = () => {
+      cart = cart.filter(x => x.key !== item.key);
+      saveCart();
+      renderCart();
+      notify(t("removed"));
     };
-    controls.append(minus,count,plus,remove);
+
+    controls.append(minus,quantity,plus,remove);
     row.append(controls);
     box.append(row);
   });
-  $("cartTotal").textContent=fmt(total);
-  $("inquireCart").disabled=!cart.length;
-}
-function changeQty(key,delta){
-  const item=cart.find(x=>x.key===key);
-  if(!item)return;
-  item.qty=Math.min(99,item.qty+delta);
-  if(item.qty<=0)cart=cart.filter(x=>x.key!==key);
-  save();renderCart();
-}
-function inquireCart(){
-  if(!cart.length)return;
-  const lines=cart.map((x,i)=>{
-    const p=products.find(y=>y.id===x.id);
-    return (i+1)+". "+name(p)+
-      (x.config?"\n   "+configText(x.config):"")+
-      "\n   "+fmt(priceOf(p,x.config))+" × "+x.qty;
-  });
-  const sum=cart.reduce((s,x)=>{
-    const p=products.find(y=>y.id===x.id);
-    return s+priceOf(p,x.config)*x.qty;
-  },0);
-  const msg=(lang==="zh"?
-    "你好，我想咨询以下 S.J 思晶商品的实际配置、供货和报价：\n\n":
-    "Hello, please verify availability, specifications and actual quotation for:\n\n")+
-    lines.join("\n\n")+"\n\n"+
-    (lang==="zh"?"网站演示合计：":"Demo total: ")+fmt(sum)+
-    "\n"+(lang==="zh"?"（非正式订单，请确认实际报价）":"(Not a real order; please confirm pricing)");
-  window.open(wa(msg),"_blank","noopener,noreferrer");
+
+  $("cartTotal").textContent = money(subtotal);
+  $("cartInquiry").disabled = !cart.length;
 }
 
-function answer(q){
-  const v=q.toLowerCase();
-  if(/电竞|游戏|gaming|game|144|165/.test(v))
-    return lang==="zh"?
-      "汪！电竞可以先看看 Vision 27 或 32 Pro 的 2K + 144Hz 配置。实际型号和供货请询价确认。":
-      "Woof! Consider Vision 27 or 32 Pro with 2K + 144Hz. Please verify availability.";
-  if(/办公|office|工作|study|学习/.test(v))
-    return lang==="zh"?
-      "日常办公可以考虑27英寸 2K + 75Hz + 直面屏，兼顾清晰度与预算。":
-      "For office use, consider a 27-inch 2K + 75Hz flat display.";
-  if(/4k|2k|分辨率|resolution/.test(v))
-    return lang==="zh"?
-      "2K通常指2560×1440，4K指3840×2160。选择时也要考虑电脑输出能力和预算。":
-      "2K is typically 2560×1440; 4K is 3840×2160. Consider compatibility and budget.";
-  if(/价格|报价|购买|联系|whatsapp|price|quote|buy|contact/.test(v))
-    return lang==="zh"?
-      "在商品详情选择配置并加入购物车，然后点击发送完整询价清单，即可通过 WhatsApp 联系思晶。":
-      "Configure a product, add it to your cart, then send the inquiry via WhatsApp.";
-  if(/曲面|直面|curved|flat/.test(v))
-    return lang==="zh"?
-      "直面屏适合通用办公；曲面屏提供不同的观看体验。请确认实际型号是否支持对应版本。":
-      "Flat screens suit general use; curved screens offer a different viewing experience.";
-  return lang==="zh"?
-    "汪！我目前支持显示器推荐、2K/4K、刷新率、直面/曲面和询价等预设问题。":
-    "Woof! I can help with monitors, resolutions, refresh rates, screen shape and inquiries.";
+function sendCartInquiry() {
+  if (!cart.length) return;
+
+  const lines = cart.map((item,index) => {
+    const p = products.find(x => x.id === item.id);
+
+    return (
+      (index+1) + ". " + productName(p) +
+      (item.config ? "\n   " + configText(item.config) : "") +
+      "\n   " + money(productPrice(p,item.config)) +
+      " × " + item.qty
+    );
+  });
+
+  const subtotal = cart.reduce((sum,item) => {
+    const p = products.find(x => x.id === item.id);
+    return sum + productPrice(p,item.config) * item.qty;
+  },0);
+
+  const message =
+    (language === "zh"
+      ? "你好，我想咨询以下 S.J 思晶商品的实际规格、供货情况及报价：\n\n"
+      : "Hello, please confirm specifications, availability and pricing for:\n\n"
+    ) +
+    lines.join("\n\n") +
+    "\n\n" +
+    (language === "zh" ? "网站演示合计：" : "Demo subtotal: ") +
+    money(subtotal) +
+    "\n" +
+    (language === "zh"
+      ? "注：这是一份询价清单，并非正式订单。"
+      : "Note: This is an inquiry, not a confirmed order."
+    );
+
+  window.open(whatsapp(message),"_blank","noopener,noreferrer");
 }
-function addBubble(message,user=false){
-  const b=el("div","bubble"+(user?" user":""),(user?"":"🐶 ")+message);
-  $("chatLog").append(b);
-  $("chatLog").scrollTop=$("chatLog").scrollHeight;
+
+/* =========================
+   PUPPY GUIDE
+========================= */
+function puppyAnswer(question) {
+  const q = question.toLowerCase();
+
+  if (/办公|office|工作|学习|study/.test(q)) {
+    return language === "zh"
+      ? "汪！日常办公可以先看看 Vision 27 的 2K + 75Hz + 直面屏配置。实际供货型号需要进一步确认。"
+      : "Woof! For office use, consider Vision 27 with 2K, 75Hz and a flat screen. Please confirm availability.";
+  }
+
+  if (/电竞|游戏|game|gaming|144|165/.test(q)) {
+    return language === "zh"
+      ? "喜欢电竞的话，可以了解 2K + 144Hz 的配置。27寸和32寸都能在网站中预览价格，实际型号请先询价。"
+      : "For gaming, consider a 2K + 144Hz configuration. Both sizes have demo pricing; verify actual models.";
+  }
+
+  if (/2k|4k|分辨率|resolution/.test(q)) {
+    return language === "zh"
+      ? "2K 通常指 2560×1440，4K 为 3840×2160。4K 像素更多，但也要考虑电脑输出能力和预算。"
+      : "2K commonly means 2560×1440, while 4K is 3840×2160. Consider device compatibility and budget.";
+  }
+
+  if (/价格|购买|询价|联系|price|buy|quote|contact|whatsapp/.test(q)) {
+    return language === "zh"
+      ? "选择商品和配置后加入购物车，再点击「发送完整询价清单」，就能通过 WhatsApp 联系思晶。"
+      : "Select your products and configurations, add them to the cart, then send your complete inquiry via WhatsApp.";
+  }
+
+  if (/曲面|直面|flat|curved/.test(q)) {
+    return language === "zh"
+      ? "直面屏比较通用，曲面屏则提供不同的观看感受。实际是否有对应版本，需要向供应商确认。"
+      : "Flat screens are versatile; curved screens offer a different viewing experience. Confirm available models.";
+  }
+
+  return language === "zh"
+    ? "汪！我目前可以介绍显示器、分辨率、刷新率、办公、电竞和询价流程。你可以试试这些问题。"
+    : "Woof! I can help with monitors, resolutions, refresh rates, office use, gaming and inquiries.";
 }
-function openChat(){
-  if(!$("chatLog").children.length)addBubble(t("dogWelcome"));
+
+function addBubble(message,isUser = false) {
+  const bubble = create(
+    "div",
+    "bubble" + (isUser ? " user" : ""),
+    (isUser ? "" : "🐾 ") + message
+  );
+
+  $("chatLog").append(bubble);
+  $("chatLog").scrollTop = $("chatLog").scrollHeight;
+}
+
+function renderGuide() {
+  $("guideReply").textContent = t("dogWelcome");
+  $("guideQuestions").replaceChildren();
+  $("chatQuestions").replaceChildren();
+
+  t("questions").forEach(question => {
+    const guideButton = create("button","",question);
+
+    guideButton.onclick = () => {
+      $("guideReply").textContent = puppyAnswer(question);
+    };
+
+    $("guideQuestions").append(guideButton);
+
+    const chatButton = create("button","",question);
+
+    chatButton.onclick = () => {
+      addBubble(question,true);
+      addBubble(puppyAnswer(question));
+    };
+
+    $("chatQuestions").append(chatButton);
+  });
+}
+
+function openChat() {
+  if (!$("chatLog").children.length) {
+    addBubble(t("dogWelcome"));
+  }
   openModal("chatModal");
 }
-function renderGuide(){
-  $("dogAnswer").textContent=t("dogWelcome");
-  $("quick").replaceChildren();
-  $("chatQuick").replaceChildren();
-  t("qs").forEach(q=>{
-    const b=el("button","",q);
-    b.onclick=()=>{$("dogAnswer").textContent=answer(q)};
-    $("quick").append(b);
-    const c=el("button","",q);
-    c.onclick=()=>{addBubble(q,true);addBubble(answer(q))};
-    $("chatQuick").append(c);
-  });
-}
-function renderFAQ(){
-  const box=$("faqs");
+
+/* =========================
+   FAQ & LANGUAGE
+========================= */
+function renderFAQ() {
+  const box = $("faqList");
   box.replaceChildren();
-  t("faqItems").forEach(([q,a])=>{
-    const d=el("details");
-    d.append(el("summary","",q),el("p","",a));
-    box.append(d);
+
+  t("faq").forEach(([question,answer]) => {
+    const detail = create("details");
+    detail.append(
+      create("summary","",question),
+      create("p","",answer)
+    );
+    box.append(detail);
   });
-}
-function applyLang(){
-  document.documentElement.lang=lang==="zh"?"zh-CN":"en";
-  document.querySelectorAll("[data-t]").forEach(e=>{
-    const value=t(e.dataset.t);
-    if(typeof value==="string")e.textContent=value;
-  });
-  $("lang").textContent=lang==="zh"?"EN":"中文";
-  $("search").placeholder=lang==="zh"?"搜索显示器、电视、广告机……":"Search monitors, TVs and signage...";
-  $("chatInput").placeholder=lang==="zh"?"问问晶小汪……":"Ask the puppy...";
-  renderProducts();renderCart();renderGuide();renderFAQ();
-  try{localStorage.setItem("sj5_lang",lang)}catch(e){console.warn(e)}
-}
-function applyTheme(){
-  const dark=document.body.classList.contains("dark");
-  $("theme").textContent=dark?"☀️":"🌙";
-  try{localStorage.setItem("sj5_theme",dark?"dark":"light")}
-  catch(e){console.warn(e)}
 }
 
-$("search").oninput=renderProducts;
-$("theme").onclick=()=>{document.body.classList.toggle("dark");applyTheme()};
-$("lang").onclick=()=>{lang=lang==="zh"?"en":"zh";applyLang()};
-$("cartOpen").onclick=()=>{renderCart();openModal("drawer")};
-$("inquireCart").onclick=inquireCart;
-["heroChat","openChat","floatingDog"].forEach(id=>$(id).onclick=openChat);
-$("chatForm").onsubmit=e=>{
-  e.preventDefault();
-  const input=$("chatInput");
-  const q=input.value.trim();
-  if(!q)return;
-  addBubble(q,true);
-  addBubble(answer(q));
-  input.value="";
+function applyLanguage() {
+  document.documentElement.lang =
+    language === "zh" ? "zh-CN" : "en";
+
+  document.querySelectorAll("[data-i]").forEach(node => {
+    const value = t(node.dataset.i);
+    if (typeof value !== "string") return;
+
+    if (node.dataset.i === "heroTitle") {
+      const parts = value.split("<br>");
+      node.replaceChildren();
+
+      parts.forEach((part,index) => {
+        if (index) node.append(document.createElement("br"));
+        node.append(document.createTextNode(part));
+      });
+    } else {
+      node.textContent = value;
+    }
+  });
+
+  $("languageBtn").textContent = language === "zh" ? "EN" : "中文";
+  $("searchInput").placeholder = t("search");
+  $("chatInput").placeholder =
+    language === "zh" ? "问问晶小狗……" : "Ask the puppy...";
+
+  safeSet("sj5_lang",language);
+
+  renderProducts();
+  renderCart();
+  renderGuide();
+  renderFAQ();
+}
+
+function applyTheme() {
+  const dark = document.body.classList.contains("dark");
+  $("themeBtn").textContent = dark ? "☀" : "☾";
+  safeSet("sj5_theme",dark ? "dark" : "light");
+}
+
+/* =========================
+   EVENTS
+========================= */
+$("searchInput").oninput = renderProducts;
+
+$("languageBtn").onclick = () => {
+  language = language === "zh" ? "en" : "zh";
+  applyLanguage();
 };
-$("overlay").onclick=()=>closeAll();
-document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>closeAll());
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape")closeAll();
-  if(e.key!=="Tab")return;
-  const modal=["detailModal","chatModal","drawer"]
-    .map($).find(m=>m.classList.contains("show"));
-  if(!modal)return;
-  const nodes=[...modal.querySelectorAll(
+
+$("themeBtn").onclick = () => {
+  document.body.classList.toggle("dark");
+  applyTheme();
+};
+
+$("cartBtn").onclick = () => {
+  renderCart();
+  openModal("cartDrawer");
+};
+
+$("cartInquiry").onclick = sendCartInquiry;
+
+["heroGuide","guideChatBtn","floatDog"].forEach(id => {
+  $(id).onclick = openChat;
+});
+
+$("chatForm").onsubmit = event => {
+  event.preventDefault();
+
+  const input = $("chatInput");
+  const question = input.value.trim();
+
+  if (!question) return;
+
+  addBubble(question,true);
+  addBubble(puppyAnswer(question));
+
+  input.value = "";
+};
+
+$("overlay").onclick = () => closeAll();
+
+document.querySelectorAll("[data-close]").forEach(button => {
+  button.onclick = () => closeAll();
+});
+
+document.addEventListener("keydown",event => {
+  if (event.key === "Escape") {
+    closeAll();
+    return;
+  }
+
+  if (event.key !== "Tab") return;
+
+  const active = ["detailModal","chatModal","cartDrawer"]
+    .map(id => $(id))
+    .find(node => node.classList.contains("show"));
+
+  if (!active) return;
+
+  const focusable = [...active.querySelectorAll(
     "button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled)"
-  )].filter(n=>n.getClientRects().length);
-  if(!nodes.length)return;
-  const first=nodes[0],last=nodes[nodes.length-1];
-  if(e.shiftKey&&document.activeElement===first){
-    e.preventDefault();last.focus();
-  }else if(!e.shiftKey&&document.activeElement===last){
-    e.preventDefault();first.focus();
+  )].filter(node => node.getClientRects().length);
+
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length-1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
   }
 });
 
+/* =========================
+   INITIALISATION
+========================= */
+if (safeGet("sj5_theme") === "dark") {
+  document.body.classList.add("dark");
+}
+
+renderStaticArt();
+loadCart();
+saveCart();
 applyTheme();
-applyLang();
-save();
+applyLanguage();
+
 </script>
 </body>
 </html>
