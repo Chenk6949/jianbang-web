@@ -4,1774 +4,1276 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111c2d">
-<title>S.J 思晶 | SMART LIVING</title>
-
+<meta name="theme-color" content="#142138">
+<title>S.J 思晶 | SMART LIVING V5.3</title>
 <style>
 :root{
-  --bg:#f5f7fb;
-  --card:#ffffff;
-  --text:#18263b;
-  --muted:#718096;
-  --line:#e1e7f0;
-  --soft:#edf2f9;
-  --blue:#3479ec;
+ --bg:#f5f7fa;--card:#fff;--ink:#17243a;
+ --muted:#65758a;--line:#dfe5ed;--soft:#edf2f8;
+ --blue:#3275e5;
 }
-
 body.dark{
-  --bg:#101827;
-  --card:#1b293d;
-  --text:#f4f7fc;
-  --muted:#afbdd0;
-  --line:#35465e;
-  --soft:#273850;
+ --bg:#101827;--card:#1b293d;--ink:#f4f7fb;
+ --muted:#b2bfd0;--line:#34455c;--soft:#26374d;
 }
-
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;
-  font-size:14px;
-  line-height:1.55;
+ margin:0;background:var(--bg);color:var(--ink);
+ font:14px/1.55 system-ui,-apple-system,"Microsoft YaHei",sans-serif;
 }
-
 button,input,select{font:inherit}
 button{cursor:pointer}
-a{text-decoration:none;color:inherit}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible{
-  outline:3px solid #8bb9ff;
-  outline-offset:2px;
-}
-
-.wrap{
-  max-width:1120px;
-  padding:0 15px;
-  margin:auto;
-}
-
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:auto;padding:0 15px}
 header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:#132139;
-  color:white;
-  border-bottom:1px solid #ffffff18;
+ position:sticky;top:0;z-index:5;background:#142138;
+ color:#fff;border-bottom:1px solid #ffffff1b;
 }
-
 .nav{
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
+ min-height:70px;display:flex;justify-content:space-between;
+ align-items:center;gap:10px;
 }
-
-.brand{
-  font-size:25px;
-  font-weight:900;
-  line-height:1;
-}
-
-.brand span{color:#a5c6ff}
-
+.brand{font-size:26px;line-height:1;font-weight:900}
+.brand span{color:#a8c8ff}
 .brand small{
-  display:block;
-  margin-top:9px;
-  font-size:9px;
-  letter-spacing:3px;
-  color:#c0ccde;
+ display:block;margin-top:10px;letter-spacing:3px;
+ font-size:9px;color:#bfccdf;
 }
-
 .tools{display:flex;gap:7px}
-
 .tools button{
-  min-width:43px;
-  min-height:43px;
-  padding:0 9px;
-  border:1px solid #ffffff30;
-  border-radius:11px;
-  background:#ffffff0b;
-  color:white;
-  font-weight:800;
+ border:1px solid #ffffff30;background:#ffffff0a;color:#fff;
+ border-radius:11px;min-height:43px;min-width:43px;font-weight:800;
 }
-
-.tools b{
-  padding:2px 6px;
-  background:var(--blue);
-  border-radius:20px;
-}
-
+.tools b{border-radius:20px;background:var(--blue);padding:2px 6px}
 .hero{
-  margin-top:17px;
-  padding:39px 30px;
-  border-radius:18px;
-  background:linear-gradient(115deg,#101e36,#1d4a91);
-  color:white;
+ margin-top:17px;padding:35px 28px;background:#18335b;
+ color:white;border-radius:18px;
 }
-
 .eyebrow{
-  color:#91bbff;
-  font-size:10px;
-  font-weight:850;
-  letter-spacing:2px;
+ font-size:10px;letter-spacing:2px;font-weight:850;color:#92bcff;
 }
-
-.hero h1{
-  max-width:650px;
-  margin:13px 0;
-  font-size:clamp(29px,5vw,45px);
-  line-height:1.2;
-}
-
-.hero p{
-  max-width:580px;
-  color:#d7e5fa;
-}
-
+.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.2;margin:12px 0}
+.hero p{max-width:600px;color:#d9e6f6}
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:43px;
-  padding:10px 14px;
-  border:0;
-  border-radius:10px;
-  background:var(--blue);
-  color:white;
-  font-weight:800;
-  text-align:center;
+ display:inline-flex;align-items:center;justify-content:center;
+ text-align:center;border:0;border-radius:10px;background:var(--blue);
+ color:white;padding:10px 14px;min-height:43px;font-weight:800;
 }
-
 .btn:disabled{opacity:.5;cursor:not-allowed}
-
-.hero .btn{
-  margin-top:10px;
-  background:white;
-  color:#1c4c98;
-}
-
-.section{padding-top:44px}
-
-.section h2{
-  margin:6px 0;
-  font-size:27px;
-}
-
-.sub,.note{
-  color:var(--muted);
-  font-size:11px;
-}
-
+.hero .btn{background:white;color:#194982}
+.section{padding-top:40px}
+.section h2{font-size:26px;margin:5px 0}
+.sub,.note{font-size:11px;color:var(--muted)}
 .search{
-  display:block;
-  width:100%;
-  max-width:390px;
-  margin:15px 0;
-  padding:12px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:var(--card);
-  color:var(--text);
+ width:100%;max-width:390px;padding:12px;border:1px solid var(--line);
+ background:var(--card);color:var(--ink);border-radius:10px;margin:12px 0;
 }
-
 .filters{
-  display:flex;
-  gap:7px;
-  overflow-x:auto;
-  margin-bottom:16px;
-  padding-bottom:3px;
+ display:flex;gap:7px;overflow:auto;padding-bottom:4px;margin-bottom:13px;
 }
-
 .filters button{
-  flex-shrink:0;
-  padding:8px 13px;
-  border:1px solid var(--line);
-  border-radius:25px;
-  background:var(--card);
-  color:var(--muted);
+ flex-shrink:0;border:1px solid var(--line);background:var(--card);
+ color:var(--muted);border-radius:24px;padding:8px 13px;
 }
-
-.filters button.active{
-  background:#233e64;
-  color:white;
-}
-
+.filters button.active{background:#233e64;color:#fff}
 .grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:14px;
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;
 }
-
 .product{
-  min-width:0;
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:15px;
-  background:var(--card);
+ min-width:0;background:var(--card);border:1px solid var(--line);
+ border-radius:15px;overflow:hidden;
 }
-
 .visual{
-  position:relative;
-  aspect-ratio:1.65;
-  overflow:hidden;
-  background:#dce2ea;
+ position:relative;aspect-ratio:1.5;background:#e7ebef;overflow:hidden;
 }
-
 .visual img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
+ width:100%;height:100%;display:block;object-fit:contain;
+ background:#e9edf2;
 }
-
-.tag{
-  position:absolute;
-  top:9px;
-  left:9px;
-  padding:4px 8px;
-  border-radius:6px;
-  background:#fffffff0;
-  color:#33455d;
-  font-size:10px;
-  font-weight:800;
+.tag,.concept{
+ position:absolute;top:9px;background:#fffffff0;color:#304158;
+ font-size:10px;font-weight:800;padding:4px 7px;border-radius:6px;
 }
-
-.product-body{padding:13px}
-
-.product h3{
-  margin:0 0 7px;
-  font-size:14px;
-  font-weight:850;
-}
-
-.desc{
-  min-height:34px;
-  margin:0 0 10px;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.price{
-  font-size:23px;
-  font-weight:900;
-}
-
-.price small{
-  margin-left:3px;
-  color:var(--muted);
-  font-size:10px;
-  font-weight:500;
-}
-
-.product .btn{
-  width:100%;
-  margin-top:11px;
-  font-size:12px;
-}
-
+.tag{left:9px}
+.concept{right:9px;font-size:9px}
+.product-body{padding:12px}
+.product h3{font-size:14px;line-height:1.35;margin:0 0 5px}
+.desc{font-size:11px;color:var(--muted);margin:0 0 9px;min-height:18px}
+.price{font-size:23px;font-weight:900}
+.price small{font-size:10px;color:var(--muted);font-weight:500}
+.product .btn{width:100%;margin-top:9px;font-size:12px}
 .guide{
-  padding:22px;
-  border:1px solid var(--line);
-  border-radius:15px;
-  background:var(--card);
+ border:1px solid var(--line);border-radius:15px;
+ background:var(--card);padding:20px;
 }
-
 .guide p{color:var(--muted)}
-
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-}
-
+.chips{display:flex;flex-wrap:wrap;gap:7px}
 .chips button{
-  padding:8px 11px;
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:var(--soft);
-  color:var(--text);
-  font-size:11px;
+ border:1px solid var(--line);border-radius:20px;background:var(--soft);
+ color:var(--ink);padding:8px 10px;font-size:11px;
 }
-
 .answer{
-  min-height:55px;
-  margin:15px 0;
-  padding:12px;
-  border-left:3px solid var(--blue);
-  border-radius:8px;
-  background:var(--soft);
-  white-space:pre-wrap;
+ background:var(--soft);border-left:3px solid var(--blue);
+ border-radius:8px;padding:12px;white-space:pre-wrap;
+ margin:14px 0;min-height:55px;
 }
-
 .faq details{
-  margin:9px 0;
-  padding:14px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:var(--card);
+ background:var(--card);border:1px solid var(--line);
+ border-radius:10px;padding:13px;margin:8px 0;
 }
-
-.faq summary{
-  font-weight:800;
-  cursor:pointer;
-}
-
+.faq summary{cursor:pointer;font-weight:800}
 .faq p{color:var(--muted)}
-
 .contact{
-  margin-top:44px;
-  padding:28px;
-  border-radius:16px;
-  background:#173966;
-  color:white;
+ background:#18375f;color:white;border-radius:16px;
+ margin-top:42px;padding:27px;
 }
-
-.contact p{color:#d1e0f4}
-
-footer{
-  padding:35px 0 65px;
-  color:var(--muted);
-  font-size:11px;
-}
-
+.contact p{color:#d6e3f5}
+footer{padding:30px 0 65px;color:var(--muted);font-size:11px}
 .shade{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:20;
-  background:#06101dd0;
+ display:none;position:fixed;inset:0;background:#071120d4;z-index:10;
 }
-
 .shade.on{display:block}
-
 .modal{
-  display:none;
-  position:fixed;
-  top:50%;
-  left:50%;
-  z-index:21;
-  transform:translate(-50%,-50%);
-  width:min(620px,94vw);
-  max-height:88dvh;
-  overflow-y:auto;
-  padding:18px;
-  border-radius:16px;
-  background:var(--card);
+ display:none;position:fixed;z-index:11;left:50%;top:50%;
+ transform:translate(-50%,-50%);width:min(620px,94vw);
+ max-height:88dvh;overflow:auto;background:var(--card);
+ border-radius:16px;padding:18px;
 }
-
 .modal.on{display:block}
-
 .head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:14px;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:10px;margin-bottom:12px;
 }
-
-.head h2{
-  margin:0;
-  font-size:18px;
-}
-
+.head h2{margin:0;font-size:18px}
 .close{
-  width:35px;
-  height:35px;
-  border:0;
-  border-radius:50%;
-  background:var(--soft);
-  color:var(--text);
-  font-size:21px;
+ border:0;border-radius:50%;background:var(--soft);color:var(--ink);
+ width:35px;height:35px;font-size:22px;
 }
-
 .detailimg{
-  display:block;
-  width:100%;
-  aspect-ratio:1.7;
-  object-fit:cover;
-  border-radius:10px;
-  background:var(--soft);
+ display:block;width:100%;aspect-ratio:1.6;object-fit:contain;
+ background:#e9edf2;border-radius:10px;
 }
-
 .config{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin:15px 0;
+ display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0;
 }
-
-.config label{
-  font-size:12px;
-  font-weight:800;
-}
-
+.config label{font-size:12px;font-weight:800}
 .config select{
-  display:block;
-  width:100%;
-  margin-top:5px;
-  padding:10px;
-  border:1px solid var(--line);
-  border-radius:8px;
-  background:var(--card);
-  color:var(--text);
+ display:block;width:100%;margin-top:5px;padding:9px;
+ border:1px solid var(--line);border-radius:8px;
+ background:var(--card);color:var(--ink);
 }
-
 .summary{
-  margin:12px 0;
-  padding:13px;
-  border-radius:10px;
-  background:var(--soft);
+ background:var(--soft);border-radius:10px;padding:12px;margin:12px 0;
 }
-
-.summary strong{
-  display:block;
-  font-size:25px;
-}
-
+.summary strong{display:block;font-size:24px}
 .summary small{color:var(--muted)}
-
-.actions{
-  display:flex;
-  gap:8px;
-}
-
+.actions{display:flex;gap:8px}
 .actions>*{flex:1}
-
-.secondary{
-  background:var(--soft);
-  color:var(--text);
-}
-
+.secondary{background:var(--soft);color:var(--ink)}
 .drawer{
-  display:none;
-  position:fixed;
-  top:0;
-  right:0;
-  bottom:0;
-  z-index:22;
-  width:min(430px,100%);
-  overflow-y:auto;
-  padding:18px;
-  background:var(--card);
+ display:none;position:fixed;z-index:12;top:0;bottom:0;right:0;
+ width:min(430px,100%);overflow:auto;background:var(--card);padding:18px;
 }
-
 .drawer.on{display:block}
-
-.cartitem{
-  padding:12px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.cartitem small{
-  display:block;
-  color:var(--muted);
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:7px;
-}
-
+.cartitem{border-bottom:1px solid var(--line);padding:12px 0}
+.cartitem small{display:block;color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px;margin-top:7px}
 .qty button{
-  min-width:30px;
-  height:30px;
-  border:1px solid var(--line);
-  border-radius:7px;
-  background:var(--soft);
-  color:var(--text);
+ background:var(--soft);color:var(--ink);border:1px solid var(--line);
+ border-radius:7px;min-width:30px;height:30px;
 }
-
-.qty .remove{
-  margin-left:auto;
-  padding:0 8px;
-}
-
+.qty .remove{margin-left:auto;padding:0 8px}
 .chatlog{
-  height:230px;
-  overflow:auto;
-  padding:10px;
-  border-radius:9px;
-  background:var(--soft);
+ height:290px;overflow:auto;background:var(--soft);
+ border-radius:9px;padding:10px;
 }
-
 .bubble{
-  margin:7px 0;
-  padding:9px;
-  border-radius:8px;
-  background:var(--card);
-  white-space:pre-wrap;
+ white-space:pre-wrap;overflow-wrap:anywhere;background:var(--card);
+ padding:10px;margin:7px 0;border-radius:9px;
 }
-
-.bubble.me{
-  margin-left:20%;
-  background:var(--blue);
-  color:white;
-}
-
-.chatinput{
-  display:flex;
-  gap:7px;
-  margin-top:10px;
-}
-
+.bubble.me{background:var(--blue);color:#fff;margin-left:18%}
+.chatinput{display:flex;gap:7px;margin-top:10px}
 .chatinput input{
-  min-width:0;
-  flex:1;
-  padding:10px;
-  border:1px solid var(--line);
-  border-radius:8px;
-  background:var(--card);
-  color:var(--text);
+ flex:1;min-width:0;background:var(--card);color:var(--ink);
+ border:1px solid var(--line);border-radius:8px;padding:10px;
 }
-
 .toast{
-  display:none;
-  position:fixed;
-  bottom:24px;
-  left:50%;
-  z-index:30;
-  transform:translateX(-50%);
-  padding:9px 13px;
-  border-radius:9px;
-  background:#132139;
-  color:white;
+ display:none;position:fixed;bottom:25px;left:50%;
+ transform:translateX(-50%);z-index:20;background:#142138;
+ color:white;border-radius:9px;padding:9px 13px;
 }
-
 .toast.on{display:block}
-
 @media(max-width:700px){
-  .grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;
-  }
-
-  .visual{aspect-ratio:1.35}
-
-  .product-body{padding:11px}
-
-  .product h3{
-    min-height:35px;
-    font-size:12px;
-  }
-
-  .desc{
-    min-height:32px;
-    font-size:10px;
-  }
-
-  .price{font-size:20px}
-
-  .product .btn{
-    padding:8px 5px;
-    font-size:11px;
-  }
-
-  .hero{padding:28px 22px}
-
-  .section{padding-top:38px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .visual{aspect-ratio:1.32}
+ .product-body{padding:10px}
+ .product h3{font-size:12px;min-height:32px}
+ .desc{font-size:10px;min-height:29px}
+ .price{font-size:20px}
+ .product .btn{font-size:11px;padding:8px 4px}
+ .hero{padding:27px 21px}
+ .section{padding-top:34px}
+ .concept{font-size:8px}
 }
-
 @media(max-width:350px){
-  .brand{font-size:20px}
-
-  .tools button{
-    min-width:36px;
-    padding:0 4px;
-  }
-
-  .config{grid-template-columns:1fr}
+ .brand{font-size:20px}
+ .tools button{min-width:35px}
+ .config{grid-template-columns:1fr}
 }
 </style>
 </head>
-
 <body class="dark">
 
 <header>
-  <div class="wrap nav">
-    <a href="#" class="brand">
-      S.J <span>思晶</span>
-      <small>SMART LIVING</small>
-    </a>
-
-    <div class="tools">
-      <button id="lang">EN</button>
-      <button id="theme" aria-label="切换主题">☀</button>
-      <button id="cartopen">
-        🛒 <b id="count">0</b>
-      </button>
-    </div>
+ <div class="wrap nav">
+  <a href="#" class="brand">
+   S.J <span>思晶</span><small>SMART LIVING</small>
+  </a>
+  <div class="tools">
+   <button id="lang">EN</button>
+   <button id="theme" aria-label="切换主题">☀</button>
+   <button id="cartopen">🛒 <b id="count">0</b></button>
   </div>
+ </div>
 </header>
 
 <main class="wrap">
-
-<section class="hero">
-  <div class="eyebrow">S.J · SMART LIVING</div>
-  <h1 data-i="hero">好科技，让生活更从容。</h1>
+ <section class="hero">
+  <div class="eyebrow">S.J · V5.3 REFINED COLLECTION</div>
+  <h1 data-i="hero">智享生活，晶彩未来。</h1>
   <p data-i="intro">
-    专注显示科技与智慧生活，以更清晰的方式探索每一款产品。
+   六款精选科技产品，清晰的产品视觉与更贴心的晶小狗导购。
   </p>
-  <a class="btn" href="#shop" data-i="explore">探索产品 ↗</a>
-</section>
+  <a href="#shop" class="btn" data-i="explore">探索产品 ↗</a>
+ </section>
 
-<section class="section" id="shop">
+ <section id="shop" class="section">
   <div class="eyebrow">OUR COLLECTION</div>
   <h2 data-i="title">思晶精选</h2>
   <p class="sub" data-i="subtitle">
-    六款精选商品 · 简洁直观的浏览体验
+   六款商品 · 精简移动端卡片 · 演示价格
   </p>
-
-  <input
-    id="search"
-    class="search"
-    placeholder="搜索产品或用途…"
-    data-placeholder="search"
-  >
-
-  <div class="filters" id="filters"></div>
-  <div class="grid" id="grid"></div>
-
+  <input id="search" class="search"
+   data-placeholder="search" placeholder="搜索产品或用途…">
+  <div id="filters" class="filters"></div>
+  <div id="grid" class="grid"></div>
   <p class="note" data-i="disclaimer">
-    商品图片仅为视觉参考，并非 S.J 思晶实际商品照片。
-    实际外观、规格、供货与正式价格请联系确认。
+   图片为概念视觉，不是实物照片；所有价格及可选配置均为演示，
+   实际外观、参数、供货和报价请联系确认。
   </p>
-</section>
+ </section>
 
-<section class="section" id="guide">
+ <section class="section" id="guide">
   <div class="eyebrow">MEET JING</div>
-  <h2 data-i="dogtitle">🐶 晶小狗 · 商品导购</h2>
-
+  <h2 data-i="dogtitle">🐶 晶小狗 V2 · 商品导购</h2>
   <div class="guide">
-    <p data-i="dogintro">
-      告诉我预算、用途或显示器配置，我会根据店内演示商品提供参考。
-    </p>
-
-    <div class="chips" id="chips"></div>
-    <div class="answer" id="answer"></div>
-
-    <button class="btn" id="chatopen" data-i="chatopen">
-      和晶小狗聊聊 ↗
-    </button>
-
-    <p class="note" data-i="dognote">
-      当前为本地规则导购，并非联网生成式 AI。
-    </p>
+   <p data-i="dogintro">
+    可以问我产品性能、演示配置、优缺点，也可以告诉我预算和用途。
+   </p>
+   <div id="chips" class="chips"></div>
+   <div id="answer" class="answer"></div>
+   <button id="chatopen" class="btn" data-i="chatopen">
+    与晶小狗对话 ↗
+   </button>
+   <p class="note" data-i="dognote">
+    当前为本地规则导购，可记住本次会话的部分需求；
+    并非联网 AI，不提供未经确认的实物参数。
+   </p>
   </div>
-</section>
+ </section>
 
-<section class="section faq">
+ <section class="section faq">
   <div class="eyebrow">HELP CENTER</div>
   <h2 data-i="faq">常见问题</h2>
-
   <details>
-    <summary data-i="q1">网站可以直接付款吗？</summary>
-    <p data-i="a1">
-      目前是演示商城，不支持真实在线支付。
-      可以通过 WhatsApp 发送询价清单。
-    </p>
+   <summary data-i="q1">网站可以直接付款吗？</summary>
+   <p data-i="a1">
+    目前为演示商城，不支持真实在线支付，可通过 WhatsApp 发送询价清单。
+   </p>
   </details>
-
   <details>
-    <summary data-i="q2">显示器配置都能实际购买吗？</summary>
-    <p data-i="a2">
-      配置器用于展示选项和演示价格。
-      实际可售组合需要联系确认。
-    </p>
+   <summary data-i="q2">显示器配置都能实际购买吗？</summary>
+   <p data-i="a2">
+    配置器仅用于演示价格和组合，实际可售型号、参数和供货需确认。
+   </p>
   </details>
-</section>
+ </section>
 
-<section class="contact" id="contact">
+ <section id="contact" class="contact">
   <div class="eyebrow">LET'S CONNECT</div>
   <h2 data-i="contact">联系 S.J 思晶</h2>
-  <p data-i="contactdesc">
-    确认产品外观、规格、供货与正式报价。
-  </p>
-
-  <a
-    class="btn"
-    href="https://wa.me/8613073086313"
-    target="_blank"
-    rel="noopener noreferrer"
-  >WhatsApp ↗</a>
-</section>
-
+  <p data-i="contactdesc">确认实物照片、规格、供货与正式报价。</p>
+  <a class="btn" href="https://wa.me/8613073086313"
+   target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+ </section>
 </main>
 
 <footer class="wrap">
-  © 2026 S.J 思晶 · SMART LIVING · V5.2.2
-  <div data-i="foot">演示商城，暂不支持真实支付。</div>
+ © 2026 S.J 思晶 · SMART LIVING · V5.3
+ <div data-i="foot">演示商城，暂不支持真实支付。</div>
 </footer>
 
-<div class="shade" id="shade"></div>
+<div id="shade" class="shade"></div>
 
-<section class="modal" id="detail" role="dialog" aria-modal="true">
-  <div class="head">
-    <h2 id="detailtitle"></h2>
-    <button class="close" data-close aria-label="关闭">×</button>
-  </div>
-  <div id="detailbody"></div>
+<section id="detail" class="modal" role="dialog" aria-modal="true">
+ <div class="head">
+  <h2 id="detailtitle"></h2>
+  <button class="close" data-close aria-label="关闭">×</button>
+ </div>
+ <div id="detailbody"></div>
 </section>
 
-<section class="modal" id="chat" role="dialog" aria-modal="true">
-  <div class="head">
-    <h2 data-i="dogtitle">🐶 晶小狗 · 商品导购</h2>
-    <button class="close" data-close aria-label="关闭">×</button>
-  </div>
-
-  <div class="chatlog" id="chatlog"></div>
-
-  <form class="chatinput" id="chatform">
-    <input
-      id="chattext"
-      maxlength="250"
-      required
-      placeholder="说说你的需求…"
-      data-placeholder="ask"
-    >
-    <button class="btn" data-i="send">发送</button>
-  </form>
+<section id="chat" class="modal" role="dialog" aria-modal="true">
+ <div class="head">
+  <h2 data-i="dogtitle">🐶 晶小狗 V2 · 商品导购</h2>
+  <button class="close" data-close aria-label="关闭">×</button>
+ </div>
+ <div id="chatlog" class="chatlog" aria-live="polite"></div>
+ <form id="chatform" class="chatinput">
+  <input id="chattext" maxlength="250" required
+   data-placeholder="ask" placeholder="说说你的需求…">
+  <button class="btn" data-i="send">发送</button>
+ </form>
 </section>
 
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true">
-  <div class="head">
-    <h2 data-i="cart">购物车</h2>
-    <button class="close" data-close aria-label="关闭">×</button>
-  </div>
-
-  <div id="cartbody"></div>
-
-  <div class="summary">
-    <span data-i="total">演示合计</span>
-    <strong id="carttotal">¥0</strong>
-  </div>
-
-  <button
-    class="btn"
-    id="inquiry"
-    style="width:100%"
-    data-i="inquiry"
-  >发送完整询价清单 ↗</button>
-
-  <p class="note" data-i="inquirynote">
-    仅打开 WhatsApp，不创建正式订单。
-  </p>
+<aside id="drawer" class="drawer" role="dialog" aria-modal="true">
+ <div class="head">
+  <h2 data-i="cart">购物车</h2>
+  <button class="close" data-close aria-label="关闭">×</button>
+ </div>
+ <div id="cartbody"></div>
+ <div class="summary">
+  <span data-i="total">演示合计</span>
+  <strong id="carttotal">¥0</strong>
+ </div>
+ <button class="btn" id="inquiry" style="width:100%" data-i="inquiry">
+  发送完整询价清单 ↗
+ </button>
+ <p class="note" data-i="inquirynote">
+  仅打开 WhatsApp，不创建正式订单。
+ </p>
 </aside>
 
-<div class="toast" id="toast"></div>
+<div id="toast" class="toast"></div>
 
 <script>
 "use strict";
 
-/* =========================
-   基础设置
-========================= */
-
 const $ = id => document.getElementById(id);
-
-const WA_NUMBER = "8613073086313";
-
 const fmt = n => "¥" + n.toLocaleString("zh-CN");
+const WA = "8613073086313";
 
 /*
-  以下为在线视觉参考图，不是实际商品照片。
-  后续获得真实产品照片后，只需替换对应 image 地址。
+ 商品图为在线参考素材，不代表真实销售型号。
+ 广告机等图片后续应换成实际供货产品照片。
 */
 
-const PRODUCTS = [
-  {
-    id:7,
-    cat:"monitor",
-    zh:"S.J Vision 27",
-    en:"S.J Vision 27",
-    dz:"27英寸 · 灵活显示方案",
-    de:"27-inch flexible display concept",
-    price:899,
-    configurable:true,
-    image:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=1000&q=85"
-  },
-  {
-    id:8,
-    cat:"monitor",
-    zh:"S.J Vision 32 Pro",
-    en:"S.J Vision 32 Pro",
-    dz:"32英寸 · 宽阔画面体验",
-    de:"32-inch expansive viewing concept",
-    price:1299,
-    configurable:true,
-    image:"https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=1000&q=85"
-  },
-  {
-    id:3,
-    cat:"home",
-    zh:"55英寸智能电视",
-    en:"55-inch Smart TV",
-    dz:"家庭娱乐 · 宽阔观看空间",
-    de:"Home entertainment",
-    price:2999,
-    image:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1000&q=85"
-  },
-  {
-    id:4,
-    cat:"business",
-    zh:"65英寸立式广告机",
-    en:"65-inch Floor Signage",
-    dz:"商业空间 · 数字信息展示",
-    de:"Commercial digital signage",
-    price:4999,
-    image:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85"
-  },
-  {
-    id:5,
-    cat:"business",
-    zh:"75英寸智能会议机",
-    en:"75-inch Meeting Display",
-    dz:"商务会议 · 团队协作展示",
-    de:"Business collaboration",
-    price:7999,
-    image:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85"
-  },
-  {
-    id:6,
-    cat:"home",
-    zh:"智能桌面音箱",
-    en:"Smart Desktop Speaker",
-    dz:"智慧生活 · 桌面音频",
-    de:"Smart living and desktop audio",
-    price:399,
-    image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=1000&q=85"
-  }
+const P = [
+ {
+  id:7,cat:"monitor",
+  zh:"S.J Vision 27",en:"S.J Vision 27",
+  dz:"27英寸 · 灵活显示方案",
+  de:"27-inch flexible display concept",
+  price:899,conf:true,
+  img:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=1000&q=85"
+ },
+ {
+  id:8,cat:"monitor",
+  zh:"S.J Vision 32 Pro",en:"S.J Vision 32 Pro",
+  dz:"32英寸 · 宽阔画面体验",
+  de:"32-inch expansive display concept",
+  price:1299,conf:true,
+  img:"https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=1000&q=85"
+ },
+ {
+  id:3,cat:"home",
+  zh:"55英寸智能电视",en:"55-inch Smart TV",
+  dz:"家庭娱乐 · 宽阔观看空间",
+  de:"Home entertainment concept",
+  price:2999,
+  img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1000&q=85"
+ },
+ {
+  id:4,cat:"business",
+  zh:"65英寸立式广告机",en:"65-inch Floor Signage",
+  dz:"商业空间 · 竖屏信息展示",
+  de:"Commercial portrait signage",
+  price:4999,
+  img:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85"
+ },
+ {
+  id:5,cat:"business",
+  zh:"75英寸智能会议机",en:"75-inch Meeting Display",
+  dz:"商务会议 · 团队协作展示",
+  de:"Business meeting display",
+  price:7999,
+  img:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85"
+ },
+ {
+  id:6,cat:"home",
+  zh:"智能桌面音箱",en:"Smart Desktop Speaker",
+  dz:"智慧生活 · 桌面音频",
+  de:"Desktop audio concept",
+  price:399,
+  img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=1000&q=85"
+ }
 ];
 
-/* =========================
-   中英文文案
-========================= */
-
-const WORDS = {
-  zh:{
-    hero:"好科技，让生活更从容。",
-    intro:"专注显示科技与智慧生活，以更清晰的方式探索每一款产品。",
-    explore:"探索产品 ↗",
-    title:"思晶精选",
-    subtitle:"六款精选商品 · 简洁直观的浏览体验",
-    disclaimer:"商品图片仅为视觉参考，并非 S.J 思晶实际商品照片。实际外观、规格、供货与正式价格请联系确认。",
-    dogtitle:"🐶 晶小狗 · 商品导购",
-    dogintro:"告诉我预算、用途或显示器配置，我会根据店内演示商品提供参考。",
-    chatopen:"和晶小狗聊聊 ↗",
-    dognote:"当前为本地规则导购，并非联网生成式 AI。",
-    faq:"常见问题",
-    q1:"网站可以直接付款吗？",
-    a1:"目前是演示商城，不支持真实在线支付。可以通过 WhatsApp 发送询价清单。",
-    q2:"显示器配置都能实际购买吗？",
-    a2:"配置器用于展示选项和演示价格。实际可售组合需要联系确认。",
-    contact:"联系 S.J 思晶",
-    contactdesc:"确认产品外观、规格、供货与正式报价。",
-    foot:"演示商城，暂不支持真实支付。",
-    send:"发送",
-    cart:"购物车",
-    total:"演示合计",
-    inquiry:"发送完整询价清单 ↗",
-    inquirynote:"仅打开 WhatsApp，不创建正式订单。",
-    search:"搜索产品或用途…",
-    ask:"说说你的需求…",
-    all:"全部",
-    monitor:"显示器",
-    home:"智慧生活",
-    business:"商用设备",
-    config:"选择配置",
-    detail:"查看详情",
-    add:"加入购物车",
-    askproduct:"咨询此商品",
-    resolution:"分辨率",
-    refresh:"刷新率",
-    shape:"屏幕形态",
-    stand:"支架",
-    price:"当前配置演示价格",
-    empty:"没有找到符合条件的商品。",
-    emptycart:"购物车还是空的。",
-    remove:"删除",
-    added:"已加入购物车",
-    welcome:"汪！我是晶小狗。告诉我用途、预算或喜欢的屏幕尺寸吧。",
-    chips:[
-      "2000元游戏显示器",
-      "办公显示器",
-      "27寸和32寸区别",
-      "如何询价？"
-    ]
-  },
-
-  en:{
-    hero:"Thoughtful Tech. Effortless Living.",
-    intro:"Explore display technology and smart living with a clearer product experience.",
-    explore:"Explore Products ↗",
-    title:"S.J Collection",
-    subtitle:"Six selected products · Simple mobile browsing",
-    disclaimer:"Images are visual references, not actual S.J product photos. Please confirm appearance, specifications, availability and formal prices.",
-    dogtitle:"🐶 Jing · Product Guide",
-    dogintro:"Tell me your budget, use case or monitor preferences for demo recommendations.",
-    chatopen:"Chat with Jing ↗",
-    dognote:"Local rule-based guide, not connected to generative AI.",
-    faq:"FAQ",
-    q1:"Can I pay online?",
-    a1:"No real payment is supported. You can send an inquiry through WhatsApp.",
-    q2:"Are all monitor configurations available?",
-    a2:"The configurator demonstrates options and prices. Please confirm actual availability.",
-    contact:"Contact S.J",
-    contactdesc:"Confirm appearance, specifications, availability and quotation.",
-    foot:"Demo storefront. No real payment.",
-    send:"Send",
-    cart:"Cart",
-    total:"Demo subtotal",
-    inquiry:"Send Complete Inquiry ↗",
-    inquirynote:"Opens WhatsApp only. No formal order is created.",
-    search:"Search products…",
-    ask:"Tell Jing what you need…",
-    all:"All",
-    monitor:"Monitors",
-    home:"Smart Living",
-    business:"Commercial",
-    config:"Configure",
-    detail:"View Details",
-    add:"Add to Cart",
-    askproduct:"Inquire",
-    resolution:"Resolution",
-    refresh:"Refresh Rate",
-    shape:"Screen Shape",
-    stand:"Stand",
-    price:"Configured demo price",
-    empty:"No matching products.",
-    emptycart:"Your cart is empty.",
-    remove:"Remove",
-    added:"Added to cart",
-    welcome:"Woof! Tell me your use case, budget or preferred screen size.",
-    chips:[
-      "Gaming monitor ¥2000",
-      "Office monitor",
-      "27 vs 32 inches",
-      "How to inquire?"
-    ]
-  }
-};
-
-/* =========================
-   显示器配置
-========================= */
-
-const OPTIONS = [
-  [
-    "resolution",
-    [
-      ["1080P",0],
-      ["2K (2560×1440)",300],
-      ["4K (3840×2160)",800]
-    ]
-  ],
-  [
-    "refresh",
-    [
-      ["60Hz",0],
-      ["75Hz",80],
-      ["144Hz",350],
-      ["165Hz",500]
-    ]
-  ],
-  [
-    "shape",
-    [
-      ["flat",0],
-      ["curved",250]
-    ]
-  ],
-  [
-    "stand",
-    [
-      ["standard",0],
-      ["adjustable",150]
-    ]
+const W = {
+ zh:{
+  hero:"智享生活，晶彩未来。",
+  intro:"六款精选科技产品，清晰的产品视觉与更贴心的晶小狗导购。",
+  explore:"探索产品 ↗",
+  title:"思晶精选",
+  subtitle:"六款商品 · 精简移动端卡片 · 演示价格",
+  disclaimer:"图片仅为概念视觉参考，并非实物照片。价格、配置、实际外观、参数和供货均需联系确认。",
+  dogtitle:"🐶 晶小狗 V2 · 商品导购",
+  dogintro:"可以问我产品性能、演示配置、优缺点，也可以告诉我预算和用途。",
+  chatopen:"与晶小狗对话 ↗",
+  dognote:"当前为本地规则导购，可记住本次会话的部分需求；并非联网 AI，不提供未经确认的实物参数。",
+  faq:"常见问题",
+  q1:"网站可以直接付款吗？",
+  a1:"目前为演示商城，不支持真实在线支付，可通过 WhatsApp 发送询价清单。",
+  q2:"显示器配置都能实际购买吗？",
+  a2:"配置器仅用于演示价格和组合，实际可售型号、参数和供货需确认。",
+  contact:"联系 S.J 思晶",
+  contactdesc:"确认实物照片、规格、供货与正式报价。",
+  foot:"演示商城，暂不支持真实支付。",
+  search:"搜索产品或用途…",
+  ask:"说说你的需求…",
+  send:"发送",
+  cart:"购物车",
+  total:"演示合计",
+  inquiry:"发送完整询价清单 ↗",
+  inquirynote:"仅打开 WhatsApp，不创建正式订单。",
+  all:"全部",monitor:"显示器",
+  home:"智慧生活",business:"商用设备",
+  config:"选择配置",detail:"查看详情",
+  add:"加入购物车",askproduct:"咨询此商品",
+  resolution:"分辨率",refresh:"刷新率",
+  shape:"屏幕形态",stand:"支架",
+  price:"当前配置演示价格",
+  empty:"没有找到符合条件的商品。",
+  emptycart:"购物车还是空的。",
+  remove:"删除",added:"已加入购物车",
+  welcome:"汪！我是晶小狗。可以告诉我预算、用途或喜欢的屏幕尺寸。我会介绍演示配置、优点和需要考虑的地方。",
+  chips:[
+   "2000元以内的游戏显示器",
+   "推荐办公显示器",
+   "27寸和32寸哪个好",
+   "推荐一款电视机",
+   "广告机有什么优缺点"
   ]
-];
-
-const LABELS = {
-  flat:["直面屏","Flat"],
-  curved:["曲面屏","Curved"],
-  standard:["标准支架","Standard Stand"],
-  adjustable:["升降旋转支架","Adjustable Stand"]
+ },
+ en:{
+  hero:"Smart Living. Brighter Future.",
+  intro:"Six selected technology concepts and a more helpful product guide.",
+  explore:"Explore Products ↗",
+  title:"S.J Collection",
+  subtitle:"Six products · Compact cards · Demo prices",
+  disclaimer:"Images are visual references, not actual product photos. Confirm real specifications, availability and formal prices.",
+  dogtitle:"🐶 Jing V2 · Product Guide",
+  dogintro:"Ask about demo configurations, advantages, trade-offs, budget and use cases.",
+  chatopen:"Chat with Jing ↗",
+  dognote:"A local rule-based guide with limited session context, not an online AI.",
+  faq:"FAQ",
+  q1:"Can I pay online?",
+  a1:"No real online payment. You can send an inquiry via WhatsApp.",
+  q2:"Are all monitor configurations available?",
+  a2:"The configurator shows demo combinations. Confirm actual models and availability.",
+  contact:"Contact S.J",
+  contactdesc:"Confirm real photos, specifications, availability and quotation.",
+  foot:"Demo storefront. No real payment.",
+  search:"Search products…",
+  ask:"Tell Jing what you need…",
+  send:"Send",
+  cart:"Cart",total:"Demo subtotal",
+  inquiry:"Send Complete Inquiry ↗",
+  inquirynote:"Opens WhatsApp only. No formal order.",
+  all:"All",monitor:"Monitors",
+  home:"Smart Living",business:"Commercial",
+  config:"Configure",detail:"View Details",
+  add:"Add to Cart",askproduct:"Inquire",
+  resolution:"Resolution",refresh:"Refresh Rate",
+  shape:"Screen Shape",stand:"Stand",
+  price:"Configured demo price",
+  empty:"No matching products.",
+  emptycart:"Your cart is empty.",
+  remove:"Remove",added:"Added to cart",
+  welcome:"Woof! Tell me your budget, use case or preferred screen size. I'll explain demo options and trade-offs.",
+  chips:[
+   "Gaming monitor under ¥2000",
+   "Recommend an office monitor",
+   "27 vs 32 inches",
+   "Recommend a TV",
+   "Signage pros and cons"
+  ]
+ }
 };
 
-let lang = localStorage.getItem("sj5_lang")==="en" ? "en" : "zh";
-let category = "all";
-let cart = [];
+const OPT = [
+ ["resolution",[
+  ["1080P",0],["2K (2560×1440)",300],
+  ["4K (3840×2160)",800]
+ ]],
+ ["refresh",[
+  ["60Hz",0],["75Hz",80],["144Hz",350],["165Hz",500]
+ ]],
+ ["shape",[
+  ["flat",0],["curved",250]
+ ]],
+ ["stand",[
+  ["standard",0],["adjustable",150]
+ ]]
+];
 
-const T = key => WORDS[lang][key];
+const LABEL = {
+ flat:["直面屏","Flat"],
+ curved:["曲面屏","Curved"],
+ standard:["标准支架","Standard"],
+ adjustable:["升降旋转支架","Adjustable"]
+};
 
-const productName = p => p[lang==="zh"?"zh":"en"];
+let L = localStorage.getItem("sj5_lang")==="en"?"en":"zh";
+let category="all";
+let cart=[];
 
-const productDesc = p => p[lang==="zh"?"dz":"de"];
+const T=k=>W[L][k];
+const name=p=>p[L==="zh"?"zh":"en"];
+const desc=p=>p[L==="zh"?"dz":"de"];
 
-function optionName(value){
-  if(LABELS[value]){
-    return LABELS[value][lang==="zh"?0:1];
-  }
-  return value;
+function optionName(v){
+ return LABEL[v]?LABEL[v][L==="zh"?0:1]:v;
 }
 
-function defaultConfig(){
-  return {
-    resolution:0,
-    refresh:0,
-    shape:0,
-    stand:0
+function def(){
+ return {resolution:0,refresh:0,shape:0,stand:0};
+}
+
+function valid(c){
+ return !!c&&OPT.every(([k,a])=>
+  Number.isInteger(c[k])&&c[k]>=0&&c[k]<a.length
+ );
+}
+
+function price(p,c){
+ if(!p.conf||!valid(c))return p.price;
+ return p.price+OPT.reduce((n,[k,a])=>n+a[c[k]][1],0);
+}
+
+function ctext(c){
+ return OPT.map(([k,a])=>optionName(a[c[k]][0])).join(" · ");
+}
+
+function ckey(id,c){
+ return id+(c?"-"+OPT.map(([k])=>c[k]).join("-"):"");
+}
+
+function link(message){
+ return "https://wa.me/"+WA+"?text="+encodeURIComponent(message);
+}
+
+function toast(s){
+ $("toast").textContent=s;
+ $("toast").classList.add("on");
+ setTimeout(()=>$("toast").classList.remove("on"),2000);
+}
+
+function close(){
+ $("shade").classList.remove("on");
+ ["detail","chat","drawer"].forEach(id=>$(id).classList.remove("on"));
+}
+
+function open(id){
+ close();
+ $("shade").classList.add("on");
+ $(id).classList.add("on");
+ $(id).querySelector(".close").focus();
+}
+
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=close);
+$("shade").onclick=close;
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape")close();
+});
+
+function render(){
+ document.documentElement.lang=L==="zh"?"zh-CN":"en";
+ document.querySelectorAll("[data-i]").forEach(e=>{
+  e.textContent=T(e.dataset.i);
+ });
+ document.querySelectorAll("[data-placeholder]").forEach(e=>{
+  e.placeholder=T(e.dataset.placeholder);
+ });
+ $("lang").textContent=L==="zh"?"EN":"中文";
+ filters();
+ products();
+ renderCart();
+ guide();
+ localStorage.setItem("sj5_lang",L);
+}
+
+function filters(){
+ const f=$("filters");
+ f.replaceChildren();
+ ["all","monitor","home","business"].forEach(c=>{
+  const b=document.createElement("button");
+  b.textContent=T(c);
+  b.className=c===category?"active":"";
+  b.onclick=()=>{
+   category=c;
+   filters();
+   products();
   };
+  f.append(b);
+ });
 }
 
-function validConfig(config){
-  return config && OPTIONS.every(([key,values])=>{
-    return Number.isInteger(config[key]) &&
-      config[key]>=0 &&
-      config[key]<values.length;
-  });
-}
+function products(){
+ const g=$("grid");
+ const q=$("search").value.toLowerCase().trim();
+ g.replaceChildren();
 
-function productPrice(product,config){
-  let amount=product.price;
+ const list=P.filter(p=>{
+  return (category==="all"||p.cat===category)&&
+   [p.zh,p.en,p.dz,p.de].join(" ").toLowerCase().includes(q);
+ });
 
-  if(product.configurable && validConfig(config)){
-    OPTIONS.forEach(([key,values])=>{
-      amount+=values[config[key]][1];
-    });
+ if(!list.length){
+  g.textContent=T("empty");
+  return;
+ }
+
+ list.forEach(p=>{
+  const card=document.createElement("article");
+  card.className="product";
+
+  const visual=document.createElement("div");
+  visual.className="visual";
+
+  const img=document.createElement("img");
+  img.src=p.img;
+  img.alt=name(p)+" visual reference";
+  img.loading="lazy";
+  img.onerror=()=>{
+   img.style.display="none";
+   visual.style.background="var(--soft)";
+  };
+
+  const tag=document.createElement("span");
+  tag.className="tag";
+  tag.textContent=T(p.cat);
+
+  const concept=document.createElement("span");
+  concept.className="concept";
+  concept.textContent=L==="zh"?"参考图":"Reference";
+
+  visual.append(img,tag,concept);
+
+  const body=document.createElement("div");
+  body.className="product-body";
+
+  const h=document.createElement("h3");
+  h.textContent=name(p);
+
+  const d=document.createElement("p");
+  d.className="desc";
+  d.textContent=desc(p);
+
+  const pr=document.createElement("div");
+  pr.className="price";
+  pr.textContent=fmt(p.price);
+
+  if(p.conf){
+   const sm=document.createElement("small");
+   sm.textContent=L==="zh"?" 起":" from";
+   pr.append(sm);
   }
 
-  return amount;
+  const b=document.createElement("button");
+  b.className="btn";
+  b.textContent=T(p.conf?"config":"detail");
+  b.onclick=()=>showDetail(p.id);
+
+  body.append(h,d,pr,b);
+  card.append(visual,body);
+  g.append(card);
+ });
 }
-
-function configText(config){
-  return OPTIONS.map(([key,values])=>{
-    return optionName(values[config[key]][0]);
-  }).join(" · ");
-}
-
-function cartKey(id,config){
-  if(!config)return String(id);
-
-  return id+"-"+OPTIONS.map(([key])=>config[key]).join("-");
-}
-
-function whatsappLink(message){
-  return "https://wa.me/"+WA_NUMBER+
-    "?text="+encodeURIComponent(message);
-}
-
-/* =========================
-   通用交互
-========================= */
-
-function toast(message){
-  $("toast").textContent=message;
-  $("toast").classList.add("on");
-
-  setTimeout(()=>{
-    $("toast").classList.remove("on");
-  },2000);
-}
-
-function closePanels(){
-  $("shade").classList.remove("on");
-
-  ["detail","chat","drawer"].forEach(id=>{
-    $(id).classList.remove("on");
-  });
-}
-
-function openPanel(id){
-  closePanels();
-
-  $("shade").classList.add("on");
-  $(id).classList.add("on");
-  $(id).querySelector(".close").focus();
-}
-
-document.querySelectorAll("[data-close]").forEach(button=>{
-  button.onclick=closePanels;
-});
-
-$("shade").onclick=closePanels;
-
-document.addEventListener("keydown",event=>{
-  if(event.key==="Escape")closePanels();
-});
-
-/* =========================
-   页面渲染
-========================= */
-
-function renderPage(){
-  document.documentElement.lang=lang==="zh"?"zh-CN":"en";
-
-  document.querySelectorAll("[data-i]").forEach(element=>{
-    element.textContent=T(element.dataset.i);
-  });
-
-  document.querySelectorAll("[data-placeholder]").forEach(element=>{
-    element.placeholder=T(element.dataset.placeholder);
-  });
-
-  $("lang").textContent=lang==="zh"?"EN":"中文";
-
-  renderFilters();
-  renderProducts();
-  renderCart();
-  renderGuide();
-
-  localStorage.setItem("sj5_lang",lang);
-}
-
-function renderFilters(){
-  const container=$("filters");
-  container.replaceChildren();
-
-  ["all","monitor","home","business"].forEach(value=>{
-    const button=document.createElement("button");
-
-    button.textContent=T(value);
-    button.className=value===category?"active":"";
-
-    button.onclick=()=>{
-      category=value;
-      renderFilters();
-      renderProducts();
-    };
-
-    container.append(button);
-  });
-}
-
-function renderProducts(){
-  const grid=$("grid");
-  const query=$("search").value.toLowerCase().trim();
-
-  grid.replaceChildren();
-
-  const list=PRODUCTS.filter(product=>{
-    const matchesCategory=
-      category==="all" || product.cat===category;
-
-    const searchText=[
-      product.zh,
-      product.en,
-      product.dz,
-      product.de
-    ].join(" ").toLowerCase();
-
-    return matchesCategory && searchText.includes(query);
-  });
-
-  if(!list.length){
-    grid.textContent=T("empty");
-    return;
-  }
-
-  list.forEach(product=>{
-    const card=document.createElement("article");
-    card.className="product";
-
-    const visual=document.createElement("div");
-    visual.className="visual";
-
-    const image=document.createElement("img");
-    image.src=product.image;
-    image.alt=productName(product)+" visual reference";
-    image.loading="lazy";
-
-    image.onerror=()=>{
-      image.onerror=null;
-      image.style.display="none";
-      visual.style.background="var(--soft)";
-    };
-
-    const tag=document.createElement("span");
-    tag.className="tag";
-    tag.textContent=T(product.cat);
-
-    visual.append(image,tag);
-
-    const body=document.createElement("div");
-    body.className="product-body";
-
-    const title=document.createElement("h3");
-    title.textContent=productName(product);
-
-    const description=document.createElement("p");
-    description.className="desc";
-    description.textContent=productDesc(product);
-
-    const price=document.createElement("div");
-    price.className="price";
-    price.textContent=fmt(product.price);
-
-    if(product.configurable){
-      const small=document.createElement("small");
-      small.textContent=lang==="zh"?"起":"from";
-      price.append(small);
-    }
-
-    const button=document.createElement("button");
-    button.className="btn";
-    button.textContent=T(product.configurable?"config":"detail");
-    button.onclick=()=>showDetail(product.id);
-
-    body.append(title,description,price,button);
-    card.append(visual,body);
-    grid.append(card);
-  });
-}
-
-/* =========================
-   商品详情与配置器
-========================= */
 
 function showDetail(id){
-  const product=PRODUCTS.find(item=>item.id===id);
-  if(!product)return;
+ const p=P.find(x=>x.id===id);
+ if(!p)return;
 
-  $("detailtitle").textContent=productName(product);
+ $("detailtitle").textContent=name(p);
+ const box=$("detailbody");
+ box.replaceChildren();
 
-  const body=$("detailbody");
-  body.replaceChildren();
+ const img=document.createElement("img");
+ img.className="detailimg";
+ img.src=p.img;
+ img.alt=name(p)+" reference";
 
-  const image=document.createElement("img");
-  image.className="detailimg";
-  image.src=product.image;
-  image.alt=productName(product)+" visual reference";
+ const d=document.createElement("p");
+ d.className="note";
+ d.textContent=desc(p)+" · "+T("disclaimer");
 
-  const description=document.createElement("p");
-  description.className="note";
-  description.textContent=
-    productDesc(product)+" · "+T("disclaimer");
+ box.append(img,d);
 
-  body.append(image,description);
+ const actions=document.createElement("div");
+ actions.className="actions";
 
-  const actions=document.createElement("div");
-  actions.className="actions";
+ const add=document.createElement("button");
+ add.className="btn";
+ add.textContent=T("add");
 
-  const add=document.createElement("button");
-  add.className="btn";
-  add.textContent=T("add");
+ const ask=document.createElement("a");
+ ask.className="btn secondary";
+ ask.textContent=T("askproduct");
+ ask.target="_blank";
+ ask.rel="noopener noreferrer";
 
-  const inquire=document.createElement("a");
-  inquire.className="btn secondary";
-  inquire.textContent=T("askproduct");
-  inquire.target="_blank";
-  inquire.rel="noopener noreferrer";
+ if(p.conf){
+  const c=def();
+  const form=document.createElement("div");
+  form.className="config";
+  const sum=document.createElement("div");
+  sum.className="summary";
 
-  if(!product.configurable){
-    const price=document.createElement("div");
-    price.className="price";
-    price.textContent=fmt(product.price);
+  OPT.forEach(([k,a])=>{
+   const label=document.createElement("label");
+   label.textContent=T(k);
+   const select=document.createElement("select");
 
-    body.append(price);
+   a.forEach(([v,extra],i)=>{
+    const op=document.createElement("option");
+    op.value=i;
+    op.textContent=optionName(v)+(extra?" +"+fmt(extra):"");
+    select.append(op);
+   });
 
-    add.onclick=()=>{
-      addToCart(product.id,null);
-      closePanels();
-    };
+   select.onchange=()=>{
+    c[k]=Number(select.value);
+    update();
+   };
 
-    inquire.href=whatsappLink(
-      "Hello, please confirm specifications, availability and quotation:\n"+
-      productName(product)+"\n"+
-      "Demo price: "+fmt(product.price)
-    );
-
-  }else{
-    const config=defaultConfig();
-
-    const form=document.createElement("div");
-    form.className="config";
-
-    const summary=document.createElement("div");
-    summary.className="summary";
-
-    OPTIONS.forEach(([key,values])=>{
-      const label=document.createElement("label");
-      label.textContent=T(key);
-
-      const select=document.createElement("select");
-
-      values.forEach(([value,extra],index)=>{
-        const option=document.createElement("option");
-        option.value=index;
-
-        option.textContent=
-          optionName(value)+(extra?" +"+fmt(extra):"");
-
-        select.append(option);
-      });
-
-      select.onchange=()=>{
-        config[key]=Number(select.value);
-        updateSummary();
-      };
-
-      label.append(select);
-      form.append(label);
-    });
-
-    function updateSummary(){
-      summary.replaceChildren();
-
-      const caption=document.createElement("small");
-      caption.textContent=T("price");
-
-      const amount=document.createElement("strong");
-      amount.textContent=fmt(productPrice(product,config));
-
-      const selected=document.createElement("small");
-      selected.textContent=configText(config);
-
-      summary.append(caption,amount,selected);
-
-      inquire.href=whatsappLink(
-        "Hello, please confirm this configuration and quotation:\n"+
-        productName(product)+"\n"+
-        configText(config)+"\n"+
-        "Demo price: "+fmt(productPrice(product,config))
-      );
-    }
-
-    add.onclick=()=>{
-      addToCart(product.id,{...config});
-      closePanels();
-    };
-
-    body.append(form,summary);
-    updateSummary();
-  }
-
-  actions.append(add,inquire);
-  body.append(actions);
-
-  openPanel("detail");
-}
-
-/* =========================
-   购物车
-========================= */
-
-function saveCart(){
-  localStorage.setItem("sj5_cart",JSON.stringify(cart));
-
-  $("count").textContent=cart.reduce((total,item)=>{
-    return total+item.qty;
-  },0);
-}
-
-function loadCart(){
-  let stored=[];
-
-  try{
-    stored=JSON.parse(localStorage.getItem("sj5_cart")||"[]");
-  }catch(error){
-    stored=[];
-  }
-
-  if(!Array.isArray(stored))return;
-
-  stored.forEach(item=>{
-    const product=PRODUCTS.find(p=>p.id===item.id);
-
-    if(!product)return;
-    if(!Number.isInteger(item.qty))return;
-    if(item.qty<1 || item.qty>99)return;
-
-    if(product.configurable && !validConfig(item.config)){
-      return;
-    }
-
-    const config=product.configurable?item.config:null;
-    const key=cartKey(product.id,config);
-
-    const existing=cart.find(p=>p.key===key);
-
-    if(existing){
-      existing.qty=Math.min(99,existing.qty+item.qty);
-    }else{
-      cart.push({
-        id:product.id,
-        key,
-        config,
-        qty:item.qty
-      });
-    }
+   label.append(select);
+   form.append(label);
   });
-}
 
-function addToCart(id,config){
-  const key=cartKey(id,config);
-  const existing=cart.find(item=>item.key===key);
+  function update(){
+   sum.replaceChildren();
+   const sm=document.createElement("small");
+   sm.textContent=T("price");
+   const strong=document.createElement("strong");
+   strong.textContent=fmt(price(p,c));
+   const note=document.createElement("small");
+   note.textContent=ctext(c);
+   sum.append(sm,strong,note);
 
-  if(existing){
-    if(existing.qty>=99)return;
-    existing.qty++;
-  }else{
-    cart.push({
-      id,
-      key,
-      config,
-      qty:1
-    });
+   ask.href=link(
+    "Hello, please confirm actual availability and quotation:\n"+
+    name(p)+"\n"+ctext(c)+"\nDemo price: "+fmt(price(p,c))
+   );
   }
 
-  saveCart();
-  renderCart();
-  toast(T("added"));
+  add.onclick=()=>{
+   addCart(id,{...c});
+   close();
+  };
+
+  box.append(form,sum);
+  update();
+ }else{
+  const pr=document.createElement("div");
+  pr.className="price";
+  pr.textContent=fmt(p.price);
+  box.append(pr);
+
+  add.onclick=()=>{
+   addCart(id,null);
+   close();
+  };
+
+  ask.href=link(
+   "Hello, please confirm actual specifications and quotation:\n"+
+   name(p)+"\nDemo price: "+fmt(p.price)
+  );
+ }
+
+ actions.append(add,ask);
+ box.append(actions);
+ open("detail");
+}
+
+/* 购物车 */
+
+function save(){
+ localStorage.setItem("sj5_cart",JSON.stringify(cart));
+ $("count").textContent=cart.reduce((n,x)=>n+x.qty,0);
+}
+
+function load(){
+ let a=[];
+ try{
+  a=JSON.parse(localStorage.getItem("sj5_cart")||"[]");
+ }catch(e){}
+ if(!Array.isArray(a))return;
+
+ a.forEach(x=>{
+  const p=P.find(p=>p.id===x.id);
+  if(!p||!Number.isInteger(x.qty)||x.qty<1||x.qty>99)return;
+  if(p.conf&&!valid(x.config))return;
+
+  const c=p.conf?x.config:null;
+  const k=ckey(p.id,c);
+  const old=cart.find(y=>y.key===k);
+
+  if(old)old.qty=Math.min(99,old.qty+x.qty);
+  else cart.push({id:p.id,key:k,config:c,qty:x.qty});
+ });
+}
+
+function addCart(id,c){
+ const p=P.find(x=>x.id===id);
+ if(!p||p.conf&&!valid(c))return;
+
+ const k=ckey(id,c);
+ const old=cart.find(x=>x.key===k);
+
+ if(old){
+  if(old.qty>=99)return;
+  old.qty++;
+ }else{
+  cart.push({id,key:k,config:c,qty:1});
+ }
+
+ save();
+ renderCart();
+ toast(T("added"));
 }
 
 function renderCart(){
-  const body=$("cartbody");
-  body.replaceChildren();
+ const box=$("cartbody");
+ box.replaceChildren();
+ let total=0;
 
-  let total=0;
+ if(!cart.length)box.textContent=T("emptycart");
 
-  if(!cart.length){
-    body.textContent=T("emptycart");
+ cart.forEach(x=>{
+  const p=P.find(p=>p.id===x.id);
+  if(!p)return;
+
+  const sum=price(p,x.config)*x.qty;
+  total+=sum;
+
+  const row=document.createElement("div");
+  row.className="cartitem";
+
+  const b=document.createElement("b");
+  b.textContent=name(p);
+  row.append(b);
+
+  if(x.config){
+   const sm=document.createElement("small");
+   sm.textContent=ctext(x.config);
+   row.append(sm);
   }
 
-  cart.forEach(item=>{
-    const product=PRODUCTS.find(p=>p.id===item.id);
-    if(!product)return;
+  const amount=document.createElement("strong");
+  amount.textContent=fmt(sum);
+  row.append(amount);
 
-    const subtotal=
-      productPrice(product,item.config)*item.qty;
+  const qty=document.createElement("div");
+  qty.className="qty";
 
-    total+=subtotal;
+  const minus=document.createElement("button");
+  minus.textContent="−";
 
-    const row=document.createElement("div");
-    row.className="cartitem";
+  const n=document.createElement("span");
+  n.textContent=x.qty;
 
-    const title=document.createElement("b");
-    title.textContent=productName(product);
-    row.append(title);
+  const plus=document.createElement("button");
+  plus.textContent="+";
+  plus.disabled=x.qty>=99;
 
-    if(item.config){
-      const selected=document.createElement("small");
-      selected.textContent=configText(item.config);
-      row.append(selected);
-    }
+  const rem=document.createElement("button");
+  rem.className="remove";
+  rem.textContent=T("remove");
 
-    const amount=document.createElement("strong");
-    amount.textContent=fmt(subtotal);
-    row.append(amount);
+  function change(delta){
+   x.qty+=delta;
+   if(x.qty<=0)cart=cart.filter(y=>y!==x);
+   save();
+   renderCart();
+  }
 
-    const controls=document.createElement("div");
-    controls.className="qty";
+  minus.onclick=()=>change(-1);
+  plus.onclick=()=>change(1);
+  rem.onclick=()=>change(-x.qty);
 
-    const minus=document.createElement("button");
-    minus.textContent="−";
+  qty.append(minus,n,plus,rem);
+  row.append(qty);
+  box.append(row);
+ });
 
-    const number=document.createElement("span");
-    number.textContent=item.qty;
+ $("carttotal").textContent=fmt(total);
+ $("inquiry").disabled=!cart.length;
+}
 
-    const plus=document.createElement("button");
-    plus.textContent="+";
-    plus.disabled=item.qty>=99;
+function inquiry(){
+ if(!cart.length)return;
 
-    const remove=document.createElement("button");
-    remove.className="remove";
-    remove.textContent=T("remove");
+ const lines=cart.map((x,i)=>{
+  const p=P.find(p=>p.id===x.id);
+  return (i+1)+". "+name(p)+
+   (x.config?"\n"+ctext(x.config):"")+
+   "\n"+fmt(price(p,x.config))+" × "+x.qty;
+ });
 
-    function changeQuantity(change){
-      item.qty+=change;
+ const total=cart.reduce((n,x)=>{
+  return n+price(P.find(p=>p.id===x.id),x.config)*x.qty;
+ },0);
 
-      if(item.qty<=0){
-        cart=cart.filter(other=>other!==item);
+ window.open(link(
+  "Hello, please confirm actual specifications, availability and formal quotation:\n\n"+
+  lines.join("\n\n")+
+  "\n\nDemo subtotal: "+fmt(total)+
+  "\nInquiry only, not a confirmed order."
+ ),"_blank","noopener,noreferrer");
+}
+
+/* 晶小狗 V2：记住当前会话中的预算、用途、尺寸和最近推荐 */
+
+const dog={
+ use:null,
+ budget:null,
+ size:null,
+ product:null,
+ config:null
+};
+
+function feature(p,c){
+ if(p.conf){
+  return (L==="zh"?"演示配置：":"Demo configuration: ")+
+   ctext(c)+"\n"+
+   (L==="zh"?"演示价格：":"Demo price: ")+fmt(price(p,c));
+ }
+
+ return (L==="zh"?"已知展示信息：":"Listed information: ")+
+  desc(p)+"\n"+
+  (L==="zh"?"演示价格：":"Demo price: ")+fmt(p.price);
+}
+
+function profile(p,c){
+ if(L==="en"){
+  const profiles={
+   3:[
+    "A larger screen for family viewing.",
+    "Needs suitable room space; panel, resolution and ports are unverified."
+   ],
+   4:[
+    "Portrait format can present information in shops and showrooms.",
+    "Actual brightness, scheduling, connectivity and installation must be confirmed."
+   ],
+   5:[
+    "Large display concept for group viewing and meetings.",
+    "Touch capability, software and mounting are not verified."
+   ],
+   6:[
+    "Compact desktop audio concept.",
+    "Sound quality, connectivity and voice features are unverified."
+   ]
+  };
+
+  if(!p.conf)return profiles[p.id];
+
+  return [
+   "Selectable resolution and refresh rate illustrate different use cases.",
+   "Higher resolution and refresh options increase demo cost. Actual compatible models must be confirmed."
+  ];
+ }
+
+ if(!p.conf){
+  return {
+   3:[
+    "55英寸大画面，适合考虑家庭观影场景。",
+    "需预留摆放空间；屏幕类型、4K、接口及系统功能尚未核实。"
+   ],
+   4:[
+    "竖屏展示形式适合门店、展厅等信息呈现场景。",
+    "亮度、播放管理、接口、安装方式及实际供货需确认。"
+   ],
+   5:[
+    "75英寸大屏适合多人观看会议内容。",
+    "触控能力、会议软件、接口和安装条件均需核实。"
+   ],
+   6:[
+    "桌面摆放相对方便，可作为日常音频设备的选购方向。",
+    "实际音质、连接方式及语音功能尚未核实。"
+   ]
+  }[p.id];
+ }
+
+ const r=c.resolution;
+ const h=c.refresh;
+
+ const good=
+  (r>=1
+   ?"演示分辨率选项较基础 1080P 更高；"
+   :"基础分辨率方案，演示价格较低；")+
+  (h>=2
+   ?"144Hz/165Hz 演示选项更偏向高刷新需求。"
+   :"60Hz/75Hz 演示选项偏向日常办公。");
+
+ const bad=
+  (r===2?"4K 对显卡性能和内容来源可能有更高要求；":"")+
+  (h>=2?"高刷新方案比基础选项贵；":"")+
+  (c.shape===1?"曲面适配感受因人而异；":"")+
+  "实际分辨率与刷新率能否组合供货，需进一步确认。";
+
+ return [good,bad];
+}
+
+function respond(q){
+ const s=q.toLowerCase().trim();
+ if(!s)return T("welcome");
+
+ if(/付款|支付|购买|询价|whatsapp|order|payment|buy/.test(s)){
+  return L==="zh"
+   ?"汪！可将产品加入购物车，点击「发送完整询价清单」联系 WhatsApp。这里不会扣款，也不会生成正式订单。"
+   :"Add items to your cart and send the inquiry through WhatsApp. No payment or formal order is created.";
+ }
+
+ if(/清空|重新开始|reset|forget/.test(s)){
+  Object.assign(dog,{
+   use:null,budget:null,size:null,product:null,config:null
+  });
+  return L==="zh"
+   ?"汪！已重置本次导购条件。你可以重新告诉我用途和预算。"
+   :"Session guide preferences reset. Tell me your use case and budget.";
+ }
+
+ let m=s.match(
+  /(?:¥|￥|预算|budget|under|以内|不超过|约|左右|around)\s*(\d{3,5})/
+ );
+ if(!m)m=s.match(/(\d{3,5})\s*(?:元|块|yuan)/);
+ if(m)dog.budget=Number(m[1]);
+
+ if(/游戏|电竞|gaming|game/.test(s))dog.use="gaming";
+ else if(/办公|office|work|学习|study/.test(s))dog.use="office";
+ else if(/设计|剪辑|创作|design|editing/.test(s))dog.use="design";
+
+ if(/32\s*(?:英寸|寸|inch)|32-inch|vision 32/.test(s)){
+  dog.size=32;
+ }else if(/27\s*(?:英寸|寸|inch)|27-inch|vision 27/.test(s)){
+  dog.size=27;
+ }
+
+ if(/27.*32|32.*27/.test(s)){
+  return L==="zh"
+   ?"🐶 尺寸对比：\n27英寸：桌面占用相对小，基础演示价 ¥899。\n32英寸：画面空间更大，基础演示价 ¥1,299。\n\n优点与取舍：大尺寸方便多窗口，但更占桌面；实际清晰度还要结合分辨率和观看距离。两款的实际面板与接口尚待确认。"
+   :"🐶 27-inch: more compact, demo base ¥899. 32-inch: more screen area, demo base ¥1,299. Larger screens need more desk space. Actual specifications remain unverified.";
+ }
+
+ let p=null;
+
+ if(/广告|signage|kiosk/.test(s))p=P[3];
+ else if(/会议|meeting|conference/.test(s))p=P[4];
+ else if(/电视|tv|客厅|追剧|movie/.test(s))p=P[2];
+ else if(/音箱|speaker|audio/.test(s))p=P[5];
+ else if(/显示器|monitor|屏幕|144hz|165hz|4k|2k|分辨率|刷新率|curved|曲面|游戏|电竞|办公|设计|剪辑|27|32|budget|预算|元|以内|推荐|recommend|优点|缺点|性能|配置|pros|cons/.test(s)){
+  p=dog.product
+   ?P.find(x=>x.id===dog.product)
+   :P[dog.size===32?1:0];
+ }else{
+  p=dog.product?P.find(x=>x.id===dog.product):null;
+ }
+
+ if(!p)return T("welcome");
+
+ if(p.conf&&dog.size){
+  p=P[dog.size===32?1:0];
+ }
+
+ let c=p.conf
+  ?(dog.config&&dog.product===p.id?{...dog.config}:def())
+  :null;
+
+ if(p.conf){
+  if(dog.use==="gaming"){
+   c.resolution=1;
+   c.refresh=2;
+  }else if(dog.use==="office"){
+   c.resolution=1;
+   c.refresh=1;
+  }else if(dog.use==="design"){
+   c.resolution=2;
+   c.refresh=1;
+  }
+
+  if(/4k/.test(s))c.resolution=2;
+  else if(/2k/.test(s))c.resolution=1;
+  else if(/1080p/.test(s))c.resolution=0;
+
+  if(/165hz/.test(s))c.refresh=3;
+  else if(/144hz/.test(s))c.refresh=2;
+  else if(/75hz/.test(s))c.refresh=1;
+  else if(/60hz/.test(s))c.refresh=0;
+
+  if(/曲面|curved/.test(s))c.shape=1;
+  if(/直面|flat/.test(s))c.shape=0;
+  if(/升降|旋转|adjustable/.test(s))c.stand=1;
+
+  if(dog.budget&&price(p,c)>dog.budget){
+   const choices=[];
+
+   for(const candidate of P.slice(0,2)){
+    for(let r=0;r<3;r++){
+     for(let h=0;h<4;h++){
+      const cc={...c,resolution:r,refresh:h};
+
+      if(price(candidate,cc)<=dog.budget){
+       choices.push({
+        p:candidate,
+        c:cc,
+        score:r*10+h*8+(candidate.id===p.id?4:0)
+       });
       }
-
-      saveCart();
-      renderCart();
+     }
     }
+   }
 
-    minus.onclick=()=>changeQuantity(-1);
-    plus.onclick=()=>changeQuantity(1);
-    remove.onclick=()=>changeQuantity(-item.qty);
+   choices.sort((a,b)=>b.score-a.score);
 
-    controls.append(minus,number,plus,remove);
-    row.append(controls);
-    body.append(row);
-  });
+   if(!choices.length){
+    return L==="zh"
+     ?"汪！显示器最低演示价为 ¥899，当前预算没有可展示的组合。你可以调整预算。"
+     :"The lowest monitor demo price is ¥899. No demo configuration fits that budget.";
+   }
 
-  $("carttotal").textContent=fmt(total);
-  $("inquiry").disabled=!cart.length;
+   p=choices[0].p;
+   c=choices[0].c;
+  }
+ }else if(dog.budget&&p.price>dog.budget){
+  return L==="zh"
+   ?"🐶 "+p.zh+" 的演示价是 "+fmt(p.price)+
+    "，超出你提到的 "+fmt(dog.budget)+
+    " 预算。你可以调整预算或换一个产品类别。"
+   :"The demo price of "+p.en+" is "+fmt(p.price)+
+    ", above your "+fmt(dog.budget)+" budget.";
+ }
+
+ dog.product=p.id;
+ dog.config=c?{...c}:null;
+
+ const [good,bad]=profile(p,c);
+
+ let why;
+
+ if(L==="zh"){
+  if(!p.conf){
+   why="根据你询问的产品类别，先介绍这款演示商品。";
+  }else if(dog.use==="gaming"){
+   why="考虑到你提到游戏用途，我优先展示较高刷新率的演示组合。";
+  }else if(dog.use==="office"){
+   why="考虑到办公用途，我优先展示分辨率与价格相对均衡的演示组合。";
+  }else if(dog.use==="design"){
+   why="考虑到设计用途，我展示更高分辨率的演示组合。";
+  }else{
+   why="根据你提到的尺寸或配置，先展示这一款。";
+  }
+
+  return "🐶 推荐参考："+name(p)+
+   "\n\n推荐理由："+why+
+   "\n\n"+feature(p,c)+
+   "\n\n优点："+good+
+   "\n\n需要考虑："+bad+
+   "\n\n晶小狗建议：以上为展示方案，不是已核实的实物性能。购买前请确认具体型号、完整参数、供货和售后。";
+ }
+
+ why=p.conf
+  ?"This demo monitor configuration reflects your stated preferences."
+  :"Here is the matching demo product.";
+
+ return "🐶 Recommendation: "+name(p)+
+  "\n\nWhy: "+why+
+  "\n\n"+feature(p,c)+
+  "\n\nStrength: "+good+
+  "\n\nTrade-off: "+bad+
+  "\n\nPlease confirm actual model, specifications, availability and warranty before purchase.";
 }
 
-function sendInquiry(){
-  if(!cart.length)return;
+function guide(){
+ $("answer").textContent=T("welcome");
+ $("chips").replaceChildren();
 
-  const lines=cart.map((item,index)=>{
-    const product=PRODUCTS.find(p=>p.id===item.id);
-
-    return (
-      (index+1)+". "+productName(product)+
-      (item.config?"\n"+configText(item.config):"")+
-      "\n"+fmt(productPrice(product,item.config))+
-      " × "+item.qty
-    );
-  });
-
-  const total=cart.reduce((sum,item)=>{
-    const product=PRODUCTS.find(p=>p.id===item.id);
-
-    return sum+
-      productPrice(product,item.config)*item.qty;
-  },0);
-
-  const message=
-    "Hello, please confirm actual specifications, availability and formal quotation:\n\n"+
-    lines.join("\n\n")+
-    "\n\nDemo subtotal: "+fmt(total)+
-    "\nThis is an inquiry, not a confirmed order.";
-
-  window.open(
-    whatsappLink(message),
-    "_blank",
-    "noopener,noreferrer"
-  );
+ T("chips").forEach(q=>{
+  const b=document.createElement("button");
+  b.textContent=q;
+  b.onclick=()=>{
+   $("answer").textContent=respond(q);
+  };
+  $("chips").append(b);
+ });
 }
 
-/* =========================
-   晶小狗本地导购
-========================= */
-
-const dogState={size:27};
-
-function dogAnswer(question){
-  const text=question.toLowerCase();
-
-  if(/whatsapp|询价|购买|buy|付款|支付/.test(text)){
-    return lang==="zh"
-      ?"选择商品加入购物车，再点击「发送完整询价清单」，即可通过 WhatsApp 咨询。当前不支持真实在线支付。"
-      :"Add products to your cart and send an inquiry via WhatsApp. No real online payment.";
-  }
-
-  if(/27.*32|32.*27/.test(text)){
-    return lang==="zh"
-      ?"27英寸更适合紧凑桌面；32英寸提供更大的画面空间。基础演示价分别为 ¥899 和 ¥1,299。"
-      :"27 inches is more compact, while 32 inches offers more screen area. Demo base prices are ¥899 and ¥1,299.";
-  }
-
-  if(/电视|tv/.test(text)){
-    return productName(PRODUCTS[2])+" · "+fmt(2999);
-  }
-
-  if(/广告|signage/.test(text)){
-    return productName(PRODUCTS[3])+" · "+fmt(4999);
-  }
-
-  if(/会议|meeting/.test(text)){
-    return productName(PRODUCTS[4])+" · "+fmt(7999);
-  }
-
-  if(/音箱|speaker/.test(text)){
-    return productName(PRODUCTS[5])+" · "+fmt(399);
-  }
-
-  if(/32/.test(text))dogState.size=32;
-  if(/27/.test(text))dogState.size=27;
-
-  let config=defaultConfig();
-
-  if(/游戏|gaming|game|电竞/.test(text)){
-    config.resolution=1;
-    config.refresh=2;
-  }else if(/办公|office|work/.test(text)){
-    config.resolution=1;
-    config.refresh=1;
-  }
-
-  if(/4k/.test(text)){
-    config.resolution=2;
-  }else if(/2k/.test(text)){
-    config.resolution=1;
-  }
-
-  if(/165hz/.test(text)){
-    config.refresh=3;
-  }else if(/144hz/.test(text)){
-    config.refresh=2;
-  }else if(/75hz/.test(text)){
-    config.refresh=1;
-  }
-
-  if(/曲面|curved/.test(text)){
-    config.shape=1;
-  }
-
-  if(/升降|旋转|adjustable/.test(text)){
-    config.stand=1;
-  }
-
-  let product=PRODUCTS[dogState.size===32?1:0];
-
-  let match=text.match(
-    /(?:¥|￥|预算|budget|around|约|左右|以内)\s*(\d{3,5})/
-  );
-
-  if(!match){
-    match=text.match(/(\d{3,5})\s*(?:元|块|yuan)/);
-  }
-
-  const budget=match?Number(match[1]):null;
-
-  if(budget && productPrice(product,config)>budget){
-    const candidates=[];
-
-    PRODUCTS.slice(0,2).forEach(candidate=>{
-      for(let resolution=0;resolution<3;resolution++){
-        for(let refresh=0;refresh<4;refresh++){
-          const choice={
-            ...config,
-            resolution,
-            refresh
-          };
-
-          if(productPrice(candidate,choice)<=budget){
-            candidates.push({
-              product:candidate,
-              config:choice,
-              score:
-                resolution*12+
-                refresh*10+
-                (candidate.id===product.id?5:0)
-            });
-          }
-        }
-      }
-    });
-
-    candidates.sort((a,b)=>b.score-a.score);
-
-    if(!candidates.length){
-      return lang==="zh"
-        ?"目前显示器最低演示价为 ¥899，暂时没有符合预算的方案。"
-        :"The lowest monitor demo price is ¥899.";
-    }
-
-    product=candidates[0].product;
-    config=candidates[0].config;
-
-    dogState.size=product.id===8?32:27;
-  }
-
-  return (
-    (lang==="zh"?"汪！建议参考：\n":"Woof! Consider:\n")+
-    productName(product)+"\n"+
-    configText(config)+"\n"+
-    fmt(productPrice(product,config))+
-    (budget?" / Budget "+fmt(budget):"")+
-    "\n"+
-    (lang==="zh"
-      ?"仅为演示配置，实际可售性需确认。"
-      :"Demo configuration. Please confirm availability.")
-  );
+function bubble(s,me=false){
+ const b=document.createElement("div");
+ b.className="bubble"+(me?" me":"");
+ b.textContent=s;
+ $("chatlog").append(b);
+ $("chatlog").scrollTop=$("chatlog").scrollHeight;
 }
 
-function renderGuide(){
-  $("answer").textContent=T("welcome");
-  $("chips").replaceChildren();
-
-  T("chips").forEach(question=>{
-    const button=document.createElement("button");
-    button.textContent=question;
-
-    button.onclick=()=>{
-      $("answer").textContent=dogAnswer(question);
-    };
-
-    $("chips").append(button);
-  });
-}
-
-function addBubble(message,isUser=false){
-  const bubble=document.createElement("div");
-
-  bubble.className="bubble"+(isUser?" me":"");
-  bubble.textContent=message;
-
-  $("chatlog").append(bubble);
-  $("chatlog").scrollTop=$("chatlog").scrollHeight;
-}
-
-$("chatform").onsubmit=event=>{
-  event.preventDefault();
-
-  const question=$("chattext").value.trim();
-  if(!question)return;
-
-  addBubble(question,true);
-  addBubble(dogAnswer(question));
-
-  $("chattext").value="";
+$("chatform").onsubmit=e=>{
+ e.preventDefault();
+ const q=$("chattext").value.trim();
+ if(!q)return;
+ bubble(q,true);
+ bubble(respond(q));
+ $("chattext").value="";
 };
 
 $("chatopen").onclick=()=>{
-  if(!$("chatlog").children.length){
-    addBubble(T("welcome"));
-  }
-
-  openPanel("chat");
+ if(!$("chatlog").children.length)bubble(T("welcome"));
+ open("chat");
 };
 
-/* =========================
-   按钮事件与初始化
-========================= */
+/* 初始化 */
 
-$("search").oninput=renderProducts;
+$("search").oninput=products;
 
 $("lang").onclick=()=>{
-  lang=lang==="zh"?"en":"zh";
-  renderPage();
+ L=L==="zh"?"en":"zh";
+ render();
 };
 
 $("theme").onclick=()=>{
-  document.body.classList.toggle("dark");
-
-  const isDark=document.body.classList.contains("dark");
-
-  localStorage.setItem(
-    "sj5_theme",
-    isDark?"dark":"light"
-  );
-
-  $("theme").textContent=isDark?"☀":"☾";
+ document.body.classList.toggle("dark");
+ const dark=document.body.classList.contains("dark");
+ localStorage.setItem("sj5_theme",dark?"dark":"light");
+ $("theme").textContent=dark?"☀":"☾";
 };
 
 $("cartopen").onclick=()=>{
-  renderCart();
-  openPanel("drawer");
+ renderCart();
+ open("drawer");
 };
 
-$("inquiry").onclick=sendInquiry;
+$("inquiry").onclick=inquiry;
 
 if(localStorage.getItem("sj5_theme")==="light"){
-  document.body.classList.remove("dark");
+ document.body.classList.remove("dark");
 }
 
 $("theme").textContent=
-  document.body.classList.contains("dark")?"☀":"☾";
+ document.body.classList.contains("dark")?"☀":"☾";
 
-loadCart();
-saveCart();
-renderPage();
-
+load();
+save();
+render();
 </script>
-
 </body>
 </html>
